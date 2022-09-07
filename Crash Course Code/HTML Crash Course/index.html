@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Cheat Sheet</title>
+</head>
+<body>
+   <h1>This is the main header!</h1>
+   <br>
+   <a href="blog.html">Go to blog</a>
+
+   <h2>This is the second level!</h2>
+   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+    <strong>Cupiditate laboriosam aspernatur, voluptatibus,</strong> fuga quia odit consequatur dolores sequi expedita quam, 
+    eum architecto velit. <em>Labore culpa doloribus odio!</em> Vitae, quidem pariatur ad perferendis voluptatem 
+    tenetur impedit! Nobis aperiam quas eos ut, eveniet laudantium! Earum consectetur assumenda,
+    nobis non veritatis similique perspiciatis?</p>
+    <span>Lorem ipsum dolor sit amet.</span>
+    <span>Click <a href="http://leagueoflegends.com" target="_blank"">here</a> to NOT download a virus</span>
+
+    <!--Lists-->
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+    </ul>
+
+    <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+    </ol>
+
+    <!--Tables-->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jake</td>
+                <td>nuts@gmail.com</td>
+                <td>69</td>
+            </tr>
+            <tr>
+                <td>Sarah</td>
+                <td>circles@gmail.com</td>
+                <td>666</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <!--Forms-->
+    <form action="process.php" method="POST"> <!--Add data to database, more secure than GET when adding to database-->
+        <div>
+        <label>First Name</label> <!--Labels are in-line-->
+        <input type="text" name="firstName" placeholder="Enter First Name"> <!--input field-->
+        </div>
+        <label>Last Name</label>
+        <input type="text" name="lastName">
+        <div>
+            <label>Email</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label>Message</label>
+            <textarea name="message"></textarea>
+        </div>
+        <div>
+            <label>Gender</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="male">Female</option>
+                <option value="male">Non-Binary</option>
+            </select>
+        </div>
+        <div>
+            <label>Birthday</label>
+            <input type="date" name="birthday">
+        </div>
+        <div>
+            <input type="submit" name="submit" value="Submit">
+        </div>
+    </form>
+
+    <!--Button-->
+    <button>CLICK ME!!!!</button>
+    <br>
+    <br>
+
+    <!--Images-->
+    <a href="images/IMG_0029.JPG">
+    <img src="images/IMG_0029.JPG" alt="Light Picture" width="500"> <!--alt if picture doesn't load-->
+    </a>
+
+    <!--Quotations-->
+    <blockquote cite="http://leagueoflegends.com">
+        Lorem ipsum dolor sit amet.
+    </blockquote>
+
+    <p>The <abbr title="World Wide Web">WWW</abbr> is awesome</p>
+    <p><cite>HTML Crash Course</cite> by YA BOY</p>
+</body>
+</html>
