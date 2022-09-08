@@ -2,49 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website Crash Course</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Acme Web Design | Welcome</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header id="main-header">
+    <header>
         <div class="container">
-            <h1>My Website</h1>
+                <div id="branding">
+                    <h1><span class="highlight">Acme</span> Web Design</h1>
+                </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <nav id="navbar">
+    <section id="showcase">
         <div class="container">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Services</li>
-                <li>Contact</li>
-            </ul>
+            <h1>Affordable Professional Web Design</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, eos quas.</p>
         </div>
-    </nav>
-    <div class="container">
-        <section id="showcase">
-            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quasi!</h1>
-        </section>
+    </section>
 
-        <section id="main">
-            <h1>Welcome</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Et esse voluptatem at unde asperiores voluptas? Provident magnam sit explicabo quasi, 
-                assumenda temporibus aut. Atque at porro omnis eveniet vitae ipsa, nam beatae sit 
-                deserunt iusto ullam illum nesciunt labore repellendus earum molestiae optio ad et.</p>
-        </section>
+    <section id="newsletter">
+        <div class="container">
+            <h1>Subscribe To Our Newsletter</h1>
+            <form>
+                <input type="email" placeholder="Enter Email...">
+                <button type="submit" class="button_1">Subscribe</button>
+            </form>
+        </div>
+    </section>
 
-        <aside id="sidebar">
-            <p>Et esse voluptatem at unde asperiores voluptas? Provident magnam sit explicabo quasi, 
-            assumenda temporibus aut.</p>
-        </aside>
-    </div>
+    <section id="boxes">
+        <div class="container">
+            <div class="box">
+                <img src="./images/html5.png">
+                <h3>HTML5 Markup</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi facere maxime, placeat sed voluptatibus possimus!</p>
+            </div>
+            <div class="box">
+                <img src="./images/css3.png">
+                <h3>CSS3 Styling</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi facere maxime, placeat sed voluptatibus possimus!</p>
+            </div>
+            <div class="box">
+                <img src="./images/graphicdesign.png">
+                <h3>Graphic Design</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi facere maxime, placeat sed voluptatibus possimus!</p>
+            </div>
+        </div>
+    </section>
 
-    <footer id="main-footer">
-        <p>Copyright &copy; 2017, My Website</p>
+    <footer>
+        <p>Acme Web Design, Copyright &copy; 2017</p>
     </footer>
+
 </body>
 </html>
