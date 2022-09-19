@@ -16,6 +16,7 @@ ul{
 }
 
 .container{
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px 0 15px; /*Fix padding if necessary*/
 }
@@ -46,7 +47,7 @@ header{
     justify-content:flex-end;
     font-weight: bold;
     align-items:center;
-    padding-top:6px;
+    padding-top:8px;
     height:10%;
 }
 
@@ -71,6 +72,34 @@ header{
 .main-header ul li{
     margin-left: 20px;
 }
+
+/*Beginning of Main -- Section A*/
+
+#main{
+    background-color:#26282d;
+}
+
+#sect-a .container{
+    background-color:#26282d;
+    color:#ad1831;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#sect-a h1{
+    font-size: 80px;
+    line-height: 1.2;
+}
+
+#sect-a img{
+    max-width: 600px;
+    border-radius: 125px;
+    box-shadow: 0px 4px 4px rgba(34,34,34,0.6);
+}
+
+
 
 
 
