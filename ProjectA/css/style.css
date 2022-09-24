@@ -26,7 +26,7 @@ ul{
 }
 
 .highlight{
-    color:#ad1831;
+    color:#910b21;
 }
 
 /*Header and Nav*/
@@ -62,11 +62,11 @@ header{
 }
 
 .main-header a:hover{
-    color:#c3073f;
+    color:#910b21;
 }
 
 .main-header .current a{
-    color:#ad1831;
+    color:#910b21;
 }
 
 .main-header ul{
@@ -85,7 +85,7 @@ header{
 
 #sect-a .container{
     background-color:#26282d;
-    color:#ad1831;
+    color:#910b21;;
     min-height: 400px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -117,25 +117,67 @@ header{
 
 /*Section B*/
 
-
-#sect-b{
+#sect-b .container{ /*Container for grid in section B only*/
+    max-width: 1200px;
     display: grid;
     min-height: 600px;
-    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
-    gap: 10px;
-}                                                                                                                                                           
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
-#sect-b .item{
-    background-color: yellow;
+#sect-b .profile:nth-child(1){
+    grid-column: 1/2;
+}
+
+#sect-b .profile:nth-child(2){
     grid-column: 2/3;
 }
 
-/*TEMPORARY*/
+#sect-b .profile:nth-child(3){
+    grid-column: 3/4;
+}
+
 #sect-b img{
-    max-width: 98%;
+}
+
+#sect-b h2{
+    color: #910b21;
+    padding-top: 5px;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+#sect-b h3{
+    color: #910b21;
+    padding-bottom: 8px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#sect-b p{
+    color: #ffffff;
+    margin: auto;
+    padding-bottom: 5px;
+    max-width: 80%;
+    line-height: 1.25em;
+    text-align: center;
+}
+
+#sect-b a{
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration:none;
+}
+
+#sect-b a:hover{
+    color: #910b21;
 }
 
 /*Main Footer*/
+
 #main-footer{
     min-height: 75px;
     color:#ffffff;
