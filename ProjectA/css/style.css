@@ -19,18 +19,13 @@ ul{
 }
 
 .container{
-    max-width: 1500px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px 0 15px; /*Fix padding if necessary*/
 }
 
 .highlight{
     color:#ad1831;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
 }
 
 /*Header and Nav*/
@@ -91,34 +86,45 @@ header{
     background-color:#26282d;
     color:#ad1831;
     min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #sect-a h1{
+    padding-top: 50px;
     font-size: 80px;
     line-height: 1.8;
 }
 
 #sect-a p{
+    display: grid;
     color:#ffffff;
     width: 550px;
     font-size: 19px;    
     line-height: 1.2;
     padding-left: 10px;
-    text-align: justify;
-    text-justify: inter-word;
 }
 
 #sect-a img{
+    display: grid;
     max-width: 600px;
     border-radius: 125px;
     box-shadow: 0px 4px 4px rgba(34,34,34,0.6);
+    align-self: center;
+    justify-self: end;
 }
 
 /*Section B*/
 
+#sect-b .container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    gap: 10px;
+}
+
+#sect-b .profile{
+    grid-column: 1/6;
+}
 
 
 /*Main Footer*/
