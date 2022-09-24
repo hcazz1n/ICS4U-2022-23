@@ -22,6 +22,7 @@ ul{
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px 0 15px; /*Fix padding if necessary*/
+    display: grid;
 }
 
 .highlight{
@@ -116,16 +117,23 @@ header{
 
 /*Section B*/
 
-#sect-b .container{
+
+#sect-b{
     display: grid;
+    min-height: 600px;
     grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
     gap: 10px;
+}                                                                                                                                                           
+
+#sect-b .item{
+    background-color: yellow;
+    grid-column: 2/3;
 }
 
-#sect-b .profile{
-    grid-column: 1/6;
+/*TEMPORARY*/
+#sect-b img{
+    max-width: 98%;
 }
-
 
 /*Main Footer*/
 #main-footer{
