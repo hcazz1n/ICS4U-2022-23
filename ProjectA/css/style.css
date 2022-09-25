@@ -118,10 +118,13 @@ header{
 /*Section B*/
 
 #sect-b .container{ /*Container for grid in section B only*/
-    max-width: 1200px;
+    max-width: 1300px;
+    padding-top: 5px;
     display: grid;
     min-height: 600px;
     grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    border: 2px solid #ffffff;
     gap: 25px;
 }
 
@@ -139,6 +142,16 @@ header{
 
 #sect-b img{
 }
+
+/*Creates a circle with the character's splash art inside*/
+/*
+.circle{
+    width: 200px;
+    height: 200px;
+    background:url('../images/aatroxsplash.jpg') no-repeat center center;
+    border-radius: 50%
+}
+*/
 
 #sect-b h2{
     color: #910b21;
@@ -186,9 +199,6 @@ header{
     justify-content: center;
     align-items: center;
 }
-
-
-
 
 
 
