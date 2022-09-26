@@ -1,3 +1,5 @@
+/*This stylesheet is used for the homepage only because it differs in style from the other pages*/
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /*Global*/
@@ -106,7 +108,7 @@ header{
 
 #sect-a .container{
     background-color:#26282d;
-    color:#910b21;;
+    color:#910b21;
     min-height: 425px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -149,7 +151,7 @@ header{
     min-height: 600px;
     grid-template-columns: repeat(3, 1fr);
     align-content: center;
-    border: 2px solid #a93a31;
+    border: 2px solid #910b21;
     gap: 25px;
 }
 

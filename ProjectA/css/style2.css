@@ -1,0 +1,155 @@
+/*This stylesheet is used for the pages other than the homepage because they share similar styles*/
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*Global*/
+
+*{
+    font-family:'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+img{
+    max-width:100%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2, h3{
+    margin: 0;
+}
+
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px 0 15px; /*Fix padding if necessary*/
+    display: grid;
+}
+
+.highlight{
+    color:#910b21;
+}
+
+.button{
+    background: #1A1A1D;
+    font-weight: bold;
+    max-width: 40%;
+    padding: 1em 2em;
+    border: 1px solid #fff;
+    margin: .5em 0;
+}
+
+.button:hover{
+    background: #cfcfcf;
+    color: #1A1A1D;
+    border: 1px solid #cfcfcf;
+}
+
+/*Header and Nav*/
+
+header{
+    background-color:#1A1A1D;
+    color:#ffffff;
+    padding: 5px;
+    height:60px;
+}
+
+.main-header .container .title{
+    display:flex;
+    justify-content: flex-start;
+    padding-top: 8px;
+    align-items:center;
+    font-size: 40px;
+    flex-basis: 100%;
+}
+
+.main-header .bar .container{
+    display:flex;
+    justify-content:flex-end;
+    font-weight: bold;
+    align-items:center;
+    padding-top:8px;
+    height:10%;
+}
+
+.main-header a{
+    color: #ffffff;
+    text-decoration:none;
+    font-size:20px;
+}
+
+.main-header a:hover{
+    color:#910b21;
+}
+
+.main-header .current a{
+    color:#910b21;
+}
+
+.main-header ul{
+    display: flex;
+}
+
+.main-header ul li{
+    margin-left: 20px;
+}
+
+.container-aatrox{ /*unique to aatrox.html*/
+    position:absolute;
+    color: #fff;
+    min-height: 540px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+    background: url('../images/aatroxsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.container-rhaast{ /*unique to rhaast.html*/
+    position:absolute;
+    color: #fff;
+    min-height: 540px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+    background: url('../images/rhaastsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.container-varus{ /*unique to varus.html*/
+    position:absolute;
+    color: #fff;
+    min-height: 540px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+    background: url('../images/conqvarussplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+/*Beginning of Main -- Section A*/
+
+#main{
+    background-color:#26282d;
+}
+
+#sect-a h1{
+    justify-self: center;
+    font-size: 80px;
+    grid-column: span 4;
+}
