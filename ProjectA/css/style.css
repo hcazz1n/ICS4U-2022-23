@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /*Global*/
+
 *{
     font-family:'Josefin Sans', sans-serif;
     box-sizing: border-box;
@@ -18,6 +19,10 @@ ul{
     padding: 0;
 }
 
+p, h1, h2, h3{
+    margin: 0;
+}
+
 .container{
     max-width: 1300px;
     margin: 0 auto;
@@ -29,7 +34,23 @@ ul{
     color:#910b21;
 }
 
+.button{
+    background: #1A1A1D;
+    font-weight: bold;
+    max-width: 40%;
+    padding: 1em 2em;
+    border: 1px solid #fff;
+    margin: .5em 0;
+}
+
+.button:hover{
+    background: #cfcfcf;
+    color: #1A1A1D;
+    border: 1px solid #cfcfcf;
+}
+
 /*Header and Nav*/
+
 header{
     background-color:#1A1A1D;
     color:#ffffff;
@@ -86,7 +107,7 @@ header{
 #sect-a .container{
     background-color:#26282d;
     color:#910b21;;
-    min-height: 400px;
+    min-height: 425px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -117,6 +138,10 @@ header{
 
 /*Section B*/
 
+#sect-b{
+    min-height: 640px;
+}
+
 #sect-b .container{ /*Container for grid in section B only*/
     max-width: 1300px;
     padding-top: 5px;
@@ -124,7 +149,7 @@ header{
     min-height: 600px;
     grid-template-columns: repeat(3, 1fr);
     align-content: center;
-    border: 2px solid #ffffff;
+    border: 2px solid #a93a31;
     gap: 25px;
 }
 
@@ -186,12 +211,13 @@ header{
 }
 
 #sect-b a:hover{
-    color: #910b21;
+    color: #1A1A1D;
 }
 
 /*Main Footer*/
 
 #main-footer{
+    padding-top: 5px;
     min-height: 75px;
     color:#ffffff;
     background-color: #1A1A1D;
