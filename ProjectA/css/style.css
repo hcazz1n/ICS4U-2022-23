@@ -5,7 +5,6 @@
 /*Global*/
 
 *{
-    font-family:'Josefin Sans', sans-serif;
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -21,8 +20,11 @@ ul{
     padding: 0;
 }
 
-p, h1, h2, h3{
-    margin: 0;
+body{
+    font-family:'Josefin Sans', sans-serif;
+    line-height: 1.2;
+    color: #ffffff;
+    background-color: #26282d;
 }
 
 .container{
@@ -74,7 +76,6 @@ header{
     justify-content:flex-end;
     font-weight: bold;
     align-items:center;
-    padding-top:8px;
     height:10%;
 }
 
@@ -102,10 +103,6 @@ header{
 
 /*Beginning of Main -- Section A*/
 
-#main{
-    background-color:#26282d;
-}
-
 #sect-a .container{
     background-color:#26282d;
     color:#910b21;
@@ -125,7 +122,6 @@ header{
     color:#ffffff;
     width: 550px;
     font-size: 19px;    
-    line-height: 1.2;
     padding-left: 10px;
 }
 
@@ -150,13 +146,15 @@ header{
     display: grid;
     min-height: 600px;
     grid-template-columns: repeat(3, 1fr);
+    text-align: center; 
     align-content: center;
-    border: 2px solid #910b21;
+    margin: auto;
     gap: 25px;
 }
 
 #sect-b .profile:nth-child(1){
     grid-column: 1/2;
+    margin: 0;  
 }
 
 #sect-b .profile:nth-child(2){
@@ -199,15 +197,13 @@ header{
 #sect-b p{
     color: #ffffff;
     margin: auto;
-    padding-bottom: 5px;
+    padding-bottom: 30px;
     max-width: 80%;
     line-height: 1.25em;
     text-align: center;
 }
 
 #sect-b a{
-    display: flex;
-    justify-content: center;
     color: #ffffff;
     text-decoration:none;
 }
@@ -227,6 +223,24 @@ header{
     justify-content: center;
     align-items: center;
 }
+
+/*Media Queries*/
+
+@media(min-width: 1320px){ /*Removes the grid border when it touches the edges of the screen*/
+    #sect-b .container{ /*Container for grid in section B only*/
+        max-width: 1300px;
+        padding-top: 5px;
+        display: grid;
+        min-height: 600px;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center; 
+        align-content: center;
+        border: 2px solid #910b21;
+        margin: auto;
+        gap: 25px;
+    }
+}
+
 
 
 

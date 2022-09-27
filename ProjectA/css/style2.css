@@ -21,8 +21,11 @@ ul{
     padding: 0;
 }
 
-p, h1, h2, h3{
-    margin: 0;
+body{
+    font-family:'Josefin Sans', sans-serif;
+    line-height: 1.2;
+    color: #ffffff;
+    background-color: #26282d;
 }
 
 .container{
@@ -74,7 +77,6 @@ header{
     justify-content:flex-end;
     font-weight: bold;
     align-items:center;
-    padding-top:8px;
     height:10%;
 }
 
@@ -103,12 +105,12 @@ header{
 .container-aatrox{ /*unique to aatrox.html*/
     position:absolute;
     color: #fff;
-    min-height: 540px;
+    min-height: 600px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-content: center;
     background: url('../images/aatroxsplash.jpg');
-    background-position: center;
+    background-position:0px -75px;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -117,12 +119,12 @@ header{
 .container-rhaast{ /*unique to rhaast.html*/
     position:absolute;
     color: #fff;
-    min-height: 540px;
+    min-height: 600px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-content: center;
     background: url('../images/rhaastsplash.jpg');
-    background-position: center;
+    background-position: 0px -50px;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -131,12 +133,11 @@ header{
 .container-varus{ /*unique to varus.html*/
     position:absolute;
     color: #fff;
-    min-height: 540px;
+    min-height: 600px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-content: center;
     background: url('../images/conqvarussplash.jpg');
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
