@@ -167,7 +167,7 @@ header{
 .container-aatrox{ 
     position:relative;
     color: #fff;
-    min-height: 600px;
+    max-height: 600px;
     display: grid;
     grid-template-columns: repeat(7, 1fr) 0.5fr;
     grid-template-rows: repeat(3, 1fr);
@@ -184,13 +184,13 @@ header{
 .container-rhaast{ 
     position:relative;
     color: #fff;
-    min-height: 600px;
+    max-height: 600px;
     display: grid;
     grid-template-columns: repeat(7, 1fr) 0.25fr;
     grid-template-rows: repeat(3, 1fr);
     align-content: center;
     background: url('../images/rhaastsplash.jpg');
-    background-position: 0px -50px;
+    background-position: 0 0;
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom: #1A1A1D 10px solid;
@@ -201,7 +201,7 @@ header{
 .container-varus{ 
     position:relative;
     color: #fff;
-    max-height: 674px;
+    max-height: 600px;
     display: grid;
     grid-template-columns: repeat(7, 1fr) 0.5fr;
     grid-template-rows: repeat(3, 1fr);
@@ -240,8 +240,60 @@ header{
 
 /*Media Queries*/
 
-@media(max-width: 1290px){ /*Rearrange text box so it goes underneath the header*/
+@media(max-width: 1200px){ /*Shrink backgrounds so they don't show gray underneath*/
+    .container-aatrox{ 
+        max-height: 500px;
+    }
+    .container-rhaast{ 
+        max-height: 500px;
+    }
+    .container-varus{ 
+        max-height: 500px;
+    }
+}
 
+@media(max-width: 1025px){ /*Stack the text*/
+    .container-aatrox{
+        grid-template-columns: repeat(7, 1fr);
+        background-repeat:repeat;
+    }
+
+    .container-rhaast{
+        grid-template-columns: repeat(7, 1fr);
+        background-repeat:repeat;
+    }
+
+    .container-varus{
+        grid-template-columns: repeat(7, 1fr);
+        background-repeat:repeat;
+    }
+
+    #main .title{
+        padding-top: 10px;
+        text-align: center;
+        grid-column: 2/7;
+        grid-row: 1/2;
+    }
+
+    #main #sect-a .title{ 
+        padding-top: 10px;
+        grid-column: 2/7;
+        grid-row: 1/2;
+    }
+
+    #main .tbox{
+        align-self: center;
+        grid-column: 2/7;
+        grid-row: 2/4;
+        padding: 5px;
+    }
+}
+
+@media(max-width: 955px){ /*Span larger text*/
+    #main .tbox{
+        grid-column: 1/8;
+        grid-row: 2/4;
+    }
 }
 
 @media(max-width: 930px){ /*Hamburger menu. Hamburger code from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css*/
@@ -287,5 +339,29 @@ header{
 
     .menu > li:not(:last-child) {
         border-bottom: 1px solid #444;
+    }
+}
+
+@media(max-width: 690px){ /*Shrink all text*/
+    #main .title{
+        font-size: 76px;
+    }
+
+    #main #sect-a .title{ 
+        font-size: 76px;
+    }
+
+    #main .tbox{
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 640px){ /*Shrink header*/
+    #main .title{
+        font-size: 44px;
+    }
+
+    #main #sect-a .title{ 
+        font-size: 50px;
     }
 }
