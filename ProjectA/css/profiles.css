@@ -1,0 +1,291 @@
+/*This stylesheet is used for the pages other than the homepage because they share similar styles*/
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*Global*/
+
+*{
+    font-family:'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+img{
+    max-width:100%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family:'Josefin Sans', sans-serif;
+    line-height: 1.2;
+    color: #ffffff;
+    background-color: #26282d;
+}
+
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+    display: grid;
+}
+
+.highlight{
+    color:#910b21;
+}
+
+.button{
+    background: #1A1A1D;
+    font-weight: bold;
+    max-width: 40%;
+    padding: 1em 2em;
+    border: 1px solid #fff;
+    margin: .5em 0;
+}
+
+.button:hover{
+    background: #cfcfcf;
+    color: #1A1A1D;
+    border: 1px solid #cfcfcf;
+}
+
+/*Hamburger menu setup and movements. Hamburger code, from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css*/
+
+.menu > li {
+    margin: 0 1rem;
+    overflow: hidden;
+  }
+  
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after { /*Setup of the hamburger menu*/
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  }
+  
+  .menu-button::before { /*Top bar in hamburger menu*/
+    content: '';
+    margin-top: -8px;
+  }
+  
+  .menu-button::after { /*Bottom bar in hamburger menu*/
+    content: '';
+    margin-top: 8px;
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  }
+  
+
+/*Header and Nav*/
+
+header{
+    position: sticky;
+    top: 0px;
+    background-color:#1A1A1D;
+    color:#ffffff;
+    padding: 5px;
+    height:60px;
+}
+
+.main-header .container .title{
+    display:flex;
+    justify-content: flex-start;
+    padding-top: 8px;
+    align-items:center;
+    font-size: 40px;
+    flex-basis: 100%;
+}
+
+.main-header .bar .container{
+    display:flex;
+    justify-content:flex-end;
+    font-weight: bold;
+    align-items:center;
+    height:10%;
+}
+
+.main-header a{
+    color: #ffffff;
+    text-decoration:none;
+    font-size:22px;
+}
+
+.main-header a:hover{
+    color:#910b21;
+}
+
+.main-header .current a{
+    color:#910b21;
+}
+
+.main-header ul{
+    display: flex;
+}
+
+.main-header ul li{
+    margin-left: 20px;
+}
+
+/*Main*/
+
+.container-aatrox{ 
+    position:relative;
+    color: #fff;
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr) 0.5fr;
+    grid-template-rows: repeat(3, 1fr);
+    align-content: center;
+    background: url('../images/aatroxsplash.jpg');
+    background-position:0px -75px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom:#1A1A1D 10px solid;
+    z-index: -1; /*places image behind hamburger dropdown*/
+    width: 100%;
+}
+
+.container-rhaast{ 
+    position:relative;
+    color: #fff;
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr) 0.25fr;
+    grid-template-rows: repeat(3, 1fr);
+    align-content: center;
+    background: url('../images/rhaastsplash.jpg');
+    background-position: 0px -50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: #1A1A1D 10px solid;
+    z-index: -1;
+    width: 100%;
+}
+
+.container-varus{ 
+    position:relative;
+    color: #fff;
+    max-height: 674px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr) 0.5fr;
+    grid-template-rows: repeat(3, 1fr);
+    align-content: center;
+    background: url('../images/conqvarussplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    width: 100%;
+}
+
+#main .title{
+    font-size: 80px;
+    align-self: center;
+    padding-left: 30px;
+    grid-column: span 4;
+    grid-row: 2/3;
+}
+
+#main .tbox{
+    align-self: center;
+    grid-column: 5/8;
+    grid-row: 1/4;
+    padding: 5px;
+    background-color:rgb(12, 12, 14, 0.6);
+    border: #910b21 2px solid;
+}
+
+#main #sect-a .title{ /*Only changes Aatrox's column span for aesthetics*/
+    font-size: 80px;
+    align-self: center;
+    padding-left: 30px;
+    grid-column: span 3;
+    grid-row: 2/3;
+}
+
+/*Media Queries*/
+
+@media(max-width: 1290px){ /*Rearrange text box so it goes underneath the header*/
+
+}
+
+@media(max-width: 930px){ /*Hamburger menu. Hamburger code from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css*/
+    .menu-button-container {
+        display: flex;
+    }
+    
+    .menu {
+        position: absolute;
+        top: 0;
+        margin-top: 60px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #menu-toggle ~ .menu li {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    #menu-toggle:checked ~ .menu li {
+        border: 1px solid #333;
+        height: 2.5em;
+        padding: 0.5em;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .menu > li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 100%;
+        color: white;
+        background-color: #1A1A1D;
+    }
+
+    .menu > li:not(:last-child) {
+        border-bottom: 1px solid #444;
+    }
+}
