@@ -48,18 +48,20 @@ body{
 }
 
 .button{
-    background: #1A1A1D;
+    background: #fff;
     font-weight: bold;
+    font-size: 18px;
     max-width: 40%;
-    padding: 1em 2em;
+    padding: 0.5em 0.5em;
+    padding-top: 12px;
     border: 1px solid #fff;
     margin: .5em 0;
 }
 
 .button:hover{
-    background: #cfcfcf;
-    color: #1A1A1D;
-    border: 1px solid #cfcfcf;
+    background: #44484c;
+    color: #fff;
+    border: 1px solid #44484c;
 }
 
 /*Hamburger menu setup and movements. Hamburger code, from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css*/
@@ -122,9 +124,9 @@ body{
 /*Code for social media icons - from https://codepen.io/abdelrhmansaid/pen/OJRNOpQ by Abdelrhman Said*/
 
 .wrapper {
-    display: grid;
+    display: flex;
+    justify-content: center;
     list-style: none;
-    grid-template-columns: repeat(10, 1fr);
   }
   
   .wrapper .icon {
@@ -138,8 +140,7 @@ body{
     width: 50px;
     height: 50px;
     font-size: 18px;
-    display: grid;
-    grid-column: 4/7;
+    display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -185,10 +186,10 @@ body{
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
   }
   
-  .wrapper .facebook:hover,
-  .wrapper .facebook:hover .tooltip,
-  .wrapper .facebook:hover .tooltip::before {
-    background: #1877F2;
+  .wrapper .spotify:hover,
+  .wrapper .spotify:hover .tooltip,
+  .wrapper .spotify:hover .tooltip::before {
+    background: #1ed760;
     color: #ffffff;
   }
   
@@ -271,32 +272,69 @@ header{
 
 /*Main*/
 
-#main .title{
-    font-size: 80px;
-    align-self: center;
-    padding-left: 30px;
-    grid-column: span 4;
-    grid-row: 2/3;
+#sect-top .container{
+    height: 650px;
+    grid-template-columns: repeat(7, 1fr); 
+    grid-template-rows: repeat(4, 1fr) 0.5fr;
 }
 
-#main .tbox{
+#main h1{
+    font-size: 54px;
+    grid-column: span 7;
+    text-align: center;
     align-self: center;
-    grid-column: 5/8;
-    grid-row: 1/4;
+}
+
+.tbox1, .tbox2, .tbox3, .tbox4{
     padding: 5px;
+    text-align: center;
+    align-self: center;
     background-color:rgb(12, 12, 14, 0.6);
     border: #910b21 2px solid;
+
 }
 
-#main #sect-a .title{ /*Only changes Aatrox's column span for aesthetics*/
-    font-size: 80px;
-    align-self: center;
-    padding-left: 30px;
-    grid-column: span 3;
+.tbox1{
+    grid-column: 1/4;
     grid-row: 2/3;
 }
 
-.icons{
+.tbox2{
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+
+.tbox3{
+    grid-column: 1/4;
+    grid-row: 4/5;
+}
+
+.tbox4{
+    padding: 10px;
+    grid-column: 5/8;
+    grid-row: 2/5;
+}
+
+/*Main, donation area*/
+
+.donation label{
+    font-size: 22px;
+}
+
+.donation input{
+    width: 50%;
+    height: 24px;
+}
+
+.input-field{
+    padding-bottom: 20px;
+}
+
+.input-field:first-child{
+    padding-top: 10px;
+}
+
+.icons{ /*To fix link colour*/
     color: #1A1A1D;
 }
 
@@ -307,145 +345,13 @@ header{
     min-height: 75px;
     color:#ffffff;
     background-color: #1A1A1D;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
 }
 
+#main-footer p{
+    justify-self: center; 
+}
+
 /*Media Queries*/
-
-@media(max-width: 1200px){ /*Shrink backgrounds so they don't show gray underneath*/
-    .container-aatrox{ 
-        max-height: 500px;
-    }
-    .container-rhaast{ 
-        max-height: 500px;
-    }
-    .container-varus{ 
-        max-height: 500px;
-    }
-}
-
-@media(max-width: 1025px){ /*Stack the text*/
-    .container-aatrox{
-        grid-template-columns: repeat(7, 1fr);
-        background-repeat:repeat;
-    }
-
-    .container-rhaast{
-        grid-template-columns: repeat(7, 1fr);
-        background-repeat:repeat;
-    }
-
-    .container-varus{
-        grid-template-columns: repeat(7, 1fr);
-        background-repeat:repeat;
-    }
-
-    #main .title{
-        padding-top: 10px;
-        text-align: center;
-        grid-column: 2/7;
-        grid-row: 1/2;
-    }
-
-    #main #sect-a .title{ 
-        padding-top: 10px;
-        grid-column: 2/7;
-        grid-row: 1/2;
-    }
-
-    #main .tbox{
-        align-self: center;
-        grid-column: 2/7;
-        grid-row: 2/4;
-        padding: 5px;
-    }
-}
-
-@media(max-width: 955px){ /*Span larger text*/
-    #main .tbox{
-        padding-left: 10px;
-        padding-right: 10px;
-        grid-column: 1/8;
-        grid-row: 2/4;
-    }
-}
-
-@media(max-width: 930px){ /*Hamburger menu. Hamburger code from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css*/
-    .menu-button-container {
-        display: flex;
-    }
-    
-    .menu {
-        position: absolute;
-        top: 0;
-        margin-top: 60px;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #menu-toggle ~ .menu li {
-        height: 0;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    #menu-toggle:checked ~ .menu li {
-        border: 1px solid #333;
-        height: 2.5em;
-        padding: 0.5em;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .menu > li {
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0.5em 0;
-        width: 100%;
-        color: white;
-        background-color: #1A1A1D;
-    }
-
-    .menu > li:not(:last-child) {
-        border-bottom: 1px solid #444;
-    }
-}
-
-@media(max-width: 690px){ /*Shrink all text*/
-    #main .title{
-        font-size: 76px;
-    }
-
-    #main #sect-a .title{ 
-        font-size: 76px;
-    }
-
-    #main .tbox{
-        font-size: 14px;
-    }
-}
-
-@media(max-width: 640px){ /*Shrink header*/
-    .container-aatrox{ 
-        background-position: -50px -25px;
-    }
-
-    .container-varus{ 
-        background-position: -50px;
-    }
-    
-    #main .title{
-        font-size: 44px;
-    }
-
-    #main #sect-a .title{ 
-        font-size: 50px;
-    }
-}
