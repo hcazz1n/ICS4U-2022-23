@@ -9,6 +9,12 @@
     padding:0;
 }
 
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
 img{
     max-width:100%;
 }
@@ -17,6 +23,10 @@ ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+a{
+    text-decoration: none;
 }
 
 body{
@@ -108,7 +118,107 @@ body{
     margin-top: 0px;
     transform: rotate(-405deg);
   }
+
+/*Code for social media icons - from https://codepen.io/abdelrhmansaid/pen/OJRNOpQ by Abdelrhman Said*/
+
+.wrapper {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(10, 1fr);
+  }
   
+  .wrapper .icon {
+    position: relative;
+    background: #ffffff;
+    color: #1A1A1D;
+    border-radius: 50%;
+    padding: 15px;
+    padding-top: 18px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: grid;
+    grid-column: 4/7;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #ffffff;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+    background: #1877F2;
+    color: #ffffff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+    background: #1DA1F2;
+    color: #ffffff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #E4405F;
+    color: #ffffff;
+  }
+  
+  .wrapper .github:hover,
+  .wrapper .github:hover .tooltip,
+  .wrapper .github:hover .tooltip::before {
+    background: #44484c;
+    color: #ffffff;
+  }
+  
+  .wrapper .youtube:hover,
+  .wrapper .youtube:hover .tooltip,
+  .wrapper .youtube:hover .tooltip::before {
+    background: #CD201F;
+    color: #ffffff;
+  }
 
 /*Header and Nav*/
 
@@ -140,7 +250,6 @@ header{
 
 .main-header a{
     color: #ffffff;
-    text-decoration:none;
     font-size:22px;
 }
 
@@ -161,55 +270,6 @@ header{
 }
 
 /*Main*/
-
-.container-aatrox{ 
-    position:relative;
-    color: #fff;
-    max-height: 600px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr) 0.5fr;
-    grid-template-rows: repeat(3, 1fr);
-    align-content: center;
-    background: url('../images/aatroxsplash.jpg');
-    background-position:0px -75px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom:#1A1A1D 10px solid;
-    z-index: -1; /*places image behind hamburger dropdown*/
-    width: 100%;
-}
-
-.container-rhaast{ 
-    position:relative;
-    color: #fff;
-    max-height: 600px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr) 0.25fr;
-    grid-template-rows: repeat(3, 1fr);
-    align-content: center;
-    background: url('../images/rhaastsplash.jpg');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom: #1A1A1D 10px solid;
-    z-index: -1;
-    width: 100%;
-}
-
-.container-varus{ 
-    position:relative;
-    color: #fff;
-    max-height: 600px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr) 0.5fr;
-    grid-template-rows: repeat(3, 1fr);
-    align-content: center;
-    background: url('../images/conqvarussplash.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
-    width: 100%;
-}
 
 #main .title{
     font-size: 80px;
@@ -234,6 +294,10 @@ header{
     padding-left: 30px;
     grid-column: span 3;
     grid-row: 2/3;
+}
+
+.icons{
+    color: #1A1A1D;
 }
 
 /*Main Footer*/
