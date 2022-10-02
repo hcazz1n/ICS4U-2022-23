@@ -485,6 +485,19 @@ header{
     }
 }
 
+
+@media(max-width: 840px){ /*Footer format changes*/
+    #main-footer{
+        padding: 10px 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.5fr;  
+    }
+
+    #main-footer p{
+        grid-row: 2/3;
+    }
+}
+
 @media(max-width: 768px){ /*Stacking the 3 profiles*/
 
     #sect-a .container{
@@ -517,7 +530,7 @@ header{
     
 }
 
-@media(max-width: 649px){
+@media(max-width: 649px){ /*Shrinks everything to make it fit on screen*/
     #sect-a .container{
         grid-template-rows: 1fr 0.5fr;
     }
@@ -525,7 +538,7 @@ header{
     #sect-a h1{
         max-width: 400px;
     }
-
+ 
     #sect-a p{
         max-width: 400px;
     }
