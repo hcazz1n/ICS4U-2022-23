@@ -58,12 +58,12 @@ a{
 
 /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css */
 
-.menu > li {
+.menu > li { /*Hides the old navbar to replace w/ hamburger*/
     margin: 0 1rem;
     overflow: hidden;
   }
   
-  .menu-button-container {
+  .menu-button-container { /*Determines position of the hamburger menu*/
     display: none;
     height: 100%;
     width: 30px;
@@ -73,19 +73,19 @@ a{
     align-items: center;
   }
   
-  #menu-toggle {
+  #menu-toggle { /*Hide the checkbox for clicking on the hamburger menu*/
     display: none;
   }
   
   .menu-button,
   .menu-button::before,
-  .menu-button::after { /*Setup of the hamburger menu*/
+  .menu-button::after { /*Setup of the hamburger menu visually (height, width, transform animation, border, color)*/
     display: block;
     background-color: #fff;
     position: absolute;
     height: 4px;
     width: 30px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1); /*Spin animation for hamburger menu when clicked*/
     border-radius: 2px;
   }
   
@@ -99,29 +99,29 @@ a{
     margin-top: 8px;
   }
   
-  #menu-toggle:checked + .menu-button-container .menu-button::before {
+  #menu-toggle:checked + .menu-button-container .menu-button::before { /*Rotates the top bar into part of X*/
     margin-top: 0px;
     transform: rotate(405deg);
   }
   
-  #menu-toggle:checked + .menu-button-container .menu-button {
+  #menu-toggle:checked + .menu-button-container .menu-button { /*Hides middle bar*/
     background: rgba(255, 255, 255, 0);
   }
   
-  #menu-toggle:checked + .menu-button-container .menu-button::after {
+  #menu-toggle:checked + .menu-button-container .menu-button::after { /*Rotates the bottom bar into other part of X*/
     margin-top: 0px;
     transform: rotate(-405deg);
   }
 
 /*Code for social media icons - from https://codepen.io/abdelrhmansaid/pen/OJRNOpQ by Abdelrhman Said*/
 
-.wrapper {
+.wrapper { /*Class for unordered list containing social media icons*/
     display: flex;
     justify-content: center;
     list-style: none;
   }
   
-  .wrapper .icon {
+  .wrapper .icon { /*Setting up the shapes of the social media bubbles and the animation when hovered by the cursor*/
     position: relative;
     background: #ffffff;
     color: #1A1A1D;
@@ -140,7 +140,7 @@ a{
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   
-  .wrapper .tooltip {
+  .wrapper .tooltip { /*Sets up and styles the text pop-up when the social media bubble is hovered*/
     position: absolute;
     top: 0;
     font-size: 14px;

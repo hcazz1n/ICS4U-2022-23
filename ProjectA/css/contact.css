@@ -2,42 +2,36 @@
 
 /*Global*/
 
-*{
+*{ /*Applies to everything*/
     font-family:'Josefin Sans', sans-serif;
     box-sizing: border-box;
     margin:0;
     padding:0;
 }
 
-*:focus,
-*:active {
-  outline: none !important;
-  -webkit-tap-highlight-color: transparent;
-}
-
 a{
     text-decoration: none;
 }
 
-body{
+body{ /*Changes background and text in body section*/
     font-family:'Josefin Sans', sans-serif;
     line-height: 1.2;
     color: #ffffff;
     background-color: #26282d;
 }
 
-.container{
+.container{ /*Default container properties*/
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px 0 20px;
     display: grid;
 }
 
-.highlight{
+.highlight{ /*Changes colour for elements with this class; used for span*/
     color:#910b21;
 }
 
-.button{
+.button{ /*Default button properties*/
     background: #fff;
     font-weight: bold;
     font-size: 18px;
@@ -48,20 +42,20 @@ body{
     margin: .5em 0;
 }
 
-.button:hover{
+.button:hover{ /*Default hover button properties*/
     background: #44484c;
     color: #fff;
     border: 1px solid #44484c;
 }
 
-/*Hamburger menu setup and movements. Hamburger code, from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css*/
+/*Hamburger menu setup and movements. Hamburger code, from https://alvarotrigo.com/blog/hamburger-menu-css - Comments for the hamburger code is the same through all pages and are in style.css*/
 
-.menu > li {
+.menu > li { 
     margin: 0 1rem;
     overflow: hidden;
   }
   
-  .menu-button-container {
+  .menu-button-container { 
     display: none;
     height: 100%;
     width: 30px;
@@ -71,7 +65,7 @@ body{
     align-items: center;
   }
   
-  #menu-toggle {
+  #menu-toggle { 
     display: none;
   }
   
@@ -111,7 +105,7 @@ body{
     transform: rotate(-405deg);
   }
 
-/*Code for social media icons - from https://codepen.io/abdelrhmansaid/pen/OJRNOpQ by Abdelrhman Said*/
+/*Code for social media icons - from https://codepen.io/abdelrhmansaid/pen/OJRNOpQ by Abdelrhman Said - Comments for the social media icons is the same through all pages and are in style.css*/
 
 .wrapper {
     display: flex;
