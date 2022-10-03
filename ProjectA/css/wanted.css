@@ -366,11 +366,14 @@ header{
 }
 
 @media(max-width: 940px){ /*Using different media query here for readability; stacks the wanted posters for mobile friendly*/
+
     #sect-a p{
         width: 750px;
     }
 
     #sect-b .container{ /*Container for grid in section B only*/
+        padding-top: 15px;
+        padding-bottom: 15px;
         display: grid;
         min-height: 550px;
         grid-template-columns: repeat(3, 1fr);
@@ -380,20 +383,19 @@ header{
     #sect-b .wanted:nth-child(1){
         grid-row: 1/2;
         grid-column: 1/4;
+        background-color: #1A1A1D;
     }
 
     #sect-b .wanted:nth-child(2){
         grid-row: 2/3;
         grid-column: 1/4;
+        background-color: #1A1A1D;
     }
 
     #sect-b .wanted:nth-child(3){
         grid-row: 3/4;
         grid-column: 1/4;
-    }
-
-    #sect-b .container .wanted{
-        border: none;
+        background-color: #1A1A1D;
     }
 }
 
@@ -452,6 +454,24 @@ header{
 
     #main-footer p{
         grid-row: 2/3;
+    }
+}
+
+@media(max-width: 787px){ /*Shrink paragraph width*/
+    #sect-a p{
+        width: 600px;
+    }
+}
+
+@media(max-width: 640px){ /*Shrink paragraph width*/
+    #sect-a p{
+        width: 500px;
+    }
+}
+
+@media(max-width: 540px){ /*Shrink paragraph width*/
+    #sect-a p{
+        width: 400px;
     }
 }
 

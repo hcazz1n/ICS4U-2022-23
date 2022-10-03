@@ -506,7 +506,7 @@ header{
     }
 }
 
-@media(max-width: 500px){ /*Enlarge container*/
+@media(max-width: 490px){ /*Enlarge container for very small/thin mobile devices*/
     #sect .container{
         height: 2400px;
     }
