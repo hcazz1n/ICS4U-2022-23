@@ -349,6 +349,7 @@ header{
 
 #main-footer p{
     justify-self: center; 
+    text-align: center; 
 }
 
 .icons{ /*To fix link colour*/
