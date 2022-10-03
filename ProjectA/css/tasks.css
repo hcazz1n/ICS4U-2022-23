@@ -356,7 +356,7 @@ header{
     }
 }
 
-@media(max-width: 930px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css*/
+@media(max-width: 940px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css*/
     .menu-button-container {
         display: flex;
     }

@@ -390,8 +390,9 @@ header{
 
 /*Media Queries*/
 
-@media(min-width: 1320px){ /*Adds a red border to the section B grid over this size*/
-    #sect-b .container{ /*Container for grid in section B only*/
+@media(min-width: 769px){ /*Adds a red border to the section B grid over this size*/
+    #sect-b .container .profile{ /*Container for grid in section B only*/
+        padding-bottom: 25px;
         border: 2px solid #910b21;
     }
 }
@@ -440,7 +441,7 @@ header{
     }
 }
 
-@media(max-width: 930px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css*/
+@media(max-width: 940px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css*/
     .menu-button-container {
         display: flex;
     }
