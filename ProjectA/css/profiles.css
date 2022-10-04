@@ -2,7 +2,7 @@
 
 /*Global*/
 
-*{
+*{ /*Applies to everything*/
     font-family:'Josefin Sans', sans-serif;
     box-sizing: border-box;
     margin:0;
@@ -19,25 +19,25 @@ ul{
     padding: 0;
 }
 
-body{
+body{ /*Changes background and text in body section*/
     font-family:'Josefin Sans', sans-serif;
     line-height: 1.2;
     color: #ffffff;
     background-color: #26282d;
 }
 
-.container{
+.container{ /*Default container properties*/
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px 0 20px;
     display: grid;
 }
 
-.highlight{
+.highlight{ /*Changes colour for elements with this class; used for span*/
     color:#910b21;
 }
 
-.button{
+.button{ /*Default button properties*/
     background: #1A1A1D;
     font-weight: bold;
     max-width: 40%;
@@ -46,7 +46,7 @@ body{
     margin: .5em 0;
 }
 
-.button:hover{
+.button:hover{ /*Default hover button properties*/
     background: #cfcfcf;
     color: #1A1A1D;
     border: 1px solid #cfcfcf;
@@ -211,7 +211,7 @@ body{
 
 /*Header and Nav*/
 
-header{
+header{ /*Makes the header stay at top of page even after scrolling past*/
     position: sticky;
     top: 0px;
     background-color:#1A1A1D;
@@ -220,7 +220,7 @@ header{
     height:60px;
 }
 
-.main-header .container .title{
+.main-header .container .title{ /*title at left side top bar*/
     display:flex;
     justify-content: flex-start;
     padding-top: 8px;
@@ -229,7 +229,7 @@ header{
     flex-basis: 100%;
 }
 
-.main-header .bar .container{
+.main-header .bar .container{ /*navigation right side top bar*/
     display:flex;
     justify-content:flex-end;
     font-weight: bold;
@@ -261,7 +261,7 @@ header{
 
 /*Main*/
 
-.container-aatrox{ 
+.container-aatrox{ /*Container with the aatrox image as the background*/
     position:relative;
     color: #fff;
     max-height: 600px;
@@ -278,7 +278,7 @@ header{
     width: 100%;
 }
 
-.container-rhaast{ 
+.container-rhaast{ /*Container with the rhaast image as the background*/
     position:relative;
     color: #fff;
     max-height: 600px;
@@ -295,7 +295,7 @@ header{
     width: 100%;
 }
 
-.container-varus{ 
+.container-varus{ /*Container with the varus image as the background*/
     position:relative;
     color: #fff;
     max-height: 600px;
@@ -310,7 +310,7 @@ header{
     width: 100%;
 }
 
-#main .title{
+#main .title{ /*Title formatting*/
     font-size: 80px;
     align-self: center;
     padding-left: 30px;
@@ -318,7 +318,7 @@ header{
     grid-row: 2/3;
 }
 
-#main .tbox{
+#main .tbox{ /*textbox formatting in each container stays the same*/
     align-self: center;
     grid-column: 5/8;
     grid-row: 1/4;
@@ -337,7 +337,7 @@ header{
 
 /*Footer*/
 
-#main-footer{
+#main-footer{ /*footer uses grid format to separate copyright text and social media icons*/
     padding-top: 5px;
     min-height: 75px;
     color:#ffffff;
@@ -359,29 +359,13 @@ header{
 /*Media Queries*/
 
 @media(max-width: 1200px){ /*Shrink backgrounds so they don't show gray underneath*/
-    .container-aatrox{ 
-        max-height: 500px;
-    }
-    .container-rhaast{ 
-        max-height: 500px;
-    }
-    .container-varus{ 
+    .container-aatrox, .container-rhaast, .contaner-varus{ 
         max-height: 500px;
     }
 }
 
-@media(max-width: 1025px){ /*Stack the text*/
-    .container-aatrox{
-        grid-template-columns: repeat(7, 1fr);
-        background-repeat:repeat;
-    }
-
-    .container-rhaast{
-        grid-template-columns: repeat(7, 1fr);
-        background-repeat:repeat;
-    }
-
-    .container-varus{
+@media(max-width: 1025px){ /*Stack the text underneath header of each container, reformat text and headers*/
+    .container-aatrox, .container-rhaast, .container-varus{
         grid-template-columns: repeat(7, 1fr);
         background-repeat:repeat;
     }
@@ -462,7 +446,7 @@ header{
     }
 }
 
-@media(max-width: 840px){ /*Footer format changes*/
+@media(max-width: 840px){ /*Footer format changes and shift aatrox background*/
     #main-footer{
         padding: 10px 0;
         grid-template-columns: 1fr;
@@ -471,6 +455,10 @@ header{
 
     #main-footer p{
         grid-row: 2/3;
+    }
+
+    .container-aatrox{
+        background-position: 0 0;
     }
 }
 
@@ -488,13 +476,9 @@ header{
     }
 }
 
-@media(max-width: 640px){ /*Shrink header*/
-    .container-aatrox{ 
-        background-position: -50px -25px;
-    }
-
-    .container-varus{ 
-        background-position: -50px;
+@media(max-width: 640px){ /*Shrink header, shift backgrounds*/
+    .container-aatrox, .container-rhaast, .container-varus{ 
+        background-position: -250px;
     }
     
     #main .title{
@@ -503,5 +487,34 @@ header{
 
     #main #sect-a .title{ 
         font-size: 50px;
+    }
+}
+
+@media(max-width: 389px){/*Shrinks title for VERY small screens, shift background to see faces of Darkin*/
+    #main #sect-a .title{ 
+        font-size: 40px;
+    }
+
+    #main .title{
+        font-size: 44px;
+    }
+
+    .container-aatrox, .container-rhaast, .container-varus{
+        background-position: -250px;
+    }
+}
+
+@media(max-width: 380px){ /*shrink social media icons and footer text FOR VERY SMALL MOBILE DEVICES*/
+    #main-footer p{
+        width: 250px;
+    } 
+
+    .wrapper .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container-aatrox{ /*shift aatrox background*/
+        background-position: -300px;
     }
 }

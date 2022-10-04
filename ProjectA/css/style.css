@@ -2,7 +2,7 @@
 
 /*Global*/
 
-*{
+*{ /*Applies to everything*/
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -18,7 +18,7 @@ ul{
     padding: 0;
 }
 
-body{
+body{ /*Changes background and text in body section*/
     font-family:'Josefin Sans', sans-serif;
     line-height: 1.2;
     color: #ffffff;
@@ -29,18 +29,18 @@ a{
     text-decoration: none;
 }
 
-.container{
+.container{ /*Default container properties*/
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px 0 20px; /*Fix padding if necessary*/
+    padding: 0 20px 0 20px;
     display: grid;
 }
 
-.highlight{
+.highlight{ /*Changes colour for elements with this class; used for span*/
     color:#910b21;
 }
 
-.button{
+.button{ /*Default button properties*/
     background: #1A1A1D;
     font-weight: bold;
     max-width: 40%;
@@ -49,7 +49,7 @@ a{
     margin: .5em 0;
 }
 
-.button:hover{
+.button:hover{ /*Default hover button properties*/
     background: #cfcfcf;
     color: #1A1A1D;
     border: 1px solid #cfcfcf;
@@ -215,7 +215,7 @@ a{
 
 /*Header and Nav*/
 
-header{
+header{ /*Makes the header stay at top of page even after scrolling past*/
     position: sticky;
     top: 0px; 
     background-color:#1A1A1D;
@@ -547,6 +547,38 @@ header{
 
     #sect-a img{
         max-width: 400px;
+    }
+}
+
+@media(max-width: 499px){ /*Ensures the website works on VERY thin screens by bringing everything to the left side and making it thinner so it doesn't overflow off the screen (center pushes it off-screen for some reason)*/
+    #sect-a h1{
+        font-size: 75px;
+        max-width: 280px;
+        text-align: left;
+        justify-self: flex-start;
+    }
+
+    #sect-a p{
+        min-width: 0%;
+        width: 280px;
+        text-align: left;
+        justify-self: flex-start;
+    }
+
+    #sect-a img{
+        justify-self: flex-start;
+        width: 325px;
+    }
+}
+
+@media(max-width: 380px){ /*shrink social media icons and footer text FOR VERY SMALL MOBILE DEVICES*/
+    #main-footer p{
+        width: 250px;
+    } 
+
+    .wrapper .icon {
+        width: 30px;
+        height: 30px;
     }
 }
 

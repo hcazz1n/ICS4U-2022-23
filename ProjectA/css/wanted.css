@@ -2,7 +2,7 @@
 
 /*Global*/
 
-*{
+*{ /*Applies to everything*/
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -22,25 +22,25 @@ a{
     text-decoration: none;
 }
 
-body{
+body{ /*Changes background and text in body section*/
     font-family:'Josefin Sans', sans-serif;
     line-height: 1.2;
     color: #ffffff;
     background-color: #26282d;
 }
 
-.container{
+.container{ /*Default container properties*/
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px 0 20px; /*Fix padding if necessary*/
+    padding: 0 20px 0 20px;
     display: grid;
 }
 
-.highlight{
+.highlight{ /*Changes colour for elements with this class; used for span*/
     color:#910b21;
 }
 
-.button{
+.button{ /*Default button properties*/
     background: #1A1A1D;
     font-weight: bold;
     max-width: 40%;
@@ -49,7 +49,7 @@ body{
     margin: .5em 0;
 }
 
-.button:hover{
+.button:hover{ /*Default hover button properties*/
     background: #cfcfcf;
     color: #1A1A1D;
     border: 1px solid #cfcfcf;
@@ -215,7 +215,7 @@ body{
 
 /*Header and Nav*/
 
-header{
+header{ /*Makes the header stay at top of page even after scrolling past*/
     position: sticky;
     top: 0px; 
     background-color:#1A1A1D;
@@ -224,7 +224,7 @@ header{
     height:60px;
 }
 
-.main-header .container .title{
+.main-header .container .title{ /*titel top left*/
     display:flex;
     justify-content: flex-start;
     padding-top: 8px;
@@ -233,7 +233,7 @@ header{
     flex-basis: 100%;
 }
 
-.main-header .bar .container{
+.main-header .bar .container{ /*navbar top right*/
     display:flex;
     justify-content:flex-end;
     font-weight: bold;
@@ -264,7 +264,7 @@ header{
 
 /*Beginning of Main -- Section A*/
 
-#sect-a .container{
+#sect-a .container{ /*main container that uses grid in section A*/
     padding-top: 10px;
     background-color:#26282d;
     display: grid;
@@ -294,7 +294,7 @@ header{
 
 /*Section B*/
 
-#sect-b{
+#sect-b{ /*sets the minimum height for the section*/
     min-height: 500px;
 }
 
@@ -322,18 +322,18 @@ header{
     justify-content: center;
 }
 
-#sect-b img{
+#sect-b img{ /*Changes the max-width of the images in sect-b*/
     max-width: 80%;
 }
 
-#sect-b .container .wanted{
+#sect-b .container .wanted{ /*Adds padding inside the border and a border around each of the wanted class div's (WANTED, image, reward)*/
     padding: 10px 5px;
     border: #910b21 2px solid;
 }
 
 /*Footer*/
 
-#main-footer{
+#main-footer{ /*footer uses grid format to separate copyright text from social media icons*/
     padding-top: 5px;
     min-height: 75px;
     color:#ffffff;
@@ -380,7 +380,7 @@ header{
         grid-template-rows: repeat(3, 1fr);
     }
 
-    #sect-b .wanted:nth-child(1){
+    #sect-b .wanted:nth-child(1){ /*sets each child of wanted class into a specific row and column*/
         grid-row: 1/2;
         grid-column: 1/4;
         background-color: #1A1A1D;
@@ -399,7 +399,7 @@ header{
     }
 }
 
-@media(max-width: 940px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css ; code is the same across stylesheets*/*/
+@media(max-width: 940px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css - Comments are in style.css; code is the same across stylesheets*/
     .menu-button-container {
         display: flex;
     }
@@ -414,7 +414,7 @@ header{
         justify-content: center;
         align-items: center;
     }
-
+  
     #menu-toggle ~ .menu li {
         height: 0;
         margin: 0;
@@ -422,14 +422,14 @@ header{
         border: 0;
         transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-
+  
     #menu-toggle:checked ~ .menu li {
         border: 1px solid #333;
         height: 2.5em;
         padding: 0.5em;
         transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-
+  
     .menu > li {
         display: flex;
         justify-content: center;
@@ -439,7 +439,7 @@ header{
         color: white;
         background-color: #1A1A1D;
     }
-
+  
     .menu > li:not(:last-child) {
         border-bottom: 1px solid #444;
     }
@@ -475,10 +475,23 @@ header{
     }
 }
 
+@media(max-width: 380px){ /*Shrinking text and pushing it to the left to allow for the display to be responsive on VERY THIN mobile devices (b/c center doesn't center it for some reason?!) Also shrink social media icons and footer text FOR VERY SMALL MOBILE DEVICES*/
+    #sect-a h1{
+        font-size: 50px;
+    }
 
+    #sect-a p{
+        width: 300px;
+        justify-self: flex-start;
+        text-align: left;
+    }
 
+    #main-footer p{
+        width: 250px;
+    } 
 
-
-
-
-
+    .wrapper .icon {
+        width: 30px;
+        height: 30px;
+    }
+}

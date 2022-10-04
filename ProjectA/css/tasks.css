@@ -2,7 +2,7 @@
 
 /*Global*/
 
-*{
+*{ /*Applies to everything*/
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -22,25 +22,25 @@ a{
     text-decoration: none;
 }
 
-body{
+body{ /*Changes background and text in body section*/
     font-family:'Josefin Sans', sans-serif;
     line-height: 1.2;
     color: #ffffff;
     background-color: #26282d;
 }
 
-.container{
+.container{ /*Default container properties*/
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px 0 20px; /*Fix padding if necessary*/
+    padding: 0 20px 0 20px; 
     display: grid;
 }
 
-.highlight{
+.highlight{ /*Changes colour for elements with this class; used for span*/
     color:#910b21;
 }
 
-.button{
+.button{ /*Default button properties*/
     background: #1A1A1D;
     font-weight: bold;
     max-width: 40%;
@@ -49,7 +49,7 @@ body{
     margin: .5em 0;
 }
 
-.button:hover{
+.button:hover{ /*Default hover button properties*/
     background: #cfcfcf;
     color: #1A1A1D;
     border: 1px solid #cfcfcf;
@@ -215,7 +215,7 @@ body{
 
 /*Header and Nav*/
 
-header{
+header{ /*Makes the header stay at top of page even after scrolling past*/
     position: sticky;
     top: 0px; 
     background-color:#1A1A1D;
@@ -224,7 +224,7 @@ header{
     height:60px;
 }
 
-.main-header .container .title{
+.main-header .container .title{ /*puts title top left*/
     display:flex;
     justify-content: flex-start;
     padding-top: 8px;
@@ -233,7 +233,7 @@ header{
     flex-basis: 100%;
 }
 
-.main-header .bar .container{
+.main-header .bar .container{ /*puts navbar top right*/
     display:flex;
     justify-content:flex-end;
     font-weight: bold;
@@ -264,12 +264,12 @@ header{
 
 /*Main*/
 
-#sect .container{
+#sect .container{ /*container modified for main section of code in grid format*/
     background-color:#26282d;
     color:#910b21;
     min-height: 425px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr) 0.25fr repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr) 0.25fr repeat(3, 1fr); /*small gap in between groupings*/
     grid-template-rows: repeat(5, 1fr);
 }
 
@@ -290,11 +290,11 @@ header{
     justify-self: center;
 }
 
-#sect .note{
+#sect .note{ /*This is a class for p in the section to differentiate the paragraph tag used in the task boxes vs. the description*/
     font-size: 25.5px;
 }
 
-#sect .task1, .task2, .task3, .task4, .task5{
+#sect .task1, .task2, .task3, .task4, .task5{ /*Sets up the task boxes in the same way*/
     margin: 5px 0;
     grid-column: 6/9;
     padding: 5px;
@@ -306,7 +306,7 @@ header{
 
 /*Footer*/
 
-#main-footer{
+#main-footer{ /*footer uses grid format to separate the copyright text from social meida icons*/
     padding-top: 5px;
     min-height: 75px;
     color:#ffffff;
@@ -403,13 +403,13 @@ header{
 }
 
 @media(max-width: 875px){ /*THE MOBILE FRIENDY EXPERIENCE*/
-    #sect .container{
+    #sect .container{ /*changes container size and layout*/
         height: 1400px;
         grid-template-columns: repeat(9, 1fr);
-        grid-template-rows: repeat(7, 1fr);
+        grid-template-rows: 0.25fr repeat(6, 1fr);
     }
 
-    #sect h1{
+    #sect h1{ /*change header*/
         font-size: 100px;
         grid-column: 1/10;
         grid-row: 1/2;
@@ -417,7 +417,7 @@ header{
         margin-bottom: 25px;
     }
 
-    #sect p{
+    #sect p{ /*change paragraph*/
         grid-column: 1/10;
         grid-row: 2/3;
         text-align: center;
@@ -428,7 +428,7 @@ header{
         font-size: 18px;
     }
 
-    #sect .task1, .task2, .task3, .task4, .task5{
+    #sect .task1, .task2, .task3, .task4, .task5{ /*add padding to each of the tasks and underneath, put each task in its own row/column*/
         padding: 25px;
     }
     
@@ -509,6 +509,27 @@ header{
 @media(max-width: 490px){ /*Enlarge container for very small/thin mobile devices*/
     #sect .container{
         height: 2400px;
+    }
+}
+
+@media(max-width: 380px){ /*shrink social media icons and footer text FOR VERY SMALL MOBILE DEVICES*/
+    #main-footer p{
+        width: 250px;
+    } 
+
+    .wrapper .icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media(max-width: 330px){ /*FOR INCREDIBLY SMALL MOBILE SCREENS, shrink title and extend height of container to fit all text boxes.*/
+    #sect h1{
+        font-size: 60px;
+    }
+
+    #sect .container{
+        height: 3200px;
     }
 }
 
