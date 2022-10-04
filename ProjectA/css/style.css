@@ -151,10 +151,10 @@ a{
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /*animation for the hover*/
   }
   
-  .wrapper .tooltip::before {
+  .wrapper .tooltip::before { /*Controls the look of the initial diamond and the text bubble-esque diamond thing underneath the floating text*/
     position: absolute;
     content: "";
     height: 8px;
@@ -166,49 +166,49 @@ a{
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   
-  .wrapper .icon:hover .tooltip {
+  .wrapper .icon:hover .tooltip { /*Determines visibility of the name of social media icon when hovered*/
     top: -45px;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
   
-  .wrapper .icon:hover span,
-  .wrapper .icon:hover .tooltip {
+  .wrapper .icon:hover span, 
+  .wrapper .icon:hover .tooltip { /*Shadow of hovered icon and text*/
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
   }
   
   .wrapper .spotify:hover,
   .wrapper .spotify:hover .tooltip,
-  .wrapper .spotify:hover .tooltip::before {
+  .wrapper .spotify:hover .tooltip::before { /*Colour for spotify icon*/
     background: #1ed760;
     color: #ffffff;
   }
   
   .wrapper .twitter:hover,
   .wrapper .twitter:hover .tooltip,
-  .wrapper .twitter:hover .tooltip::before {
+  .wrapper .twitter:hover .tooltip::before { /*Colour for twitter icon*/
     background: #1DA1F2;
     color: #ffffff;
   }
   
   .wrapper .instagram:hover,
   .wrapper .instagram:hover .tooltip,
-  .wrapper .instagram:hover .tooltip::before {
+  .wrapper .instagram:hover .tooltip::before { /*Colour for instagram icon*/
     background: #E4405F;
     color: #ffffff;
   }
   
   .wrapper .github:hover,
   .wrapper .github:hover .tooltip,
-  .wrapper .github:hover .tooltip::before {
+  .wrapper .github:hover .tooltip::before { /*Colour for github icon*/
     background: #44484c;
     color: #ffffff;
   }
   
   .wrapper .youtube:hover,
   .wrapper .youtube:hover .tooltip,
-  .wrapper .youtube:hover .tooltip::before {
+  .wrapper .youtube:hover .tooltip::before { /*Colour for youtube icon*/
     background: #CD201F;
     color: #ffffff;
   }
@@ -224,7 +224,7 @@ header{
     height:60px;
 }
 
-.main-header .container .title{
+.main-header .container .title{ /*Puts the title as a flex on the far left*/
     display:flex;
     justify-content: flex-start;
     padding-top: 8px;
@@ -233,7 +233,7 @@ header{
     flex-basis: 100%;
 }
 
-.main-header .bar .container{
+.main-header .bar .container{ /*puts the nav-bar on the far right*/
     display:flex;
     justify-content:flex-end;
     font-weight: bold;
@@ -264,7 +264,7 @@ header{
 
 /*Beginning of Main -- Section A*/
 
-#sect-a .container{
+#sect-a .container{ /*Main container for sect-a; uses grid formatting on the page*/
     background-color:#26282d;
     color:#910b21;
     min-height: 425px;
@@ -291,7 +291,7 @@ header{
     grid-row: 2/3;
 }
 
-#sect-a img{
+#sect-a img{ /*Makes the image rounded and have a shadow*/
     display: grid;
     max-width: 100%;
     border-radius: 125px;
@@ -369,7 +369,7 @@ header{
 
 /*Footer*/
 
-#main-footer{
+#main-footer{ /*Uses grid to separate icons and copyrright text*/
     padding-top: 5px;
     min-height: 75px;
     color:#ffffff;
@@ -442,11 +442,11 @@ header{
 }
 
 @media(max-width: 940px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css*/
-    .menu-button-container {
+    .menu-button-container { /*Displays the menu in flex format*/
         display: flex;
     }
     
-    .menu {
+    .menu { /*Sets up the menu that comes down when hamburger menu is clicked: location of bars, location of text, colour, width etc.*/
         position: absolute;
         top: 0;
         margin-top: 60px;
@@ -457,22 +457,22 @@ header{
         align-items: center;
     }
 
-    #menu-toggle ~ .menu li {
+    #menu-toggle ~ .menu li { /*The code that happens when the menu (checkbox but its hidden for design) is not clicked -- it hides the dropdown menu*/
         height: 0;
         margin: 0;
         padding: 0;
         border: 0;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1); /*animation*/
     }
 
-    #menu-toggle:checked ~ .menu li {
-        border: 1px solid #333;
+    #menu-toggle:checked ~ .menu li { /*The code that happens when the menu (actually a checkbox but its hidden for design) is clicked -- it opens the dropdown menu and creates the section and framing*/
+        border: 1px solid #333; 
         height: 2.5em;
         padding: 0.5em;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1); /*animation*/
     }
 
-    .menu > li {
+    .menu > li { /*What the dropdown menu actually looks like when the hamburger menu is clicked (colour, width, background, location)*/
         display: flex;
         justify-content: center;
         margin: 0;
@@ -482,7 +482,7 @@ header{
         background-color: #1A1A1D;
     }
 
-    .menu > li:not(:last-child) {
+    .menu > li:not(:last-child) { /*Sets all the list items in the dropdown to have a bottom border except for the last one*/
         border-bottom: 1px solid #444;
     }
 }
