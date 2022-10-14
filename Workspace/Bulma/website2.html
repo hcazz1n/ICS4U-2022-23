@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website #2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</head>
+<body>
+    <style>
+        figure{
+            width: 200px;
+            position: absolute;
+            left: 125px;
+            bottom: 100px;
+        }
+
+        .img{
+            position: absolute;
+            border: 10px solid white;
+        }
+
+        .box2{
+            position: absolute;
+        }
+
+        html{
+            background:rgb(240, 240, 240);
+        }
+
+        .title{
+            padding-bottom: 25px;
+        }
+
+        .subtitle{
+            padding-top: 25px;
+        }
+
+        .field{
+            text-align: center;
+        }
+    </style>
+        <section class="section">
+            <div class="hero">
+                <div class="container" style="padding-top: 100px">
+                    <p class="title has-text-weight-bold has-text-centered">Login</p>
+                </div>
+            </div>
+
+            <div class="container" style="background: rgb(105, 105, 105);height: 2px;width: 37%">
+                <p class="subtitle has-text-centered">Please login to proceed.</p>
+            </div>
+
+            <div class="container" style="padding-top: 170px">
+                        <form action="" class="box2 box">
+                            <div class="field" style="padding-top:100px">
+                                <div class="control">
+                                    <input type="email" placeholder="Your Email" class="input" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" placeholder="Your Passowrd" class="input" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="" class="checkbox"><input type="checkbox"> Remember me</label>
+                            </div>
+                            <div class="field">
+                                <button class="button is-info is-centered has-text-weight-bold" style="height: 50px;width:400px">Login</button>
+                            </div>
+                        </form>
+                        <figure class="image">
+                            <img class="img is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                        </figure>
+            </div>
+        </section>
+</body>
+</html>
