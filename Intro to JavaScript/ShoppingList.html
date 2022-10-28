@@ -40,22 +40,11 @@
   
               li.appendChild(delButton);
   
-  
-              input.value = '';
-              item.focus();
+              input.value = ''; //sets to empty string after
            }
         }
 
         btn.addEventListener('click', addItem);
-        input.focus();
-  
-        // passing in a callback to the forEach function 
-        const arr = [1, 2, 3, , , , 6];
-        arr.forEach((a, b, c) => {
-           console.log('Element: ' + a);
-           console.log('Index: ' + b);
-           console.log('Whole Array: ' + c);
-        });
      </script>
 </body>
 </html>
