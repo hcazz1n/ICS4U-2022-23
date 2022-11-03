@@ -313,7 +313,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'Beyond Gaming';
-team['id'] = 1;
+team['id'] = 17;
+team['tag'] = 'BYG';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -331,7 +332,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'Chief Esports Club';
-team['id'] = 1;
+team['id'] = 18;
+team['tag'] = 'CHF';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -349,7 +351,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'Detonation FocusMe';
-team['id'] = 1;
+team['id'] = 19;
+team['tag'] = 'DFM';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -367,7 +370,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'Istanbul Wildcats';
-team['id'] = 1;
+team['id'] = 20;
+team['tag'] = 'IW';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -385,7 +389,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'Isurus';
-team['id'] = 1;
+team['id'] = 21;
+team['tag'] = 'ISG';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -403,7 +408,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'LOUD';
-team['id'] = 1;
+team['id'] = 22;
+team['tag'] = 'LLL';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -421,7 +427,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'MAD Lions';
-team['id'] = 1;
+team['id'] = 23;
+team['tag'] = 'MAD';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
@@ -439,7 +446,8 @@ teams.push(team);
 
 let team = {};
 team['name'] = 'Saigon Buffalo';
-team['id'] = 1;
+team['id'] = 24;
+team['tag'] = 'SGB';
 team['W'] = 0;
 team['L'] = 0;
 team['winrate'] = 0;
