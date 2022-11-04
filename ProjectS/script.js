@@ -1,3 +1,5 @@
+//The arrays of teams in Groups A-D
+
 let teamData;
 
 function getTeams() {
@@ -275,6 +277,8 @@ teamsGroupD.push(team);
 
 //Beginning of code
 
+ascendingRank = true;
+
 createTable(teamsGroupA, 'A');
 createTable(teamsGroupB, 'B');
 createTable(teamsGroupC, 'C');
@@ -324,5 +328,14 @@ function selectedTable(table) {
         return '#groupC tbody';
     } else {
         return '#groupD tbody';
+    }
+}
+
+function sort(data){
+    if(data === 'rank'){
+        if(ascendingRank){
+            ascendingRank = false;
+            
+        }
     }
 }
