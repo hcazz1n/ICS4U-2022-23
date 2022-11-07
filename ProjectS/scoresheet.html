@@ -7,7 +7,7 @@
     <title>Worlds 2022 Scoresheet</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
-<body>
+<body onLoad="getTeams();">
     <div class="columns">
         <div class="column is-half">
             <div class="card mx-5 my-5">
@@ -18,7 +18,7 @@
                     <table id="groupA" class="table is-striped">
                         <thead>
                             <tr>
-                                <th>Rank</th>
+                                <th onclick="sort('rank');">Rank</th>
                                 <th>Team</th>
                                 <th>Wins</th>
                                 <th>Losses</th>
