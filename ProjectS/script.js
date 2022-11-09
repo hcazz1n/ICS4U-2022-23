@@ -5,11 +5,14 @@ let groupB;
 let groupC;
 let groupD;
 
+//let allTeams;
+
 function getTeams() {
     groupA = JSON.parse(localStorage['teamsGroupA']);
     groupB = JSON.parse(localStorage['teamsGroupB']);
     groupC = JSON.parse(localStorage['teamsGroupC']);
     groupD = JSON.parse(localStorage['teamsGroupD']);
+    //allTeams = JSON.parse(localStorage['everyTeam']);
 
     createTables();
 }
@@ -31,12 +34,15 @@ function createTable(teams, tableOfChoice) {
     teams.forEach((team) => {
         let row = document.createElement('tr');
         let td = document.createElement('td');
+        let link = document.createElement('a');
         td.classList.add('has-text-weight-bold');
         td.textContent = team.rank;
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.textContent = team.name + ' (' + team.tag + ')';
+        link.href = 'teamPage.html?id=' + team.id;
+        link.textContent = team.name + ' (' + team.tag + ')';
+        td.appendChild(link);
         row.appendChild(td);
 
         td = document.createElement('td');
@@ -155,4 +161,14 @@ function sort(data, table){
     else
         createTable(groupD, 'D');
 
+}
+
+//code below is for teamPage.html
+
+function start() {
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    let params = (new URL(document.location)).searchParams;
+
+    teams = teams.filter(team => team.id == params.get('id'));
+    document.querySelector('#test').textContent = teams[0].name;
 }
