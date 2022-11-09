@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIG PPs</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-</head>
-<body>
-    <div>
-        <table id="standings" class="table is-striped">
-            <thead>
-                <tr>
-                    <th onclick="sort('Name');">Name</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th onclick="sort('PTS');">Points</th>
-                </tr>
-            </thead>
-            <tbody>
 
-            </tbody>
-        </table>
-    </div>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=di, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <div>
+      <input type="date" name="" id="">
+      <table id="standings" class="table is-striped">
+         <thead>
+            <tr>
+               <th onclick="sort('Name');">Name</th>
+               <th>Wins</th>
+               <th>Losses</th>
+               <th onclick="sort('PTS');">Points</th>
+            </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+   </div>
 </body>
 
 <script>
-    const datastring = '[{"Name":"Toronto", "W":14, "L":5, "PTS":38}, {"Name":"Montreal", "W":10, "L":20, "PTS":60}, {"Name":"Buffalo", "W":7, "L":18, "PTS":50}, {"Name":"Left Nut", "W":30, "L":2, "PTS":99}, {"Name":"New York", "W":1, "L":88, "PTS":2}]';
-    teams = JSON.parse(datastring);
-    //console.log(teams);
-    createTable(teams);
+   const dataString = localStorage.getItem('teams');
+   //'[{"Id":1,"Name":"Toronto","W":8,"L":3,"PTS":16},{"Id":2,"Name":"Montreal","W":5,"L":8,"PTS":10},{"Id":3,"Name":"New York","W":10,"L":3,"PTS":20},{"Id":4,"Name":"Buffalo","W":4,"L":9,"PTS":8},{"Id":5,"Name":"New Jersey","W":3,"L":7,"PTS":6}]';
 
-    ascendingName = true;
-    ascendingPTS = true;
+   //localStorage.setItem("teams", dataString);
 
-    function createTable(teams) {
-        let tableBody = document.querySelector('#standings tbody');
-        tableBody.replaceChildren();
-        teams.forEach((team) => {
-            const row = document.createElement('tr');
-            let td = document.createElement('td');
-            td.textContent = team.Name;
-            row.appendChild(td);
+   teams = JSON.parse(dataString);
 
-            td = document.createElement('td');
-            td.textContent = team.W;
-            row.appendChild(td);
+   createTable(teams);
 
-            td = document.createElement('td');
-            td.textContent = team.L;
-            row.appendChild(td);
-            
-            td = document.createElement('PTS');
-            td.textContent = team.PTS;
-            row.appendChild(td);
+   function createTable(teams) {
+      let tableBody = document.querySelector('#standings tbody');
+      tableBody.replaceChildren();
 
-            tableBody.appendChild(row);
-        });
-    }
+      teams.forEach((team) => {
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         let link = document.createElement('a');
+         link.href = 'teams.html?id=' + team.Id;
+         link.textContent = team.Name;
+         cell.appendChild(link);
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+      });
+   }
 
     function sort(field){
         if(field === 'Name'){

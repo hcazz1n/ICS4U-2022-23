@@ -12,7 +12,6 @@ team['L'] = 1;
 team['rank'] = 1;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupA.push(team); 
 
@@ -25,7 +24,6 @@ team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupA.push(team); 
 
@@ -38,7 +36,6 @@ team['L'] = 4;
 team['rank'] = 3;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupA.push(team);  
 
@@ -51,7 +48,6 @@ team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 0;
 team['killsPerGame'] = 6.7;
-team['GDM'] = -360;
 team['games'] = [];
 teamsGroupA.push(team);   
 
@@ -64,7 +60,6 @@ team['L'] = 0;
 team['rank'] = 1;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupB.push(team); 
 
@@ -77,7 +72,6 @@ team['L'] = 0;
 team['rank'] = 2;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupB.push(team);  
 
@@ -90,7 +84,6 @@ team['L'] = 0;
 team['rank'] = 3;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupB.push(team); 
 
@@ -103,7 +96,6 @@ team['L'] = 0;
 team['rank'] = 4;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupB.push(team); 
 
@@ -116,7 +108,6 @@ team['L'] = 0;
 team['rank'] = 1;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupC.push(team);   
 
@@ -129,7 +120,6 @@ team['L'] = 0;
 team['rank'] = 2;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupC.push(team); 
 
@@ -142,7 +132,6 @@ team['L'] = 0;
 team['rank'] = 3;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupC.push(team); 
 
@@ -155,7 +144,6 @@ team['L'] = 0;
 team['rank'] = 4;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupC.push(team); 
 
@@ -163,12 +151,11 @@ team = {};
 team['name'] = 'Gen. G eSports';
 team['id'] = 'D1';
 team['tag'] = 'GEN';
-team['W'] = 10;
-team['L'] = 6;
+team['W'] = 0;
+team['L'] = 0;
 team['rank'] = 1;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 111;
 team['games'] = [];
 teamsGroupD.push(team); 
 
@@ -181,7 +168,6 @@ team['L'] = 0;
 team['rank'] = 2;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupD.push(team); 
 
@@ -194,7 +180,6 @@ team['L'] = 0;
 team['rank'] = 3;
 team['duration'] = 0;
 team['killsPerGame'] = 0;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupD.push(team); 
 
@@ -207,7 +192,6 @@ team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 0;
 team['killsPerGame'] = 8.8;
-team['GDM'] = 0;
 team['games'] = [];
 teamsGroupD.push(team); 
 
