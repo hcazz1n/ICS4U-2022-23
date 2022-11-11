@@ -5,14 +5,11 @@ let groupB;
 let groupC;
 let groupD;
 
-//let allTeams;
-
 function getTeams() {
     groupA = JSON.parse(localStorage['teamsGroupA']);
     groupB = JSON.parse(localStorage['teamsGroupB']);
     groupC = JSON.parse(localStorage['teamsGroupC']);
     groupD = JSON.parse(localStorage['teamsGroupD']);
-    //allTeams = JSON.parse(localStorage['everyTeam']);
 
     createTables();
 }
