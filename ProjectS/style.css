@@ -3,7 +3,10 @@
 *{
    margin: 0;
    padding: 0;
-   font-family: 'Karla', sans-serif;
+}
+
+body .standings{
+    font-family: 'Karla', sans-serif;
 }
 
 .logo{
