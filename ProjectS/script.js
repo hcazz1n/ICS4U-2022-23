@@ -54,10 +54,6 @@ function createTable(teams, tableOfChoice) {
         td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(2) + "%";
         row.appendChild(td);
 
-        td = document.createElement('KPG');
-        td.textContent = team.killsPerGame;
-        row.appendChild(td);
-
         tableBody.appendChild(row);
     });
 }
@@ -207,4 +203,14 @@ function createTeamGames(teams) {
         gameSect.appendChild(card);
     })
 
+}
+
+//functions for the navbar
+
+function swapLogo(){ //swaps the logo from black to blue
+    var img = document.getElementById("logo").src = 'images/lolesportsblue.png';
+}
+
+function swapLogo2(){ //swaps the logo from blue to black
+    var img = document.getElementById("logo").src = 'images/lolesports.png';
 }
