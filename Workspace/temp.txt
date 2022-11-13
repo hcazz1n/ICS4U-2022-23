@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worlds 2022 Scoresheet</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+        *{
+           margin: 0;
+           padding: 0;
+           font-family: 'Karla', sans-serif;
+        }
+
+        a{
+            color: #00c8c8;
+        }
+    </style>
+</head>
+<body onLoad="getTeams();">
+        <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+            <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="navbar-item" href="scoresheet.html">
+                <img id="logo" src="images/lolesports.png">
+            </a>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            </div>
+        
+            <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                <strong class="has-text-black">Home</strong>
+                </a>
+                <a class="navbar-item">
+                <strong class="has-text-black">Orders</strong>
+                </a>
+                <a class="navbar-item">
+                <strong class="has-text-black">Payments</strong>
+                </a>
+                <a class="navbar-item">
+                <strong class="has-text-black">Exceptions</strong>
+                </a>
+                <a class="navbar-item">
+                <strong class="has-text-black">Reports</strong>
+                </a>
+            </div>
+            </div>
+        </nav>
+    </div>
+    <div class="columns">
+        <div class="column is-half">
+            <div class="card mx-3 my-5">
+                <div class="card-header">
+                    <p class="card-header-title">Group A</p>
+                </div>
+                <div class="card-content">
+                    <table id="groupA" class="table is-striped">
+                        <thead>
+                            <tr>
+                                <th onclick="sort('rank', 'A');">Rank</th>
+                                <th onclick="sort('name', 'A');">Team</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>Winrate</th>  
+                                <th>Duration</th>            
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="column is-half">
+            <div class="card mx-3 my-5">
+                <div class="card-header">
+                    <p class="card-header-title">Group B</p>
+                </div>
+                <div class="card-content">
+                    <table id="groupB" class="table is-striped">
+                        <thead>
+                            <tr>
+                                <th onclick="sort('rank', 'B');">Rank</th>
+                                <th onclick="sort('name', 'B');">Team</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>Winrate</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-half">
+            <div class="card mx-3 my-5">
+                <div class="card-header">
+                    <p class="card-header-title">Group C</p>
+                </div>
+                <div class="card-content">
+                    <table id="groupC" class="table is-striped">
+                        <thead>
+                            <tr>
+                                <th onclick="sort('rank', 'C');">Rank</th>
+                                <th onclick="sort('name', 'C');">Team</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>Winrate</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="column is-half">
+            <div class="card mx-3 my-5">
+                <div class="card-header">
+                    <p class="card-header-title">Group D</p>
+                </div>
+                <div class="card-content">
+                    <table id="groupD" class="table is-striped">
+                        <thead>
+                            <tr>
+                                <th onclick="sort('rank', 'D');">Rank</th>
+                                <th onclick="sort('name', 'D');">Team</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>Winrate</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//The arrays of teams in Groups A-D
+
+let groupA;
+let groupB;
+let groupC;
+let groupD;
+
+function getTeams() {
+    groupA = JSON.parse(localStorage['teamsGroupA']);
+    groupB = JSON.parse(localStorage['teamsGroupB']);
+    groupC = JSON.parse(localStorage['teamsGroupC']);
+    groupD = JSON.parse(localStorage['teamsGroupD']);
+
+    createTables();
+}
+
+function createTables(){
+    createTable(groupA, 'A');
+    createTable(groupB, 'B');
+    createTable(groupC, 'C');
+    createTable(groupD, 'D');
+}
+
+let ascendingRankA, ascendingRankB, ascendingRankC, ascendingRankD = true;
+let ascendingNameA, ascendingNameB, ascendingNameC, ascendingNameD = false;
+
+function createTable(teams, tableOfChoice) {
+    tableBody = document.querySelector(selectedTable(tableOfChoice));
+
+    tableBody.replaceChildren();
+    teams.forEach((team) => {
+        let row = document.createElement('tr');
+        let td = document.createElement('td');
+        let link = document.createElement('a');
+        td.classList.add('has-text-weight-bold');
+        td.textContent = team.rank;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        link.href = 'teamPage.html?id=' + team.id;
+        link.textContent = team.name + ' (' + team.tag + ')';
+        td.appendChild(link);
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.textContent = team.W;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.textContent = team.L;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(2) + "%";
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        mins = team.duration / 60;
+        seconds = team.duration % 60;
+        td.textContent = mins + ":" + seconds;
+        row.appendChild(td);
+
+        tableBody.appendChild(row);
+    });
+}
+
+function selectedTable(table) {
+    if(table == 'A'){
+        return '#groupA tbody';
+    } else if(table == 'B'){
+        return '#groupB tbody';
+    } else if(table == 'C'){
+        return '#groupC tbody';
+    } else {
+        return '#groupD tbody';
+    }
+}
+
+function sort(data, table){
+    if(table == 'A'){
+        if(data === 'rank'){
+            if(ascendingRankA){
+                ascendingRankA = false;
+                groupA = groupA.sort((teamA, teamB) => (teamB.rank - teamA.rank));
+            } else {
+                ascendingRankA = true;
+                groupA = groupA.sort((teamA, teamB) => teamA.rank - teamB.rank);
+            }
+        } else if(data === 'name'){
+            if(ascendingNameA){
+                ascendingNameA = false;
+                groupA = groupA.sort((teamA, teamB) => {return (teamA.name > teamB.name) ? -1 : 1});
+            } else {
+                ascendingNameA = true;
+                groupA = groupA.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
+            }
+        }
+    } else if(table == 'B'){
+        if(data === 'rank'){
+            if(ascendingRankB){
+                ascendingRankB = false;
+                groupB = groupB.sort((teamA, teamB) => (teamB.rank - teamA.rank));
+            } else {
+                ascendingRankB = true;
+                groupB = groupB.sort((teamA, teamB) => teamA.rank - teamB.rank);
+            }
+        } else if(data === 'name'){
+            if(ascendingNameB){
+                ascendingNameB = false;
+                groupB = groupB.sort((teamA, teamB) => {return (teamA.name > teamB.name) ? -1 : 1});
+            } else {
+                ascendingNameB = true;
+                groupB = groupB.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
+            }
+        }
+    } else if(table == 'C'){
+        if(data === 'rank'){
+            if(ascendingRankC){
+                ascendingRankC = false;
+                groupC = groupC.sort((teamA, teamB) => (teamB.rank - teamA.rank));
+            } else {
+                ascendingRankC = true;
+                groupC = groupC.sort((teamA, teamB) => teamA.rank - teamB.rank);
+            }
+        } else if(data === 'name'){
+            if(ascendingNameC){
+                ascendingNameC = false;
+                groupC = groupC.sort((teamA, teamB) => {return (teamA.name > teamB.name) ? -1 : 1});
+            } else {
+                ascendingNameC = true;
+                groupC = groupC.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
+            }
+        }
+    } else {
+        if(data === 'rank'){
+            if(ascendingRankD){
+                ascendingRankD = false;
+                groupD = groupD.sort((teamA, teamB) => (teamB.rank - teamA.rank));
+            } else {
+                ascendingRankD = true;
+                groupD = groupD.sort((teamA, teamB) => teamA.rank - teamB.rank);
+            }
+        } else if(data === 'name'){
+            if(ascendingNameD){
+                ascendingNameD = false;
+                groupD = groupD.sort((teamA, teamB) => {return (teamA.name > teamB.name) ? -1 : 1});
+            } else {
+                ascendingNameD = true;
+                groupD = groupD.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
+            }
+        }
+    }
+
+    if(table == 'A')
+        createTable(groupA, 'A');
+    else if(table == 'B')
+        createTable(groupB, 'B');
+    else if(table == 'C')
+        createTable(groupC, 'C');
+    else
+        createTable(groupD, 'D');
+
+}
+
+//code below is for teamPage.html
+
+function start() {
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    let params = (new URL(document.location)).searchParams;
+
+    teams = teams.filter(team => team.id == params.get('id'));
+    document.querySelector('#name').textContent = teams[0].name;
+
+    // let imgLink = 'images/' + teams[0].id + '.png';
+    
+    // document.querySelector('#img') = imgLink;
+
+    createTeamGames(teams);
+}
+
+function createTeamGames(teams) { 
+    gameSect = document.querySelector('#games');
+
+    let count = 0;
+
+    teams[0].games.forEach((game) => {
+
+        let card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('card-content');
+        card.classList.add('my-5');
+        
+        let insideCard = teams[0].tag;
+        if(teams[0].games[count].win == true){
+            insideCard = insideCard + ' | ' + '1' + '-' + '0' + ' | ';
+        } else {
+            insideCard = insideCard + ' | ' + '0' + '-' + '1' + ' | ';
+        }
+
+        let idEnemyTeam = teams[0].games[count].opp;
+
+        teamList = JSON.parse(localStorage.getItem('everyTeam'));
+        insideCard = insideCard + teamList[idEnemyTeam - 1].tag;
+        console.log(insideCard);
+        count++;
+
+        card.textContent = insideCard;
+
+        gameSect.appendChild(card);
+    })
+
+}
+
+//functions for the navbar
+
+function swapLogo(){ //swaps the logo from black to blue
+    var img = document.getElementById("logo").src = 'images/lolesportsblue.png';
+}
+
+function swapLogo2(){ //swaps the logo from blue to black
+    var img = document.getElementById("logo").src = 'images/lolesports.png';
+}
