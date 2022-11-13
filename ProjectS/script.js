@@ -23,17 +23,27 @@ function createTables(){
 
 let ascendingRankA, ascendingRankB, ascendingRankC, ascendingRankD = true;
 let ascendingNameA, ascendingNameB, ascendingNameC, ascendingNameD = false;
+let ascendingWinsA, ascendingWinsB, ascendingWinsC, ascendingWinsD = false;
 
 function createTable(teams, tableOfChoice) {
     tableBody = document.querySelector(selectedTable(tableOfChoice));
 
+    let previousTeamWins = -1;
+    let firstTeam = true;
+
     tableBody.replaceChildren();
     teams.forEach((team) => {
+
         let row = document.createElement('tr');
         let td = document.createElement('td');
         let link = document.createElement('a');
         td.classList.add('has-text-weight-bold');
-        td.textContent = team.rank;
+        if(team.W == previousTeamWins){
+            td.textContent = '-';
+        }
+        else{
+            td.textContent = team.rank;
+        }
         row.appendChild(td);
 
         td = document.createElement('td');
@@ -55,6 +65,8 @@ function createTable(teams, tableOfChoice) {
         row.appendChild(td);
 
         tableBody.appendChild(row);
+
+        previousTeamWins = team.W;
     });
 }
 
@@ -88,7 +100,15 @@ function sort(data, table){
                 ascendingNameA = true;
                 groupA = groupA.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
             }
-        }
+        } else if(data === 'wins'){
+            if(ascendingWinsA){
+                ascendingWinsA = false;
+                groupA = groupA.sort((teamA, teamB) => (teamA.W - teamB.W));
+            } else {
+                ascendingWinsA = true;
+                groupA = groupA.sort((teamA, teamB) => (teamB.W - teamA.W));
+            }
+        } 
     } else if(table == 'B'){
         if(data === 'rank'){
             if(ascendingRankB){
@@ -105,6 +125,14 @@ function sort(data, table){
             } else {
                 ascendingNameB = true;
                 groupB = groupB.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
+            }
+        } else if(data === 'wins'){
+            if(ascendingWinsB){
+                ascendingWinsB = false;
+                groupB = groupB.sort((teamA, teamB) => (teamA.W - teamB.W));
+            } else {
+                ascendingWinsB = true;
+                groupB = groupB.sort((teamA, teamB) => (teamB.W - teamA.W));
             }
         }
     } else if(table == 'C'){
@@ -124,6 +152,14 @@ function sort(data, table){
                 ascendingNameC = true;
                 groupC = groupC.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
             }
+        } else if(data === 'wins'){
+            if(ascendingWinsC){
+                ascendingWinsC = false;
+                groupC = groupC.sort((teamA, teamB) => (teamA.W - teamB.W));
+            } else {
+                ascendingWinsC = true;
+                groupC = groupC.sort((teamA, teamB) => (teamB.W - teamA.W));
+            }
         }
     } else {
         if(data === 'rank'){
@@ -141,6 +177,14 @@ function sort(data, table){
             } else {
                 ascendingNameD = true;
                 groupD = groupD.sort((teamA, teamB) => {return (teamA.name < teamB.name) ? -1 : 1});
+            }
+        } else if(data === 'wins'){
+            if(ascendingWinsD){
+                ascendingWinsD = false;
+                groupD = groupD.sort((teamA, teamB) => (teamA.W - teamB.W));
+            } else {
+                ascendingWinsD = true;
+                groupD = groupD.sort((teamA, teamB) => (teamB.W - teamA.W));
             }
         }
     }
@@ -164,13 +208,15 @@ function start() {
 
     teams = teams.filter(team => team.id == params.get('id'));
     document.querySelector('#name').textContent = teams[0].name;
-
-    // let imgLink = 'images/' + teams[0].id + '.png';
-    
-    // document.querySelector('#img') = imgLink;
-
     createTeamGames(teams);
 }
+
+// function loadImage(){
+//     let teams = JSON.parse(localStorage.getItem('everyTeam'));
+//     let imgLink = 'images/' + teams[0].id + '.png';
+//     console.log(imgLink);
+//     return imgLink;
+// }
 
 function createTeamGames(teams) { 
     gameSect = document.querySelector('#games');

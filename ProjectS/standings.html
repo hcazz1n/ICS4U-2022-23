@@ -6,25 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worlds 2022 Scoresheet</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
-
-        *{
-           margin: 0;
-           padding: 0;
-           font-family: 'Karla', sans-serif;
-        }
-
-        a{
-            color: #00c8c8;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css"> <!--stylesheet link-->
 </head>
+
 <body onLoad="getTeams();">
         <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-            <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="navbar-item" href="scoresheet.html">
+            <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="logo navbar-item" href="standings.html">
                 <img id="logo" src="images/lolesports.png">
             </a>
         
@@ -37,20 +25,17 @@
         
             <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="text navbar-item">
                 <strong class="has-text-black">Home</strong>
                 </a>
-                <a class="navbar-item">
-                <strong class="has-text-black">Orders</strong>
+                <a class="text navbar-item">
+                <strong class="has-text-black">Standings</strong>
                 </a>
-                <a class="navbar-item">
-                <strong class="has-text-black">Payments</strong>
+                <a class="text navbar-item">
+                <strong class="has-text-black">Games</strong>
                 </a>
-                <a class="navbar-item">
-                <strong class="has-text-black">Exceptions</strong>
-                </a>
-                <a class="navbar-item">
-                <strong class="has-text-black">Reports</strong>
+                <a class="text navbar-item">
+                <strong class="has-text-black">Admin</strong>
                 </a>
             </div>
             </div>
@@ -58,7 +43,7 @@
     </div>
     <div class="columns">
         <div class="column is-half">
-            <div class="card mx-6 my-5">
+            <div class="card mx-4 my-5">
                 <div class="card-header">
                     <p class="card-header-title">Group A</p>
                 </div>
@@ -68,7 +53,7 @@
                             <tr>
                                 <th onclick="sort('rank', 'A');">Rank</th>
                                 <th onclick="sort('name', 'A');">Team</th>
-                                <th>Wins</th>
+                                <th onclick = "sort('wins', 'A');">Wins</th>
                                 <th>Losses</th>
                                 <th>Winrate</th>              
                             </tr>
@@ -81,7 +66,7 @@
             </div>
         </div>
         <div class="column is-half">
-            <div class="card mx-6 my-5">
+            <div class="card mx-4 my-5">
                 <div class="card-header">
                     <p class="card-header-title">Group B</p>
                 </div>
@@ -91,7 +76,7 @@
                             <tr>
                                 <th onclick="sort('rank', 'B');">Rank</th>
                                 <th onclick="sort('name', 'B');">Team</th>
-                                <th>Wins</th>
+                                <th onclick = "sort('wins', 'B');"">Wins</th>
                                 <th>Losses</th>
                                 <th>Winrate</th>
                             </tr>
@@ -107,7 +92,7 @@
 
     <div class="columns">
         <div class="column is-half">
-            <div class="card mx-6 my-5">
+            <div class="card mx-4 my-5">
                 <div class="card-header">
                     <p class="card-header-title">Group C</p>
                 </div>
@@ -117,7 +102,7 @@
                             <tr>
                                 <th onclick="sort('rank', 'C');">Rank</th>
                                 <th onclick="sort('name', 'C');">Team</th>
-                                <th>Wins</th>
+                                <th onclick = "sort('wins', 'C');">Wins</th>
                                 <th>Losses</th>
                                 <th>Winrate</th>
                             </tr>
@@ -130,7 +115,7 @@
             </div>
         </div>
         <div class="column is-half">
-            <div class="card mx-6 my-5">
+            <div class="card mx-4 my-5">
                 <div class="card-header">
                     <p class="card-header-title">Group D</p>
                 </div>
@@ -140,7 +125,7 @@
                             <tr>
                                 <th onclick="sort('rank', 'D');">Rank</th>
                                 <th onclick="sort('name', 'D');">Team</th>
-                                <th>Wins</th>
+                                <th onclick = "sort('wins', 'D');">Wins</th>
                                 <th>Losses</th>
                                 <th>Winrate</th>
                             </tr>
