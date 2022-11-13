@@ -167,5 +167,44 @@ function start() {
     let params = (new URL(document.location)).searchParams;
 
     teams = teams.filter(team => team.id == params.get('id'));
-    document.querySelector('#test').textContent = teams[0].name;
+    document.querySelector('#name').textContent = teams[0].name;
+
+    // let imgLink = 'images/' + teams[0].id + '.png';
+    
+    // document.querySelector('#img') = imgLink;
+
+    createTeamGames(teams);
+}
+
+function createTeamGames(teams) { 
+    gameSect = document.querySelector('#games');
+
+    let count = 0;
+
+    teams[0].games.forEach((game) => {
+
+        let card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('card-content');
+        card.classList.add('my-5');
+        
+        let insideCard = teams[0].tag;
+        if(teams[0].games[count].win == true){
+            insideCard = insideCard + ' | ' + '1' + '-' + '0' + ' | ';
+        } else {
+            insideCard = insideCard + ' | ' + '0' + '-' + '1' + ' | ';
+        }
+
+        let idEnemyTeam = teams[0].games[count].opp;
+
+        teamList = JSON.parse(localStorage.getItem('everyTeam'));
+        insideCard = insideCard + teamList[idEnemyTeam - 1].tag;
+        console.log(insideCard);
+        count++;
+
+        card.textContent = insideCard;
+
+        gameSect.appendChild(card);
+    })
+
 }
