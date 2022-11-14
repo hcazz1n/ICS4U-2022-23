@@ -4,27 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name= "viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teams</title>
+    <title id="title"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">  
-    <style>
-        .header-background{
-            background-color: #505050;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css"> <!--stylesheet link-->
 </head>
 <body onLoad="start();">
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+        <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="logo navbar-item" href="standings.html">
+            <img id="logo" src="images/lolesports.png">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        </div>
+    
+        <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="text navbar-item">
+            <strong class="has-text-black">Home</strong>
+            </a>
+            <a class="text navbar-item" href="standings.html">
+            <strong class="has-text-black">Standings</strong>
+            </a>
+            <a class="text navbar-item">
+            <strong class="has-text-black">Games</strong>
+            </a>
+            <a class="text navbar-item" href="admin.html">
+            <strong class="has-text-black">Admin</strong>
+            </a>
+        </div>
+        </div>
+    </nav>
     <section class="hero header-background">
         <div class="hero-body">
            <div class="container">
-              <h1 class="title is-size-1 has-text-white">
-                <div id="name"></div>
-              </h1>
+                <img id="team-logo-head" width="8%" height="8%">
+                <h1 class="teamname is-size-1 has-text-white">
+                    <div id="name"></div>
+                </h1>
            </div>
         </div>
      </section>
      <div class="container">
         <div class="columns">
-            <div id="games" class="column is-4">
+            <div id="games" class="column is-3">
             </div>
         </div>
      </div>

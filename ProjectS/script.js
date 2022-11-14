@@ -48,6 +48,7 @@ function createTable(teams, tableOfChoice) {
 
         td = document.createElement('td');
         link.href = 'teamPage.html?id=' + team.id;
+        link.target = '_blank';
         link.textContent = team.name + ' (' + team.tag + ')';
         td.appendChild(link);
         row.appendChild(td);
@@ -207,16 +208,14 @@ function start() {
     let params = (new URL(document.location)).searchParams;
 
     teams = teams.filter(team => team.id == params.get('id'));
+    document.querySelector('#title').textContent = teams[0].name;
     document.querySelector('#name').textContent = teams[0].name;
     createTeamGames(teams);
-}
 
-// function loadImage(){
-//     let teams = JSON.parse(localStorage.getItem('everyTeam'));
-//     let imgLink = 'images/' + teams[0].id + '.png';
-//     console.log(imgLink);
-//     return imgLink;
-// }
+    let imgLink = document.querySelector('#team-logo-head');
+    imgLink.src = 'images/' + teams[0].id + '.png';
+
+}
 
 function createTeamGames(teams) { 
     gameSect = document.querySelector('#games');
@@ -229,6 +228,7 @@ function createTeamGames(teams) {
         card.classList.add('card');
         card.classList.add('card-content');
         card.classList.add('my-5');
+        card.classList.add('team-games');
         
         let insideCard = teams[0].tag;
         if(teams[0].games[count].win == true){
@@ -254,9 +254,45 @@ function createTeamGames(teams) {
 //functions for the navbar
 
 function swapLogo(){ //swaps the logo from black to blue
-    var img = document.getElementById("logo").src = 'images/lolesportsblue.png';
+    let img = document.getElementById("logo").src = 'images/lolesportsblue.png';
 }
 
 function swapLogo2(){ //swaps the logo from blue to black
-    var img = document.getElementById("logo").src = 'images/lolesports.png';
+    let img = document.getElementById("logo").src = 'images/lolesports.png';
 }
+
+//code below is for admin.html
+
+function hide(){ //hides the red popup
+    let popup = document.querySelector("article");
+    popup.remove();
+}
+
+function test(){
+    let name = document.getElementById("name").value;
+    console.log(name);
+}
+
+function checkAdminName(){ //checks if the entered name is the admin's name (Harrison)
+    let name = document.getElementById("name").value;
+    let nameCompVal = name.toUpperCase();
+
+    let sect = document.getElementById("name-msg");
+    let msg = document.createElement("p");
+    msg.classList.add("help");
+
+    if(nameCompVal != "HARRISON"){
+        document.getElementById("name").classList.add("is-danger")
+        msg.classList.add("is-danger")
+        sect.replaceChildren();
+        msg.textContent = 'You should not be on this page...';
+    } else {
+        document.getElementById("name").classList.replace("is-danger", "is-success");
+        msg.classList.add("is-success");
+        sect.replaceChildren();
+        msg.textContent = 'Welcome, Admin :)';
+    }
+
+    sect.append(msg);
+}
+

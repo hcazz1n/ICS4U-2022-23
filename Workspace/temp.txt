@@ -385,3 +385,5 @@ function swapLogo(){ //swaps the logo from black to blue
 function swapLogo2(){ //swaps the logo from blue to black
     var img = document.getElementById("logo").src = 'images/lolesports.png';
 }
+
+This page is used to add games to the standings and it is for <strong>ADMINS ONLY</strong>. Please refrain from adding games if you are not meant to do so as it will harm the integrity of the site.
