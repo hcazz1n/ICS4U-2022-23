@@ -34,3 +34,38 @@ a:hover{
     width: 100%;
 }
 
+/*for teamPage.html*/
+
+.header-background{
+    background-color: #505050;
+}
+
+.team-games{
+    font-size: 22px;
+}
+
+/*for admin.html*/
+
+article{
+    margin-top: 10px;
+}
+
+.admin-panel{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.field{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-panel{
+    
+}
+
+
+
+
