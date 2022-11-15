@@ -30,7 +30,6 @@ function createTable(teams, tableOfChoice) {
 
     let previousTeamWins = -1;
     let firstTeam = true;
-
     tableBody.replaceChildren();
     teams.forEach((team) => {
 
@@ -323,9 +322,13 @@ function checkTeamTag(){ //checks if the team's tag matches with an actual team 
 
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
     let team = document.getElementById('team').value;
-    let teamCompVal = teamTag.toUpperCase();
+    let teamCompVal = team.toUpperCase();
 
-    let icon = document.getElementById('icon-verify-name');
+    let sect = document.getElementById("team-msg");
+    let msg = document.createElement("p");
+    msg.classList.add("help");
+
+    let icon = document.getElementById('icon-verify-team');
     icon.classList.add('icon');
     icon.classList.add('is-small');
     icon.classList.add('is-right');
@@ -341,11 +344,95 @@ function checkTeamTag(){ //checks if the team's tag matches with an actual team 
     })
 
     if(!validTeam){ //if validTeam is false, red text, red box, X icon - also causes the function to return false, making form unable to submit
+        document.getElementById("team").classList.add("is-danger")
+        msg.classList.add("is-danger")
+        sect.replaceChildren();
+        msg.textContent = 'That is not a team.';
 
+        icon.replaceChildren();
+        i.classList.add('fa-xmark');
     } else { //if validTeam is true, green text, green box, check icon
+        firstTeam = (document.getElementById("opp").value).toUpperCase();
+        if(firstTeam == teamCompVal){
+            document.getElementById("team").classList.add("is-danger")
+            msg.classList.add("is-danger")
+            sect.replaceChildren();
+            msg.textContent = 'The teams cannot be the same.';
+        } else {
+            document.getElementById("team").classList.replace("is-danger", "is-success");
+            msg.classList.add("is-success");
+            sect.replaceChildren();
 
-        canSubmit = true;
+            icon.replaceChildren();
+            i.classList.remove('fa-xmark');
+            i.classList.add('fa-check')
+
+            canSubmit = true;
+        }
     }
+
+    sect.append(msg);
+    icon.append(i);
+
+    return canSubmit;
+}
+
+function checkOppTeamTag(){ //checks if the team's tag matches with an actual team in the local storage
+    let canSubmit = false;
+
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    let opp = document.getElementById('opp').value;
+    let oppCompVal = opp.toUpperCase();
+
+    let sect = document.getElementById("opp-msg");
+    let msg = document.createElement("p");
+    msg.classList.add("help");
+
+    let icon = document.getElementById('icon-verify-opp');
+    icon.classList.add('icon');
+    icon.classList.add('is-small');
+    icon.classList.add('is-right');
+    let i = document.createElement('i');
+    i.classList.add('fa');
+    i.classList.add('fa-solid');
+
+    validTeam = false;
+    teams.forEach((team) => { //searches through every team's tag and compares it to the value from the input
+        if(oppCompVal === team.tag){
+            validTeam = true;
+        }
+    })
+
+    if(!validTeam){ //if validTeam is false, red text, red box, X icon - also causes the function to return false, making form unable to submit
+        document.getElementById("opp").classList.add("is-danger")
+        msg.classList.add("is-danger")
+        sect.replaceChildren();
+        msg.textContent = 'That is not a team.';
+
+        icon.replaceChildren();
+        i.classList.add('fa-xmark');
+    } else { //if validTeam is true, green text, green box, check icon - also make sure the opponent isn't the same as the team
+        firstTeam = (document.getElementById("team").value).toUpperCase();
+        if(firstTeam == oppCompVal){
+            document.getElementById("opp").classList.add("is-danger")
+            msg.classList.add("is-danger")
+            sect.replaceChildren();
+            msg.textContent = 'The teams cannot be the same.';
+        } else {
+            document.getElementById("opp").classList.replace("is-danger", "is-success");
+            msg.classList.add("is-success");
+            sect.replaceChildren();
+
+            icon.replaceChildren();
+            i.classList.remove('fa-xmark');
+            i.classList.add('fa-check')
+
+            canSubmit = true;
+        }
+    }
+
+    sect.append(msg);
+    icon.append(i);
 
     return canSubmit;
 }

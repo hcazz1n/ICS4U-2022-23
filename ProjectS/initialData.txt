@@ -18,7 +18,7 @@ teamsGroupA.push(team);
 everyTeam.push(team);
 
 team = {};
-team['name'] = 'Edward Gaming Hycan';
+team['name'] = 'Edward Gaming';
 team['id'] = 2;
 team['tag'] = 'EDG';
 team['W'] = 4;
@@ -57,7 +57,7 @@ teamsGroupA.push(team);
 everyTeam.push(team);
 
 team = {};
-team['name'] = 'JDG Intel Esports Club';
+team['name'] = 'JD Gaming';
 team['id'] = 5;
 team['tag'] = 'JDG';
 team['W'] = 6;

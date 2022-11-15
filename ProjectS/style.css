@@ -21,6 +21,10 @@ a:hover{
     color: #c69d57;
 }
 
+a.text.navbar-item:hover strong{
+    color: #c69d57 !important;
+}
+
 .topbar{
     display: inline;
 }
@@ -46,8 +50,6 @@ a:hover{
 
 /*for admin.html*/
 
-
-
 .admin-panel{
     width: 70%;
     margin-left: auto;
@@ -64,6 +66,9 @@ a:hover{
     margin-bottom: 20px;
 }
 
+.field .is-grouped{
+    margin: 0;
+}
 
 
 
