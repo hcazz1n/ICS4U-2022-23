@@ -46,9 +46,7 @@ a:hover{
 
 /*for admin.html*/
 
-article{
-    margin-top: 10px;
-}
+
 
 .admin-panel{
     width: 70%;
@@ -62,8 +60,8 @@ article{
     margin-right: auto;
 }
 
-.admin-panel{
-    
+#admin-nav{
+    margin-bottom: 20px;
 }
 
 

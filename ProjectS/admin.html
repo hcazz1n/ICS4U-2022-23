@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--Icon Library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" <!--Icon Library-->
     <link rel="stylesheet" href="./style.css"> <!--stylesheet link-->
     <title>Admin Page</title>
 </head>
 <body>
-    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+    <nav id="admin-nav" class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
         <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="logo navbar-item" href="standings.html">
             <img id="logo" src="images/lolesports.png">
@@ -57,15 +57,41 @@
             <div class="card-content">
                 <div class="field">
                     <label class="label">Name</label>
-                    <div class="control has-icons-left">
-                    <input id="name" class="input" type="text" onclick="checkAdminName();" placeholder="e.g. Harrison">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-regular fa-user"></i>
-                    </span>
-                    <div id="name-msg">
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="name" class="input" type="text" onkeyup="checkAdminName();" placeholder="e.g. Harrison">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-solid fa-user"></i>
+                        </span>
+                        <span id="icon-verify-name" class="icon is-small is-right">
+                                
+                        </span>
+                        <div id="name-msg"></div>
+                    </div>
+                </div>
 
+                <div class="field">
+                    <label class="label">Team</label>
+                    <div class="control has-icons-left">
+                        <input id="team" class="input" type="text" onkeyup="checkTeamTag();" maxlength="3" placeholder="e.g. JDG">
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-users"></i>
+                        </span>
+                        <span id="icon-verify-team" class="icon is-small is-right">
+                            
+                        </span>
+                        <div id="team-msg"></div>
                     </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Team</label>
+                    <div class="control has-icons-left has-icons-right">
+                    <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                    <span class="icon is-small is-left">
+                        <i class="fa-regular fa-chess-rook"></i>
+                    </span>
                     </div>
+                    <p class="help is-danger">This email is invalid</p>
                 </div>
             </div>
         </div>

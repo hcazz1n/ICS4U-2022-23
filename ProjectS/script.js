@@ -274,6 +274,8 @@ function test(){
 }
 
 function checkAdminName(){ //checks if the entered name is the admin's name (Harrison)
+    let canSubmit = false;
+
     let name = document.getElementById("name").value;
     let nameCompVal = name.toUpperCase();
 
@@ -281,18 +283,69 @@ function checkAdminName(){ //checks if the entered name is the admin's name (Har
     let msg = document.createElement("p");
     msg.classList.add("help");
 
-    if(nameCompVal != "HARRISON"){
+    let icon = document.getElementById('icon-verify-name');
+    icon.classList.add('icon');
+    icon.classList.add('is-small');
+    icon.classList.add('is-right');
+    let i = document.createElement('i');
+    i.classList.add('fa');
+    i.classList.add('fa-solid');
+
+    if(nameCompVal != "HARRISON"){ //if the name doesnt equal HARRISON, red text, red box, X icon - also causes the function to return false, making form unable to submit
         document.getElementById("name").classList.add("is-danger")
         msg.classList.add("is-danger")
         sect.replaceChildren();
         msg.textContent = 'You should not be on this page...';
-    } else {
+
+        icon.replaceChildren();
+        i.classList.add('fa-xmark');
+    } else { //if the name equals HARRISON, green text, green box, check icon
         document.getElementById("name").classList.replace("is-danger", "is-success");
         msg.classList.add("is-success");
         sect.replaceChildren();
         msg.textContent = 'Welcome, Admin :)';
+
+        icon.replaceChildren();
+        i.classList.remove('fa-xmark');
+        i.classList.add('fa-check')
+
+        canSubmit = true;
     }
 
     sect.append(msg);
+    icon.append(i);
+
+    return canSubmit;
 }
 
+function checkTeamTag(){ //checks if the team's tag matches with an actual team in the local storage
+    let canSubmit = false;
+
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    let team = document.getElementById('team').value;
+    let teamCompVal = teamTag.toUpperCase();
+
+    let icon = document.getElementById('icon-verify-name');
+    icon.classList.add('icon');
+    icon.classList.add('is-small');
+    icon.classList.add('is-right');
+    let i = document.createElement('i');
+    i.classList.add('fa');
+    i.classList.add('fa-solid');
+
+    validTeam = false;
+    teams.forEach((team) => { //searches through every team's tag and compares it to the value from the input
+        if(teamCompVal === team.tag){
+            validTeam = true;
+        }
+    })
+
+    if(!validTeam){ //if validTeam is false, red text, red box, X icon - also causes the function to return false, making form unable to submit
+
+    } else { //if validTeam is true, green text, green box, check icon
+
+        canSubmit = true;
+    }
+
+    return canSubmit;
+}
