@@ -5,6 +5,230 @@ let groupB;
 let groupC;
 let groupD;
 
+let teamsGroupA = [];
+let teamsGroupB = [];
+let teamsGroupC = [];
+let teamsGroupD = [];
+let everyTeam = [];
+
+let team = {};
+team['name'] = 'T1';
+team['id'] = 1;
+team['tag'] = 'T1';
+team['W'] = 5;
+team['L'] = 1;
+team['rank'] = 1;
+team['duration'] = 1915;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 2, win : true}, {opp : 3, win : false}, {opp : 4, win : true}, {opp : 3, win : true}, {opp : 4, win : true}, {opp : 2, win : true}];
+teamsGroupA.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Edward Gaming';
+team['id'] = 2;
+team['tag'] = 'EDG';
+team['W'] = 4;
+team['L'] = 2;
+team['rank'] = 2;
+team['duration'] = 2008;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 1, win : false}, {opp : 4, win : true}, {opp : 3, win : true}, {opp : 4, win : true}, {opp : 3, win : true}, {opp : 1, win : false}];
+teamsGroupA.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Fnatic';
+team['id'] = 3;
+team['tag'] = 'FNC';
+team['W'] = 2;
+team['L'] = 4;
+team['rank'] = 3;
+team['duration'] = 1849;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 4, win : true}, {opp : 1, win : true}, {opp : 2, win : false}, {opp : 4, win : false}, {opp : 1, win : false}, {opp : 2, win : false}];
+teamsGroupA.push(team);  
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Cloud9';
+team['id'] = 4;
+team['tag'] = 'C9';
+team['W'] = 1;
+team['L'] = 5;
+team['rank'] = 4;
+team['duration'] = 1632;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 3, win : false}, {opp : 2, win : false}, {opp : 1, win : false}, {opp : 3, win : true}, {opp : 2, win : false}, {opp : 1, win : false}];
+teamsGroupA.push(team);   
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'JD Gaming';
+team['id'] = 5;
+team['tag'] = 'JDG';
+team['W'] = 6;
+team['L'] = 1;
+team['rank'] = 1;
+team['duration'] = 1884;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 7, win : true}, {opp : 6, win : true}, {opp : 8, win : true}, {opp : 7, win : true}, {opp : 8, win : true}, {opp : 6, win : false}, {opp : 6, win : true}];
+teamsGroupB.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'DWG KIA';
+team['id'] = 6;
+team['tag'] = 'DK';
+team['W'] = 5;
+team['L'] = 2;
+team['rank'] = 2;
+team['duration'] = 1896;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 7, win : true}, {opp : 6, win : false}, {opp : 8, win : true}, {opp : 7, win : true}, {opp : 8, win : true}, {opp : 6, win : true},{opp : 6, win : false}]; 
+teamsGroupB.push(team);  
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Evil Geniuses';
+team['id'] = 7;
+team['tag'] = 'EG';
+team['W'] = 1;
+team['L'] = 5;
+team['rank'] = 3;
+team['duration'] = 1725;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 6, win : false}, {opp : 8, win : false}, {opp : 7, win : false}, {opp : 8, win : true}, {opp : 6, win : false}, {opp : 7, win : false}];
+teamsGroupB.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'G2 Esports';
+team['id'] = 8;
+team['tag'] = 'G2';
+team['W'] = 1;
+team['L'] = 5;
+team['rank'] = 4;
+team['duration'] = 1808;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 6, win : false}, {opp : 7, win : true}, {opp : 5, win : false}, {opp : 7, win : false}, {opp : 6, win : false}, {opp : 5, win : false}];
+teamsGroupB.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'DRX';
+team['id'] = 9;
+team['tag'] = 'DRX';
+team['W'] = 5;
+team['L'] = 2;
+team['rank'] = 1;
+team['duration'] = 2068;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 10, win : false}, {opp : 11, win : true}, {opp : 12, win : true}, {opp : 10, win : true}, {opp : 12, win : true}, {opp : 11, win : false}, {opp : 10, win : true}];
+teamsGroupC.push(team);   
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Rogue';
+team['id'] = 10;
+team['tag'] = 'RGE';
+team['W'] = 4;
+team['L'] = 3;
+team['rank'] = 2;
+team['duration'] = 1860;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 9, win : true}, {opp : 12, win : true}, {opp : 11, win : true}, {opp : 12, win : true}, {opp : 9, win : false}, {opp : 11, win : false}, {opp : 9, win : false}];
+teamsGroupC.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Top Esports';
+team['id'] = 11;
+team['tag'] = 'TES';
+team['W'] = 3;
+team['L'] = 3;
+team['rank'] = 3;
+team['duration'] = 1890;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 12, win : true}, {opp : 9, win : false}, {opp : 10, win : false}, {opp : 12, win : false}, {opp : 10, win : true}, {opp : 9, win : true}];
+teamsGroupC.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'GAM Esports';
+team['id'] = 12;
+team['tag'] = 'GAM';
+team['W'] = 1;
+team['L'] = 5;
+team['rank'] = 4;
+team['duration'] = 1897;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 11, win : false}, {opp : 10, win : false}, {opp : 9, win : false}, {opp : 10, win : false}, {opp : 11, win : true}, {opp : 9, win : false}];
+teamsGroupC.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Gen. G eSports';
+team['id'] = 13;
+team['tag'] = 'GEN';
+team['W'] = 6;
+team['L'] = 1;
+team['rank'] = 1;
+team['duration'] = 1884;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 14, win : false}, {opp : 16, win : true}, {opp : 15, win : true}, {opp : 15, win : true}, {opp : 16, win : true}, {opp : 14, win : true}, {opp : 14, win : true}];
+teamsGroupD.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'Royal Never Give Up';
+team['id'] = 14;
+team['tag'] = 'RNG';
+team['W'] = 5;
+team['L'] = 2;
+team['rank'] = 2;
+team['duration'] = 1895;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 13, win : true}, {opp : 15, win : true}, {opp : 16, win : true}, {opp : 16, win : true}, {opp : 15, win : true}, {opp : 13, win : false}, {opp : 13, win : false}];
+teamsGroupD.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = 'CTBC Flying Oyster';
+team['id'] = 15;
+team['tag'] = 'CFO';
+team['W'] = 1;
+team['L'] = 5;
+team['rank'] = 3;
+team['duration'] = 1902;
+team['killsPerGame'] = 0;
+team['games'] = [{opp : 16, win : true}, {opp : 14, win : false}, {opp : 13, win : false}, {opp : 16, win : false}, {opp : 13, win : false}, {opp : 14, win : false}];
+teamsGroupD.push(team); 
+everyTeam.push(team);
+
+team = {};
+team['name'] = '100 Thieves';
+team['id'] = 16;
+team['tag'] = '100';
+team['W'] = 1;
+team['L'] = 5;
+team['rank'] = 4;
+team['duration'] = 1844;
+team['killsPerGame'] = 8.8;
+team['games'] = [{opp : 15, win : false}, {opp : 13, win : false}, {opp : 14, win : false}, {opp : 15, win : true}, {opp : 14, win : false}, {opp : 13, win : false}];
+teamsGroupD.push(team); 
+everyTeam.push(team);
+
+function initData(){
+    localStorage.setItem('teamsGroupA', JSON.stringify(teamsGroupA));
+    localStorage.setItem('teamsGroupB', JSON.stringify(teamsGroupB));
+    localStorage.setItem('teamsGroupC', JSON.stringify(teamsGroupC));
+    localStorage.setItem('teamsGroupD', JSON.stringify(teamsGroupD));
+    localStorage.setItem('everyTeam', JSON.stringify(everyTeam));
+}
+
+initData();
+
 function getTeams() {
     groupA = JSON.parse(localStorage['teamsGroupA']);
     groupB = JSON.parse(localStorage['teamsGroupB']);
@@ -24,6 +248,7 @@ function createTables(){
 let ascendingRankA, ascendingRankB, ascendingRankC, ascendingRankD = true;
 let ascendingNameA, ascendingNameB, ascendingNameC, ascendingNameD = false;
 let ascendingWinsA, ascendingWinsB, ascendingWinsC, ascendingWinsD = false;
+let ascendingTimeA, ascendingTimeB, ascendingTimeC, ascendingTimeD = false;
 
 function createTable(teams, tableOfChoice) {
     tableBody = document.querySelector(selectedTable(tableOfChoice));
@@ -61,7 +286,21 @@ function createTable(teams, tableOfChoice) {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(2) + "%";
+        td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(1) + "%";
+        row.appendChild(td);
+
+        td = document.createElement('td');
+
+        let seconds = -1;
+        if(team.duration % 60 < 10 && team.duration % 60 > 0){
+            seconds = '0' + team.duration % 60;
+        }else if(team.duration % 60 === 0){
+            seconds = team.duration % 60 + '0';
+        }else{
+            seconds = team.duration % 60;
+        }
+
+        td.textContent = parseInt(team.duration / 60) + ':' + seconds;
         row.appendChild(td);
 
         tableBody.appendChild(row);
@@ -108,7 +347,15 @@ function sort(data, table){
                 ascendingWinsA = true;
                 groupA = groupA.sort((teamA, teamB) => (teamB.W - teamA.W));
             }
-        } 
+        } else if(data === 'duration'){
+            if(ascendingTimeA){
+                ascendingTimeA = false;
+                groupA = groupA.sort((teamA, teamB) => (teamA.duration - teamB.duration));
+            } else {
+                ascendingTimeA = true;
+                groupA = groupA.sort((teamA, teamB) => (teamB.duration - teamA.duration));
+            }
+        }
     } else if(table == 'B'){
         if(data === 'rank'){
             if(ascendingRankB){
@@ -133,6 +380,14 @@ function sort(data, table){
             } else {
                 ascendingWinsB = true;
                 groupB = groupB.sort((teamA, teamB) => (teamB.W - teamA.W));
+            }
+        } else if(data === 'duration'){
+            if(ascendingTimeB){
+                ascendingTimeB = false;
+                groupB = groupB.sort((teamA, teamB) => (teamA.duration - teamB.duration));
+            } else {
+                ascendingTimeB = true;
+                groupB = groupB.sort((teamA, teamB) => (teamB.duration - teamA.duration));
             }
         }
     } else if(table == 'C'){
@@ -160,6 +415,14 @@ function sort(data, table){
                 ascendingWinsC = true;
                 groupC = groupC.sort((teamA, teamB) => (teamB.W - teamA.W));
             }
+        } else if(data === 'duration'){
+            if(ascendingTimeC){
+                ascendingTimeC = false;
+                groupC = groupC.sort((teamA, teamB) => (teamA.duration - teamB.duration));
+            } else {
+                ascendingTimeC = true;
+                groupC = groupC.sort((teamA, teamB) => (teamB.duration - teamA.duration));
+            }
         }
     } else {
         if(data === 'rank'){
@@ -185,6 +448,14 @@ function sort(data, table){
             } else {
                 ascendingWinsD = true;
                 groupD = groupD.sort((teamA, teamB) => (teamB.W - teamA.W));
+            }
+        } else if(data === 'duration'){
+            if(ascendingTimeD){
+                ascendingTimeD = false;
+                groupD = groupD.sort((teamA, teamB) => (teamA.duration - teamB.duration));
+            } else {
+                ascendingTimeD = true;
+                groupD = groupD.sort((teamA, teamB) => (teamB.duration - teamA.duration));
             }
         }
     }
@@ -435,4 +706,38 @@ function checkOppTeamTag(){ //checks if the team's tag matches with an actual te
     icon.append(i);
 
     return canSubmit;
+}
+
+function checkDuration(){
+    let canSubmit = false;
+
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    let duration = document.getElementById('dur').value;
+
+    let sect = document.getElementById("dur-msg");
+    let msg = document.createElement("p");
+    msg.classList.add("help");
+
+    let icon = document.getElementById('icon-verify-opp');
+    icon.classList.add('icon');
+    icon.classList.add('is-small');
+    icon.classList.add('is-right');
+    let i = document.createElement('i');
+    i.classList.add('fa');
+    i.classList.add('fa-solid');
+
+    //THIS IF STATEMENT IS FOR TIMES WITH 4 CHARACTER E.G. 9:50
+
+    //THIS IF STATEMENT IS FOR TIMES WITH 5 CHARACTERS E.G. 43:21
+
+    if(isNaN(parseInt(duration.substring(0, 2))) || isNaN(parseInt(duration.substring(3))) || duration.substring(2, 3) != ':'){
+        document.getElementById("dur").classList.add("is-danger")
+        msg.classList.add("is-danger")
+        sect.replaceChildren();
+        msg.textContent = 'You must format the time as (mm:ss).';
+    } else {
+
+    } 
+
+
 }
