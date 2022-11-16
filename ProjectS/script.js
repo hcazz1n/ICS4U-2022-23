@@ -718,7 +718,7 @@ function checkDuration(){
     let msg = document.createElement("p");
     msg.classList.add("help");
 
-    let icon = document.getElementById('icon-verify-opp');
+    let icon = document.getElementById('icon-verify-dur');
     icon.classList.add('icon');
     icon.classList.add('is-small');
     icon.classList.add('is-right');
@@ -726,18 +726,29 @@ function checkDuration(){
     i.classList.add('fa');
     i.classList.add('fa-solid');
 
-    //THIS IF STATEMENT IS FOR TIMES WITH 4 CHARACTER E.G. 9:50
-
-    //THIS IF STATEMENT IS FOR TIMES WITH 5 CHARACTERS E.G. 43:21
-
-    if(isNaN(parseInt(duration.substring(0, 2))) || isNaN(parseInt(duration.substring(3))) || duration.substring(2, 3) != ':'){
-        document.getElementById("dur").classList.add("is-danger")
-        msg.classList.add("is-danger")
+    if(isNaN(parseInt(duration.substring(0, 1))) || isNaN(parseInt(duration.substring(1, 2))) || duration.substring(2, 3) != ':' || 
+    isNaN(parseInt(duration.substring(3, 4))) || isNaN(parseInt(duration.substring(4)))){
+        document.getElementById("dur").classList.add("is-danger");
+        msg.classList.add("is-danger");
         sect.replaceChildren();
         msg.textContent = 'You must format the time as (mm:ss).';
+
+        icon.replaceChildren();
+        i.classList.add('fa-xmark');
     } else {
+        document.getElementById("dur").classList.replace("is-danger", "is-success");
+        msg.classList.add("is-success");
+        sect.replaceChildren();
 
-    } 
+        icon.replaceChildren();
+        i.classList.remove('fa-xmark');
+        i.classList.add('fa-check');
 
+        canSubmit = true;
+    }
 
+    sect.append(msg);
+    icon.append(i);
+
+    return canSubmit;
 }
