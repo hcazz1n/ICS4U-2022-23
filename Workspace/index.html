@@ -6,15 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body onload="test();">
+    <div class="field is-grouped">
+        <div class="control">
+            <button id="moo" class="button is-link is-outlined" disabled>Submit</button>
+        </div>
+        <div class="control">
+            <button id="cow" class="button is-link is-light is-outlined">Cancel</button>
+        </div>
+    </div>
 </body>
 <script>
-    let test = "43:21";
-    let test2 = "a3:le";
-    console.log(isNaN(parseInt(test2.substring(0, 2))));
-    console.log(parseInt(test2.substring(0, 2)));
-    console.log(parseInt(test.substring(0, 3)));
+function test(){
+
+    let win = document.getElementById('outcome-win');
+    let loss = document.getElementById('outcome-loss');
+
+
+    // let button = document.getElementById('moo');
+    // button.removeAttribute('disabled');
+    // console.log('nutz');
+    // // let buttons = document.querySelectorAll('button');
+
+    // // buttons.forEach((b)=>{
+    // //     console.log(b.removeAttribute('disabled'));
+    // // }
+
+    // // );
+}
 </script>
 </html>
 

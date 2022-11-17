@@ -630,8 +630,7 @@ function checkTeamTag(){ //checks if the team's tag matches with an actual team 
             sect.replaceChildren();
             msg.textContent = 'The teams cannot be the same.';
         } else {
-            document.getElementById("team").classList.replace("is-danger", "is-success");
-            msg.classList.add("is-success");
+            document.getElementById("team").classList.replace("is-danger", "is-success");   
             sect.replaceChildren();
 
             icon.replaceChildren();
@@ -691,7 +690,6 @@ function checkOppTeamTag(){ //checks if the team's tag matches with an actual te
             msg.textContent = 'The teams cannot be the same.';
         } else {
             document.getElementById("opp").classList.replace("is-danger", "is-success");
-            msg.classList.add("is-success");
             sect.replaceChildren();
 
             icon.replaceChildren();
@@ -711,7 +709,6 @@ function checkOppTeamTag(){ //checks if the team's tag matches with an actual te
 function checkDuration(){
     let canSubmit = false;
 
-    let teams = JSON.parse(localStorage.getItem('everyTeam'));
     let duration = document.getElementById('dur').value;
 
     let sect = document.getElementById("dur-msg");
@@ -737,7 +734,6 @@ function checkDuration(){
         i.classList.add('fa-xmark');
     } else {
         document.getElementById("dur").classList.replace("is-danger", "is-success");
-        msg.classList.add("is-success");
         sect.replaceChildren();
 
         icon.replaceChildren();
@@ -752,3 +748,67 @@ function checkDuration(){
 
     return canSubmit;
 }
+
+function checkDateEntered(){ //checks if there is a date entered - no other verification or factors
+    let canSubmit = false;
+
+    let date = document.getElementById('date').value;
+
+    let sect = document.getElementById("date-msg");
+    let msg = document.createElement("p");
+    msg.classList.add("help");
+
+    if(date.substring(0, 4) != 2022){
+        document.getElementById("date").classList.add('is-danger');
+        msg.classList.add("is-danger");
+        sect.replaceChildren();
+        msg.textContent = 'Please enter a date from 2022.';
+    } else {
+        document.getElementById("date").classList.replace('is-danger', 'is-success');
+        sect.replaceChildren();
+
+        canSubmit = true;
+    }
+
+    sect.append(msg);
+
+    return canSubmit;
+}
+
+function checkWLSelect(outcome){ //returns true when win button is pressed
+    let canSubmit = true;
+    let win = document.getElementById('outcome-win');
+    let loss = document.getElementById('outcome-loss');
+
+    if(outcome === 'w'){
+        if(win.classList[2] === 'is-outlined'){
+            win.classList.remove('is-outlined');
+            if(loss.classList[2] !== 'is-outlined'){
+                loss.classList.add('is-outlined');
+            }
+        } else {
+
+            win.classList.add('is-outlined');
+        }
+    } else {
+        if(loss.classList[2] === 'is-outlined'){
+            loss.classList.remove('is-outlined');
+            if(win.classList[2] !== 'is-outlined'){
+                win.classList.add('is-outlined');
+            }
+        } else {
+            loss.classList.add('is-outlined');
+        }
+    }
+
+    return canSubmit;
+}
+
+
+function canSubmit(){ //checks if all fields have proper information and un-disables the submit button.
+    if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered() && checkWLSelect() /*need 2 return W or L somehow*/){
+        let button = document.getElementById('submit-button');
+        button.removeAttribute('disabled');
+    }
+}
+
