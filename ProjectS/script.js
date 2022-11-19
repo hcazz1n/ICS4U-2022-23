@@ -17,10 +17,10 @@ team['id'] = 1;
 team['tag'] = 'T1';
 team['W'] = 5;
 team['L'] = 1;
-team['rank'] = 1;
+team['rank'] = 1;   
 team['duration'] = 1915;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 2, win : true}, {opp : 3, win : false}, {opp : 4, win : true}, {opp : 3, win : true}, {opp : 4, win : true}, {opp : 2, win : true}];
+team['games'] = [{opp : 2, win : true, duration : 1915, date : '10/07'}, {opp : 3, win : false, duration : 1915, date : '10/08'}, {opp : 4, win : true, duration : 1915, date : '10/09'}, {opp : 3, win : true, duration : 1915, date : '10/13'}, {opp : 4, win : true, duration : 1915, date : '10/13'}, {opp : 2, win : true, duration : 1915, date : '10/13'}];
 teamsGroupA.push(team); 
 everyTeam.push(team);
 
@@ -33,7 +33,7 @@ team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 2008;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 1, win : false}, {opp : 4, win : true}, {opp : 3, win : true}, {opp : 4, win : true}, {opp : 3, win : true}, {opp : 1, win : false}];
+team['games'] = [{opp : 1, win : false, duration : 2008, date : '10/07'}, {opp : 4, win : true, duration : 2008, date : '10/08'}, {opp : 3, win : true, duration : 2008, date : '10/09'}, {opp : 4, win : true, duration : 2008, date : '10/13'}, {opp : 3, win : true, duration : 2008, date : '10/13'}, {opp : 1, win : false, duration : 2008, date : '10/13'}];
 teamsGroupA.push(team); 
 everyTeam.push(team);
 
@@ -46,7 +46,7 @@ team['L'] = 4;
 team['rank'] = 3;
 team['duration'] = 1849;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 4, win : true}, {opp : 1, win : true}, {opp : 2, win : false}, {opp : 4, win : false}, {opp : 1, win : false}, {opp : 2, win : false}];
+team['games'] = [{opp : 4, win : true, duration : 1849, date : '10/07'}, {opp : 1, win : true, duration : 1849, date : '10/08'}, {opp : 2, win : false, duration : 1849, date : '10/09'}, {opp : 4, win : false, duration : 1849, date : '10/13'}, {opp : 1, win : false, duration : 1849, date : '10/13'}, {opp : 2, win : false, duration : 1849, date : '10/13'}];
 teamsGroupA.push(team);  
 everyTeam.push(team);
 
@@ -59,7 +59,7 @@ team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 1632;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 3, win : false}, {opp : 2, win : false}, {opp : 1, win : false}, {opp : 3, win : true}, {opp : 2, win : false}, {opp : 1, win : false}];
+team['games'] = [{opp : 3, win : false, duration : 1632, date : '10/07'}, {opp : 2, win : false, duration : 1632, date : '10/08'}, {opp : 1, win : false, duration : 1632, date : '10/09'}, {opp : 3, win : true, duration : 1632, date : '10/13'}, {opp : 2, win : false, duration : 1632, date : '10/13'}, {opp : 1, win : false, duration : 1632, date : '10/13'}];
 teamsGroupA.push(team);   
 everyTeam.push(team);
 
@@ -72,7 +72,7 @@ team['L'] = 1;
 team['rank'] = 1;
 team['duration'] = 1884;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 7, win : true}, {opp : 6, win : true}, {opp : 8, win : true}, {opp : 7, win : true}, {opp : 8, win : true}, {opp : 6, win : false}, {opp : 6, win : true}];
+team['games'] = [{opp : 7, win : true, duration : 1884, date : '10/07'}, {opp : 6, win : true, duration : 1884, date : '10/08'}, {opp : 8, win : true, duration : 1884, date : '10/10'}, {opp : 7, win : true, duration : 1884, date : '10/14'}, {opp : 8, win : true, duration : 1884, date : '10/14'}, {opp : 6, win : false, duration : 1884, date : '10/14'}, {opp : 6, win : true, duration : 1884, date : '10/14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -85,7 +85,7 @@ team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 1896;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 7, win : true}, {opp : 6, win : false}, {opp : 8, win : true}, {opp : 7, win : true}, {opp : 8, win : true}, {opp : 6, win : true},{opp : 6, win : false}]; 
+team['games'] = [{opp : 7, win : true, duration : 1896, date : '10/07'}, {opp : 6, win : false, duration : 1896, date :'10/08'}, {opp : 8, win : true, duration : 1896, date : '10/10'}, {opp : 7, win : true, duration : 1896, date : '10/14'}, {opp : 8, win : true, duration : 1896, date : '10/14'}, {opp : 6, win : true, duration : 1896, date : '10/14'},{opp : 6, win : false, duration : 1896, date : '10/14'}]; 
 teamsGroupB.push(team);  
 everyTeam.push(team);
 
@@ -98,7 +98,7 @@ team['L'] = 5;
 team['rank'] = 3;
 team['duration'] = 1725;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 6, win : false}, {opp : 8, win : false}, {opp : 7, win : false}, {opp : 8, win : true}, {opp : 6, win : false}, {opp : 7, win : false}];
+team['games'] = [{opp : 6, win : false, duration : 1725, date : '10/07'}, {opp : 8, win : false, duration : 1725, date : '10/08'}, {opp : 7, win : false, duration : 1725, date : '10/10'}, {opp : 8, win : true, duration : 1725, date : '10/14'}, {opp : 6, win : false, duration : 1725, date : '10/14'}, {opp : 7, win : false, duration : 1725, date : '10/14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -111,7 +111,7 @@ team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 1808;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 6, win : false}, {opp : 7, win : true}, {opp : 5, win : false}, {opp : 7, win : false}, {opp : 6, win : false}, {opp : 5, win : false}];
+team['games'] = [{opp : 6, win : false, duration : 1808, date : '10/07'}, {opp : 7, win : true, duration : 1808, date : '10/08'}, {opp : 5, win : false, duration : 1808, date : '10/10'}, {opp : 7, win : false, duration : 1808, date : '10/14'}, {opp : 6, win : false, duration : 1808, date : '10/14'}, {opp : 5, win : false, duration : 1808, date : '10/14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -124,7 +124,7 @@ team['L'] = 2;
 team['rank'] = 1;
 team['duration'] = 2068;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 10, win : false}, {opp : 11, win : true}, {opp : 12, win : true}, {opp : 10, win : true}, {opp : 12, win : true}, {opp : 11, win : false}, {opp : 10, win : true}];
+team['games'] = [{opp : 10, win : false, duration : 2068, date : '10/08'}, {opp : 11, win : true, duration : 2068, date : '10/09'}, {opp : 12, win : true, duration : 2068, date : '10/10'}, {opp : 10, win : true, duration : 2068, date : '10/15'}, {opp : 12, win : true, duration : 2068, date : '10/15'}, {opp : 11, win : false, duration : 2068, date : '10/15'}, {opp : 10, win : true, duration : 2068, date : '10/15'}];
 teamsGroupC.push(team);   
 everyTeam.push(team);
 
@@ -137,7 +137,7 @@ team['L'] = 3;
 team['rank'] = 2;
 team['duration'] = 1860;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 9, win : true}, {opp : 12, win : true}, {opp : 11, win : true}, {opp : 12, win : true}, {opp : 9, win : false}, {opp : 11, win : false}, {opp : 9, win : false}];
+team['games'] = [{opp : 9, win : true, duration : 1860, date : '10/08'}, {opp : 12, win : true, duration : 1860, date : '10/09'}, {opp : 11, win : true, duration : 1860, date : '10/10'}, {opp : 12, win : true, duration : 1860, date : '10/15'}, {opp : 9, win : false, duration : 1860, date : '10/15'}, {opp : 11, win : false, duration : 1860, date : '10/15'}, {opp : 9, win : false, duration : 1860, date : '10/15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -150,7 +150,7 @@ team['L'] = 3;
 team['rank'] = 3;
 team['duration'] = 1890;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 12, win : true}, {opp : 9, win : false}, {opp : 10, win : false}, {opp : 12, win : false}, {opp : 10, win : true}, {opp : 9, win : true}];
+team['games'] = [{opp : 12, win : true, duration : 1890, date : '10/08'}, {opp : 9, win : false, duration : 1890, date : '10/09'}, {opp : 10, win : false, duration : 1890, date : '10/10'}, {opp : 12, win : false, duration : 1890, date : '10/15'}, {opp : 10, win : true, duration : 1890, date : '10/15'}, {opp : 9, win : true, duration : 1890, date : '10/15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -163,7 +163,7 @@ team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 1897;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 11, win : false}, {opp : 10, win : false}, {opp : 9, win : false}, {opp : 10, win : false}, {opp : 11, win : true}, {opp : 9, win : false}];
+team['games'] = [{opp : 11, win : false, duration : 1897, date : '10/08'}, {opp : 10, win : false, duration : 1897, date : '10/09'}, {opp : 9, win : false, duration : 1897, date : '10/10'}, {opp : 10, win : false, duration : 1897, date : '10/15'}, {opp : 11, win : true, duration : 1897, date : '10/15'}, {opp : 9, win : false, duration : 1897, date : '10/15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -176,7 +176,7 @@ team['L'] = 1;
 team['rank'] = 1;
 team['duration'] = 1884;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 14, win : false}, {opp : 16, win : true}, {opp : 15, win : true}, {opp : 15, win : true}, {opp : 16, win : true}, {opp : 14, win : true}, {opp : 14, win : true}];
+team['games'] = [{opp : 14, win : false, duration : 1884, date : '10/07'}, {opp : 16, win : true, duration : 1884, date : '10/09'}, {opp : 15, win : true, duration : 1884, date : '10/10'}, {opp : 15, win : true, duration : 1884, date : '10/16'}, {opp : 16, win : true, duration : 1884, date : '10/16'}, {opp : 14, win : true, duration : 1884, date : '10/16'}, {opp : 14, win : true, duration : 1884, date : '10/16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -189,7 +189,7 @@ team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 1895;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 13, win : true}, {opp : 15, win : true}, {opp : 16, win : true}, {opp : 16, win : true}, {opp : 15, win : true}, {opp : 13, win : false}, {opp : 13, win : false}];
+team['games'] = [{opp : 13, win : true, duration : 1895, date : '10/07'}, {opp : 15, win : true, duration : 1895, date : '10/09'}, {opp : 16, win : true, duration : 1895, date : '10/10'}, {opp : 16, win : true, duration : 1895, date : '10/16'}, {opp : 15, win : true, duration : 1895, date : '10/16'}, {opp : 13, win : false, duration : 1895, date : '10/16'}, {opp : 13, win : false, duration : 1895, date : '10/16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -202,7 +202,7 @@ team['L'] = 5;
 team['rank'] = 3;
 team['duration'] = 1902;
 team['killsPerGame'] = 0;
-team['games'] = [{opp : 16, win : true}, {opp : 14, win : false}, {opp : 13, win : false}, {opp : 16, win : false}, {opp : 13, win : false}, {opp : 14, win : false}];
+team['games'] = [{opp : 16, win : true, duration : 1902, date : '10/07'}, {opp : 14, win : false, duration : 1902, date : '10/09'}, {opp : 13, win : false, duration : 1902, date : '10/10'}, {opp : 16, win : false, duration : 1902, date : '10/16'}, {opp : 13, win : false, duration : 1902, date : '10/16'}, {opp : 14, win : false, duration : 1902, date : '10/16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -215,7 +215,7 @@ team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 1844;
 team['killsPerGame'] = 8.8;
-team['games'] = [{opp : 15, win : false}, {opp : 13, win : false}, {opp : 14, win : false}, {opp : 15, win : true}, {opp : 14, win : false}, {opp : 13, win : false}];
+team['games'] = [{opp : 15, win : false, duration : 1844, date : '10/07'}, {opp : 13, win : false, duration : 1844, date : '10/09'}, {opp : 14, win : false, duration : 1844, date : '10/10'}, {opp : 15, win : true, duration : 1844, date : '10/16'}, {opp : 14, win : false, duration : 1844, date : '10/16'}, {opp : 13, win : false, duration : 1844, date : '10/16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -776,7 +776,7 @@ function checkDateEntered(){ //checks if there is a date entered - no other veri
 }
 
 function checkWLSelect(outcome){ //returns true when win button is pressed
-    let canSubmit = true;
+    let canSubmit = false;
     let win = document.getElementById('outcome-win');
     let loss = document.getElementById('outcome-loss');
 
@@ -787,10 +787,10 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
                 loss.classList.add('is-outlined');
             }
         } else {
-
             win.classList.add('is-outlined');
         }
-    } else {
+        canSubmit = true;
+    } else if(outcome === 'l') {
         if(loss.classList[2] === 'is-outlined'){
             loss.classList.remove('is-outlined');
             if(win.classList[2] !== 'is-outlined'){
@@ -799,16 +799,23 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
         } else {
             loss.classList.add('is-outlined');
         }
+        canSubmit = true;
     }
-
+    
     return canSubmit;
 }
 
 
-function canSubmit(){ //checks if all fields have proper information and un-disables the submit button.
-    if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered() && checkWLSelect() /*need 2 return W or L somehow*/){
-        let button = document.getElementById('submit-button');
+function canSubmit(outcome){ //checks if all fields have proper information and un-disables the submit button. outcome - param to know if win or loss
+    let button = document.getElementById('submit-button');
+    if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered() && checkWLSelect(outcome)){
         button.removeAttribute('disabled');
+    } else {
+        button.setAttribute('disabled');
     }
+}
+
+function submit(outcome){ //pushes the information to the localStorage to update setats
+
 }
 

@@ -126,20 +126,17 @@
                     <label class="label">Outcome</label>
                     <div class="field is-grouped">
                         <div class="control">
-                            <button id="outcome-win" class="button is-link is-outlined" onclick="checkWLSelect('w'); canSubmit();">Win</button>
+                            <button id="outcome-win" class="button is-link is-outlined" onclick="checkWLSelect('w'); canSubmit('w');">Win</button>
                         </div>
                         <div class="control">
-                            <button id="outcome-loss" class="button is-link is-outlined" onclick="checkWLSelect('l'); canSubmit();">Loss</button>
+                            <button id="outcome-loss" class="button is-link is-outlined" onclick="checkWLSelect('l'); canSubmit('l');">Loss</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button id="submit-button" class="button is-link" disabled>Submit</button>
-                    </div>
-                    <div class="control">
-                        <button class="button is-link is-light">Cancel</button>
+                        <button id="submit-button" class="button is-link" onclick="submit();" disabled>Submit</button>
                     </div>
                 </div>
             </div>
