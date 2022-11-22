@@ -896,9 +896,9 @@ function createAllTeamGames(teams) {
     
             card.append(outcome);
             card.append(datePlayed);
-    
+
             gameSect.appendChild(card);
-    
+
             count++;
             totalGameCount++;
             
@@ -912,10 +912,9 @@ function createAllTeamGames(teams) {
             }
         })
     })
-    createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
+    createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played as well as a list of all the cards holding games.
 }
 
-const paginationNumbers = document.getElementById("pagination-numbers");
 const paginatedList = document.getElementById("pagination-list");
 const paginationLimit = 6;
 let currentPage = 1;
@@ -928,48 +927,42 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
         let li = document.createElement('li');
         let a = document.createElement('a');
         a.classList.add('pagination-link');
-        a.textContent = i + 1;
+        a.textContent = i+1;
         li.append(a);
         ul.append(li);  
     }
 
     setCurrentPage(1);
-  
-    document.querySelectorAll(".pagination-number").forEach((button) => {
-      const pageIndex = Number(button.getAttribute("page-index"));
-  
-        if (pageIndex) {
-            button.addEventListener("click", () => {
-            setCurrentPage(pageIndex);
-            })
-        }   
-    })
-
-}
-
-function handleActivePageNumber() {
-    document.querySelectorAll(".pagination-number").forEach((button) => {
-        button.classList.remove("active");
-        const pageIndex = Number(button.getAttribute("page-index"));
-        if (pageIndex == currentPage) {
-        button.classList.add("active");
-        }
-    })
 }
 
 function setCurrentPage(pageNum){
     currentPage = pageNum;
-    handleActivePageNumber();
-  
+    activePageNumber();
+
     const prevRange = (pageNum - 1) * paginationLimit;
     const currRange = pageNum * paginationLimit;
-    
-    let teams = JSON.parse(localStorage.getItem('everyTeam'));
 
-    teams.games.forEach((item, index) => {
-      item.classList.add("hidden");
-      if (index >= prevRange && index < currRange) {
-        item.classList.remove("hidden");
-      }
+    // gameList.forEach((item, index) => {
+    //     item.classList.add('hidden');
+    //     if (index >= prevRange && index < currRange) {
+    //         item.classList.remove("hidden");
+    //     }
+    // })
+}
+
+function activePageNumber(){
+    document.querySelectorAll('a.pagination-link').forEach((a) => {
+        if(a.textContent == currentPage){
+            a.classList.add('has-background-link');
+            a.classList.add('has-text-white');
+        } else {
+            a.classList.add('has-background-white');
+            a.classList.add('has-text-black');
+        }
     })
 }
+
+function changePage(page){ //changes the page to the selected page. page - param to determine which page to go to
+    console.log('test');
+}
+
