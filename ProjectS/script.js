@@ -5,9 +5,6 @@ let groupB;
 let groupC;
 let groupD;
 
-let currentPage = 1; //sets the current page for pagination
-let gamesPerPage = 6; //sets the number of games allowed per page for pagination
-
 let teamsGroupA = [];
 let teamsGroupB = [];
 let teamsGroupC = [];
@@ -918,28 +915,61 @@ function createAllTeamGames(teams) {
     createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
 }
 
+const paginationNumbers = document.getElementById("pagination-numbers");
+const paginatedList = document.getElementById("pagination-list");
+const paginationLimit = 6;
+let currentPage = 1;
+
 function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
+    let pageCount = Math.ceil(totalGameCount / paginationLimit);
     let ul = document.querySelector('ul');
 
-    let pages = totalGameCount / 6;
-    if(totalGameCount % 6 > 0){ //ensures if there is a remaining # of games, a new page is created for them
-        pages++;
-    }
-
-    for(i=0; i<pages; i++){
+    for(i=0; i<pageCount; i++){
         let li = document.createElement('li');
         let a = document.createElement('a');
         a.classList.add('pagination-link');
-        
-        a.addEventListener('click', changePage(i + 1)); //makes it so when click on a number, it will take you that page of games
-
         a.textContent = i + 1;
         li.append(a);
         ul.append(li);  
     }
+
+    setCurrentPage(1);
+  
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+      const pageIndex = Number(button.getAttribute("page-index"));
+  
+        if (pageIndex) {
+            button.addEventListener("click", () => {
+            setCurrentPage(pageIndex);
+            })
+        }   
+    })
+
 }
 
-function changePage(page){ //changes the page to the selected page. page - param to determine which page to go to
-    console.log('test');
+function handleActivePageNumber() {
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+        button.classList.remove("active");
+        const pageIndex = Number(button.getAttribute("page-index"));
+        if (pageIndex == currentPage) {
+        button.classList.add("active");
+        }
+    })
 }
 
+function setCurrentPage(pageNum){
+    currentPage = pageNum;
+    handleActivePageNumber();
+  
+    const prevRange = (pageNum - 1) * paginationLimit;
+    const currRange = pageNum * paginationLimit;
+    
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+
+    teams.games.forEach((item, index) => {
+      item.classList.add("hidden");
+      if (index >= prevRange && index < currRange) {
+        item.classList.remove("hidden");
+      }
+    })
+}
