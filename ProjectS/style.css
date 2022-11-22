@@ -22,7 +22,7 @@ a:hover{
 }
 
 a.text.navbar-item:hover strong{
-    color: #c69d57 !important;
+    color: #00c8c8 !important;
 }
 
 .topbar{
@@ -46,6 +46,20 @@ a.text.navbar-item:hover strong{
 
 .team-games{
     font-size: 22px;
+}
+
+#team-logo-head{
+    float: left;
+    display: flex;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+}
+
+.teamname{
+    position: relative;
+    top: 20px;
+    left: 15px;
 }
 
 /*for admin.html*/
@@ -74,4 +88,13 @@ a.text.navbar-item:hover strong{
     margin-bottom: 10px;
 }
 
+#submit-button{
+    margin-left: 10px;
+}
+
+/*for games.html*/
+
+#game-container{
+    margin-top: 10px;
+}
 

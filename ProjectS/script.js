@@ -5,6 +5,9 @@ let groupB;
 let groupC;
 let groupD;
 
+let currentPage = 1; //sets the current page for pagination
+let gamesPerPage = 6; //sets the number of games allowed per page for pagination
+
 let teamsGroupA = [];
 let teamsGroupB = [];
 let teamsGroupC = [];
@@ -18,9 +21,8 @@ team['tag'] = 'T1';
 team['W'] = 5;
 team['L'] = 1;
 team['rank'] = 1;   
-team['duration'] = 1915;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 2, win : true, duration : 1915, date : '10/07'}, {opp : 3, win : false, duration : 1915, date : '10/08'}, {opp : 4, win : true, duration : 1915, date : '10/09'}, {opp : 3, win : true, duration : 1915, date : '10/13'}, {opp : 4, win : true, duration : 1915, date : '10/13'}, {opp : 2, win : true, duration : 1915, date : '10/13'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 2, win : true, duration : 1915, date : '10-07'}, {gameId : 1, opp : 3, win : false, duration : 1915, date : '10-08'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-09'}, {gameId : 1, opp : 3, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 2, win : true, duration : 1915, date : '10-13'}];
 teamsGroupA.push(team); 
 everyTeam.push(team);
 
@@ -31,9 +33,8 @@ team['tag'] = 'EDG';
 team['W'] = 4;
 team['L'] = 2;
 team['rank'] = 2;
-team['duration'] = 2008;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 1, win : false, duration : 2008, date : '10/07'}, {opp : 4, win : true, duration : 2008, date : '10/08'}, {opp : 3, win : true, duration : 2008, date : '10/09'}, {opp : 4, win : true, duration : 2008, date : '10/13'}, {opp : 3, win : true, duration : 2008, date : '10/13'}, {opp : 1, win : false, duration : 2008, date : '10/13'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 1, win : false, duration : 2008, date : '10-07'}, {gameId : 1, opp : 4, win : true, duration : 2008, date : '10-08'}, {gameId : 1, opp : 3, win : true, duration : 2008, date : '10-09'}, {gameId : 1, opp : 4, win : true, duration : 2008, date : '10-13'}, {gameId : 1, opp : 3, win : true, duration : 2008, date : '10-13'}, {gameId : 1, opp : 1, win : false, duration : 2008, date : '10-13'}];
 teamsGroupA.push(team); 
 everyTeam.push(team);
 
@@ -44,9 +45,8 @@ team['tag'] = 'FNC';
 team['W'] = 2;
 team['L'] = 4;
 team['rank'] = 3;
-team['duration'] = 1849;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 4, win : true, duration : 1849, date : '10/07'}, {opp : 1, win : true, duration : 1849, date : '10/08'}, {opp : 2, win : false, duration : 1849, date : '10/09'}, {opp : 4, win : false, duration : 1849, date : '10/13'}, {opp : 1, win : false, duration : 1849, date : '10/13'}, {opp : 2, win : false, duration : 1849, date : '10/13'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 4, win : true, duration : 1849, date : '10-07'}, {gameId : 1, opp : 1, win : true, duration : 1849, date : '10-08'}, {gameId : 1, opp : 2, win : false, duration : 1849, date : '10-09'}, {gameId : 1, opp : 4, win : false, duration : 1849, date : '10-13'}, {gameId : 1, opp : 1, win : false, duration : 1849, date : '10-13'}, {gameId : 1, opp : 2, win : false, duration : 1849, date : '10-13'}];
 teamsGroupA.push(team);  
 everyTeam.push(team);
 
@@ -57,9 +57,8 @@ team['tag'] = 'C9';
 team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
-team['duration'] = 1632;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 3, win : false, duration : 1632, date : '10/07'}, {opp : 2, win : false, duration : 1632, date : '10/08'}, {opp : 1, win : false, duration : 1632, date : '10/09'}, {opp : 3, win : true, duration : 1632, date : '10/13'}, {opp : 2, win : false, duration : 1632, date : '10/13'}, {opp : 1, win : false, duration : 1632, date : '10/13'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 3, win : false, duration : 1632, date : '10-07'}, {gameId : 1, opp : 2, win : false, duration : 1632, date : '10-08'}, {gameId : 1, opp : 1, win : false, duration : 1632, date : '10-09'}, {gameId : 1, opp : 3, win : true, duration : 1632, date : '10-13'}, {gameId : 1, opp : 2, win : false, duration : 1632, date : '10-13'}, {gameId : 1, opp : 1, win : false, duration : 1632, date : '10-13'}];
 teamsGroupA.push(team);   
 everyTeam.push(team);
 
@@ -70,9 +69,8 @@ team['tag'] = 'JDG';
 team['W'] = 6;
 team['L'] = 1;
 team['rank'] = 1;
-team['duration'] = 1884;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 7, win : true, duration : 1884, date : '10/07'}, {opp : 6, win : true, duration : 1884, date : '10/08'}, {opp : 8, win : true, duration : 1884, date : '10/10'}, {opp : 7, win : true, duration : 1884, date : '10/14'}, {opp : 8, win : true, duration : 1884, date : '10/14'}, {opp : 6, win : false, duration : 1884, date : '10/14'}, {opp : 6, win : true, duration : 1884, date : '10/14'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 7, win : true, duration : 1884, date : '10-07'}, {gameId : 1, opp : 6, win : true, duration : 1884, date : '10-08'}, {gameId : 1, opp : 8, win : true, duration : 1884, date : '10-10'}, {gameId : 1, opp : 7, win : true, duration : 1884, date : '10-14'}, {gameId : 1, opp : 8, win : true, duration : 1884, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1884, date : '10-14'}, {gameId : 1, opp : 6, win : true, duration : 1884, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -83,9 +81,8 @@ team['tag'] = 'DK';
 team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 2;
-team['duration'] = 1896;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 7, win : true, duration : 1896, date : '10/07'}, {opp : 6, win : false, duration : 1896, date :'10/08'}, {opp : 8, win : true, duration : 1896, date : '10/10'}, {opp : 7, win : true, duration : 1896, date : '10/14'}, {opp : 8, win : true, duration : 1896, date : '10/14'}, {opp : 6, win : true, duration : 1896, date : '10/14'},{opp : 6, win : false, duration : 1896, date : '10/14'}]; 
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 7, win : true, duration : 1896, date : '10-07'}, {gameId : 1, opp : 6, win : false, duration : 1896, date :'10-08'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-10'}, {gameId : 1, opp : 7, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 6, win : true, duration : 1896, date : '10-14'},{gameId : 1, opp : 6, win : false, duration : 1896, date : '10-14'}]; 
 teamsGroupB.push(team);  
 everyTeam.push(team);
 
@@ -96,9 +93,8 @@ team['tag'] = 'EG';
 team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 3;
-team['duration'] = 1725;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 6, win : false, duration : 1725, date : '10/07'}, {opp : 8, win : false, duration : 1725, date : '10/08'}, {opp : 7, win : false, duration : 1725, date : '10/10'}, {opp : 8, win : true, duration : 1725, date : '10/14'}, {opp : 6, win : false, duration : 1725, date : '10/14'}, {opp : 7, win : false, duration : 1725, date : '10/14'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 6, win : false, duration : 1725, date : '10-07'}, {gameId : 1, opp : 8, win : false, duration : 1725, date : '10-08'}, {gameId : 1, opp : 7, win : false, duration : 1725, date : '10-10'}, {gameId : 1, opp : 8, win : true, duration : 1725, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1725, date : '10-14'}, {gameId : 1, opp : 7, win : false, duration : 1725, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -109,9 +105,8 @@ team['tag'] = 'G2';
 team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
-team['duration'] = 1808;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 6, win : false, duration : 1808, date : '10/07'}, {opp : 7, win : true, duration : 1808, date : '10/08'}, {opp : 5, win : false, duration : 1808, date : '10/10'}, {opp : 7, win : false, duration : 1808, date : '10/14'}, {opp : 6, win : false, duration : 1808, date : '10/14'}, {opp : 5, win : false, duration : 1808, date : '10/14'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 6, win : false, duration : 1808, date : '10-07'}, {gameId : 1, opp : 7, win : true, duration : 1808, date : '10-08'}, {gameId : 1, opp : 5, win : false, duration : 1808, date : '10-10'}, {gameId : 1, opp : 7, win : false, duration : 1808, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1808, date : '10-14'}, {gameId : 1, opp : 5, win : false, duration : 1808, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -122,9 +117,8 @@ team['tag'] = 'DRX';
 team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 1;
-team['duration'] = 2068;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 10, win : false, duration : 2068, date : '10/08'}, {opp : 11, win : true, duration : 2068, date : '10/09'}, {opp : 12, win : true, duration : 2068, date : '10/10'}, {opp : 10, win : true, duration : 2068, date : '10/15'}, {opp : 12, win : true, duration : 2068, date : '10/15'}, {opp : 11, win : false, duration : 2068, date : '10/15'}, {opp : 10, win : true, duration : 2068, date : '10/15'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 10, win : false, duration : 2068, date : '10-08'}, {gameId : 1, opp : 11, win : true, duration : 2068, date : '10-09'}, {gameId : 1, opp : 12, win : true, duration : 2068, date : '10-10'}, {gameId : 1, opp : 10, win : true, duration : 2068, date : '10-15'}, {gameId : 1, opp : 12, win : true, duration : 2068, date : '10-15'}, {gameId : 1, opp : 11, win : false, duration : 2068, date : '10-15'}, {gameId : 1, opp : 10, win : true, duration : 2068, date : '10-15'}];
 teamsGroupC.push(team);   
 everyTeam.push(team);
 
@@ -135,9 +129,8 @@ team['tag'] = 'RGE';
 team['W'] = 4;
 team['L'] = 3;
 team['rank'] = 2;
-team['duration'] = 1860;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 9, win : true, duration : 1860, date : '10/08'}, {opp : 12, win : true, duration : 1860, date : '10/09'}, {opp : 11, win : true, duration : 1860, date : '10/10'}, {opp : 12, win : true, duration : 1860, date : '10/15'}, {opp : 9, win : false, duration : 1860, date : '10/15'}, {opp : 11, win : false, duration : 1860, date : '10/15'}, {opp : 9, win : false, duration : 1860, date : '10/15'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 9, win : true, duration : 1860, date : '10-08'}, {gameId : 1, opp : 12, win : true, duration : 1860, date : '10-09'}, {gameId : 1, opp : 11, win : true, duration : 1860, date : '10-10'}, {gameId : 1, opp : 12, win : true, duration : 1860, date : '10-15'}, {gameId : 1, opp : 9, win : false, duration : 1860, date : '10-15'}, {gameId : 1, opp : 11, win : false, duration : 1860, date : '10-15'}, {gameId : 1, opp : 9, win : false, duration : 1860, date : '10-15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -148,9 +141,8 @@ team['tag'] = 'TES';
 team['W'] = 3;
 team['L'] = 3;
 team['rank'] = 3;
-team['duration'] = 1890;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 12, win : true, duration : 1890, date : '10/08'}, {opp : 9, win : false, duration : 1890, date : '10/09'}, {opp : 10, win : false, duration : 1890, date : '10/10'}, {opp : 12, win : false, duration : 1890, date : '10/15'}, {opp : 10, win : true, duration : 1890, date : '10/15'}, {opp : 9, win : true, duration : 1890, date : '10/15'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 12, win : true, duration : 1890, date : '10-08'}, {gameId : 1, opp : 9, win : false, duration : 1890, date : '10-09'}, {gameId : 1, opp : 10, win : false, duration : 1890, date : '10-10'}, {gameId : 1, opp : 12, win : false, duration : 1890, date : '10-15'}, {gameId : 1, opp : 10, win : true, duration : 1890, date : '10-15'}, {gameId : 1, opp : 9, win : true, duration : 1890, date : '10-15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -161,9 +153,8 @@ team['tag'] = 'GAM';
 team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
-team['duration'] = 1897;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 11, win : false, duration : 1897, date : '10/08'}, {opp : 10, win : false, duration : 1897, date : '10/09'}, {opp : 9, win : false, duration : 1897, date : '10/10'}, {opp : 10, win : false, duration : 1897, date : '10/15'}, {opp : 11, win : true, duration : 1897, date : '10/15'}, {opp : 9, win : false, duration : 1897, date : '10/15'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 11, win : false, duration : 1897, date : '10-08'}, {gameId : 1, opp : 10, win : false, duration : 1897, date : '10-09'}, {gameId : 1, opp : 9, win : false, duration : 1897, date : '10-10'}, {gameId : 1, opp : 10, win : false, duration : 1897, date : '10-15'}, {gameId : 1, opp : 11, win : true, duration : 1897, date : '10-15'}, {gameId : 1, opp : 9, win : false, duration : 1897, date : '10-15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -174,9 +165,8 @@ team['tag'] = 'GEN';
 team['W'] = 6;
 team['L'] = 1;
 team['rank'] = 1;
-team['duration'] = 1884;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 14, win : false, duration : 1884, date : '10/07'}, {opp : 16, win : true, duration : 1884, date : '10/09'}, {opp : 15, win : true, duration : 1884, date : '10/10'}, {opp : 15, win : true, duration : 1884, date : '10/16'}, {opp : 16, win : true, duration : 1884, date : '10/16'}, {opp : 14, win : true, duration : 1884, date : '10/16'}, {opp : 14, win : true, duration : 1884, date : '10/16'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 14, win : false, duration : 1884, date : '10-07'}, {gameId : 1, opp : 16, win : true, duration : 1884, date : '10-09'}, {gameId : 1, opp : 15, win : true, duration : 1884, date : '10-10'}, {gameId : 1, opp : 15, win : true, duration : 1884, date : '10-16'}, {gameId : 1, opp : 16, win : true, duration : 1884, date : '10-16'}, {gameId : 1, opp : 14, win : true, duration : 1884, date : '10-16'}, {gameId : 1, opp : 14, win : true, duration : 1884, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -187,9 +177,8 @@ team['tag'] = 'RNG';
 team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 2;
-team['duration'] = 1895;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 13, win : true, duration : 1895, date : '10/07'}, {opp : 15, win : true, duration : 1895, date : '10/09'}, {opp : 16, win : true, duration : 1895, date : '10/10'}, {opp : 16, win : true, duration : 1895, date : '10/16'}, {opp : 15, win : true, duration : 1895, date : '10/16'}, {opp : 13, win : false, duration : 1895, date : '10/16'}, {opp : 13, win : false, duration : 1895, date : '10/16'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 13, win : true, duration : 1895, date : '10-07'}, {gameId : 1, opp : 15, win : true, duration : 1895, date : '10-09'}, {gameId : 1, opp : 16, win : true, duration : 1895, date : '10-10'}, {gameId : 1, opp : 16, win : true, duration : 1895, date : '10-16'}, {gameId : 1, opp : 15, win : true, duration : 1895, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1895, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1895, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -200,9 +189,8 @@ team['tag'] = 'CFO';
 team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 3;
-team['duration'] = 1902;
-team['killsPerGame'] = 0;
-team['games'] = [{opp : 16, win : true, duration : 1902, date : '10/07'}, {opp : 14, win : false, duration : 1902, date : '10/09'}, {opp : 13, win : false, duration : 1902, date : '10/10'}, {opp : 16, win : false, duration : 1902, date : '10/16'}, {opp : 13, win : false, duration : 1902, date : '10/16'}, {opp : 14, win : false, duration : 1902, date : '10/16'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 16, win : true, duration : 1902, date : '10-07'}, {gameId : 1, opp : 14, win : false, duration : 1902, date : '10-09'}, {gameId : 1, opp : 13, win : false, duration : 1902, date : '10-10'}, {gameId : 1, opp : 16, win : false, duration : 1902, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1902, date : '10-16'}, {gameId : 1, opp : 14, win : false, duration : 1902, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -213,9 +201,8 @@ team['tag'] = '100';
 team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
-team['duration'] = 1844;
-team['killsPerGame'] = 8.8;
-team['games'] = [{opp : 15, win : false, duration : 1844, date : '10/07'}, {opp : 13, win : false, duration : 1844, date : '10/09'}, {opp : 14, win : false, duration : 1844, date : '10/10'}, {opp : 15, win : true, duration : 1844, date : '10/16'}, {opp : 14, win : false, duration : 1844, date : '10/16'}, {opp : 13, win : false, duration : 1844, date : '10/16'}];
+team['duration'] = 0;
+team['games'] = [{gameId : 1, opp : 15, win : false, duration : 1844, date : '10-07'}, {gameId : 1, opp : 13, win : false, duration : 1844, date : '10-09'}, {gameId : 1, opp : 14, win : false, duration : 1844, date : '10-10'}, {gameId : 1, opp : 15, win : true, duration : 1844, date : '10-16'}, {gameId : 1, opp : 14, win : false, duration : 1844, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1844, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -254,10 +241,8 @@ function createTable(teams, tableOfChoice) {
     tableBody = document.querySelector(selectedTable(tableOfChoice));
 
     let previousTeamWins = -1;
-    let firstTeam = true;
     tableBody.replaceChildren();
     teams.forEach((team) => {
-
         let row = document.createElement('tr');
         let td = document.createElement('td');
         let link = document.createElement('a');
@@ -286,17 +271,27 @@ function createTable(teams, tableOfChoice) {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(1) + "%";
+        td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(1);
         row.appendChild(td);
 
         td = document.createElement('td');
 
+        let count = 0;
+        let totalDuration = 0;
+        team.games.forEach(() => {
+            let duration = team.games[count].duration;
+            totalDuration = totalDuration + duration;
+            count++;
+        })
+
+        team.duration = totalDuration/count;
+
         let seconds = -1;
         if(team.duration % 60 < 10 && team.duration % 60 > 0){
             seconds = '0' + team.duration % 60;
-        }else if(team.duration % 60 === 0){
+        } else if(team.duration % 60 === 0){
             seconds = team.duration % 60 + '0';
-        }else{
+        } else {
             seconds = team.duration % 60;
         }
 
@@ -309,7 +304,7 @@ function createTable(teams, tableOfChoice) {
     });
 }
 
-function selectedTable(table) {
+function selectedTable(table) { //grabs the id of the table and the tbody based on the selected table. table - param for the selected table.
     if(table == 'A'){
         return '#groupA tbody';
     } else if(table == 'B'){
@@ -321,7 +316,7 @@ function selectedTable(table) {
     }
 }
 
-function sort(data, table){
+function sort(data, table){ //uses the higher order array sort function to sort values. data - value entered when called to indicate what is being sorted. table - value entered when called to indicate which table is being sorted.
     if(table == 'A'){
         if(data === 'rank'){
             if(ascendingRankA){
@@ -473,7 +468,7 @@ function sort(data, table){
 
 //code below is for teamPage.html
 
-function start() {
+function start(){
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
     let params = (new URL(document.location)).searchParams;
 
@@ -484,44 +479,66 @@ function start() {
 
     let imgLink = document.querySelector('#team-logo-head');
     imgLink.src = 'images/' + teams[0].id + '.png';
+}
 
+function startGames(){
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    createAllTeamGames(teams);
 }
 
 function createTeamGames(teams) { 
-    gameSect = document.querySelector('#games');
+    gameSect = document.querySelector('#gamesC1');
 
     let count = 0;
 
-    teams[0].games.forEach((game) => {
-
+    teams[0].games.forEach(() => {
         let card = document.createElement('div');
         card.classList.add('card');
         card.classList.add('card-content');
         card.classList.add('my-5');
         card.classList.add('team-games');
-        
-        let insideCard = teams[0].tag;
-        if(teams[0].games[count].win == true){
-            insideCard = insideCard + ' | ' + '1' + '-' + '0' + ' | ';
-        } else {
-            insideCard = insideCard + ' | ' + '0' + '-' + '1' + ' | ';
-        }
 
+        let outcome = document.createElement('p');
+        let datePlayed = document.createElement('p');
+        outcome.classList.add('is-size-3');
+        datePlayed.classList.add('is-size-5');
+
+        let scoreline = teams[0].tag;
         let idEnemyTeam = teams[0].games[count].opp;
-
+        if(teams[0].games[count].win == true){
+            scoreline = scoreline + ' | ' + '1' + '-' + '0' + ' | ';
+        } else {
+            scoreline = scoreline + ' | ' + '0' + '-' + '1' + ' | ';
+        }
         teamList = JSON.parse(localStorage.getItem('everyTeam'));
-        insideCard = insideCard + teamList[idEnemyTeam - 1].tag;
-        console.log(insideCard);
-        count++;
+        scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
 
-        card.textContent = insideCard;
+        outcome.textContent = scoreline;
+
+        let date = teams[0].games[count].date;
+        date = '2022-' + date;
+
+        datePlayed.textContent = date;
+
+        card.append(outcome);
+        card.append(datePlayed);
 
         gameSect.appendChild(card);
-    })
 
+        /*Code that cycles through the columns when adding a game to the page*/
+        if(gameSect == document.querySelector('#gamesC1')){
+            gameSect = document.querySelector('#gamesC2');
+        } else if(gameSect == document.querySelector('#gamesC2')){
+            gameSect = document.querySelector('#gamesC3');
+        } else {
+            gameSect = document.querySelector('#gamesC1');
+        }
+
+        count++;
+    })
 }
 
-//functions for the navbar
+//logo swap functions
 
 function swapLogo(){ //swaps the logo from black to blue
     let img = document.getElementById("logo").src = 'images/lolesportsblue.png';
@@ -757,7 +774,7 @@ function checkDateEntered(){ //checks if there is a date entered - no other veri
     let sect = document.getElementById("date-msg");
     let msg = document.createElement("p");
     msg.classList.add("help");
-
+    console.log(date);
     if(date.substring(0, 4) != 2022){
         document.getElementById("date").classList.add('is-danger');
         msg.classList.add("is-danger");
@@ -777,6 +794,7 @@ function checkDateEntered(){ //checks if there is a date entered - no other veri
 
 function checkWLSelect(outcome){ //returns true when win button is pressed
     let canSubmit = false;
+
     let win = document.getElementById('outcome-win');
     let loss = document.getElementById('outcome-loss');
 
@@ -786,8 +804,6 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
             if(loss.classList[2] !== 'is-outlined'){
                 loss.classList.add('is-outlined');
             }
-        } else {
-            win.classList.add('is-outlined');
         }
         canSubmit = true;
     } else if(outcome === 'l') {
@@ -796,8 +812,6 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
             if(win.classList[2] !== 'is-outlined'){
                 win.classList.add('is-outlined');
             }
-        } else {
-            loss.classList.add('is-outlined');
         }
         canSubmit = true;
     }
@@ -815,7 +829,117 @@ function canSubmit(outcome){ //checks if all fields have proper information and 
     }
 }
 
-function submit(outcome){ //pushes the information to the localStorage to update setats
+function clear(){ //clears the text fields and un-highlights the buttons
+    console.log('A');
+    document.getElementById('name').textContent = '';
+    document.getElementById('team').textContent = '';
+    document.getElementById('opp').textContent = '';
+    document.getElementById('dur').textContent = '';
+    document.getElementById('date').textContent = '';
+}
 
+function submit(outcome){ //pushes the information to the localStorage to update stats
+    getTeams();
+
+    let team = document.getElementById('team').value;
+    let opp = document.getElementById('opp').value;
+    let duration = document.getElementById('dur').value;
+    let date = document.getElementById('date').value;
+    let wL = outcome;
+
+    if(team.id > 0 && team.id < 5){
+        let teams = JSON.parse(localStorage.getItem('everyTeam'));
+        teams = teams.filter(team => team.id == params.get('id'));
+        
+    } else if(team.id > 4 && team.id < 9){
+
+    } else if(team.id > 8 && team.id < 13){
+
+    } else {
+
+    }
+}
+
+//code below is for games.html
+
+function createAllTeamGames(teams) { 
+    gameSect = document.querySelector('#gamesC1');
+    let totalGameCount = 0;
+
+    teams.forEach((team) => {
+        let count = 0;
+        team.games.forEach(() => {
+            let card = document.createElement('div');
+            card.classList.add('card');
+            card.classList.add('card-content');
+            card.classList.add('my-5');
+            card.classList.add('team-games');
+    
+            let outcome = document.createElement('p');
+            let datePlayed = document.createElement('p');
+            outcome.classList.add('is-size-3');
+            datePlayed.classList.add('is-size-5');
+    
+            let scoreline = team.tag;
+            let idEnemyTeam = team.games[count].opp;
+            if(team.games[count].win == true){
+                scoreline = scoreline + ' | ' + '1' + '-' + '0' + ' | ';
+            } else {
+                scoreline = scoreline + ' | ' + '0' + '-' + '1' + ' | ';
+            }
+            teamList = JSON.parse(localStorage.getItem('everyTeam'));
+            scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
+    
+            outcome.textContent = scoreline;
+    
+            let date = team.games[count].date;
+            date = '2022-' + date;
+    
+            datePlayed.textContent = date;
+    
+            card.append(outcome);
+            card.append(datePlayed);
+    
+            gameSect.appendChild(card);
+    
+            count++;
+            totalGameCount++;
+            
+            /*Code that cycles through the columns when adding a game to the page*/
+            if(gameSect == document.querySelector('#gamesC1')){
+                gameSect = document.querySelector('#gamesC2');
+            } else if(gameSect == document.querySelector('#gamesC2')){
+                gameSect = document.querySelector('#gamesC3');
+            } else {
+                gameSect = document.querySelector('#gamesC1');
+            }
+        })
+    })
+    createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
+}
+
+function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
+    let ul = document.querySelector('ul');
+
+    let pages = totalGameCount / 6;
+    if(totalGameCount % 6 > 0){ //ensures if there is a remaining # of games, a new page is created for them
+        pages++;
+    }
+
+    for(i=0; i<pages; i++){
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.classList.add('pagination-link');
+        
+        a.addEventListener('click', changePage(i + 1)); //makes it so when click on a number, it will take you that page of games
+
+        a.textContent = i + 1;
+        li.append(a);
+        ul.append(li);  
+    }
+}
+
+function changePage(page){ //changes the page to the selected page. page - param to determine which page to go to
+    console.log('test');
 }
 

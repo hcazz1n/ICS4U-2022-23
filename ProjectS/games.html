@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name= "viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title"></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css"> <!--stylesheet link-->
 </head>
-<body onLoad="start();">
+<body onload="startGames();">
     <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
         <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="logo navbar-item" href="standings.html">
             <img id="logo" src="images/lolesports.png">
         </a>
-    
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -39,17 +38,10 @@
         </div>
         </div>
     </nav>
-    <section class="hero header-background">
-        <div class="hero-body">
-           <div class="container">
-                <img id="team-logo-head">
-                <h1 class="teamname is-size-1 has-text-white">
-                    <div id="name"></div>
-                </h1>
-           </div>
-        </div>
-     </section>
-     <div class="container">
+    <div id="game-container" class="container">
+        <ul class="pagination-list">
+            
+        </ul>
         <div class="columns">
             <div id="gamesC1" class="column is-4">
             </div>
@@ -58,7 +50,7 @@
             <div id="gamesC3" class="column is-4">
             </div>
         </div>
-     </div>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

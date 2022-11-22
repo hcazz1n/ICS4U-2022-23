@@ -10,8 +10,6 @@
 </head>
 
 <body onLoad="getTeams();" class="standings">
-
-      
     <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
         <a onmouseover="swapLogo();" onmouseout="swapLogo2();" class="logo navbar-item" href="standings.html">
@@ -32,7 +30,7 @@
             <a class="text navbar-item" href="standings.html">
             <strong class="has-text-black">Standings</strong>
             </a>
-            <a class="text navbar-item">
+            <a class="text navbar-item" href="games.html">
             <strong class="has-text-black">Games</strong>
             </a>
             <a class="text navbar-item" href="admin.html">
@@ -55,7 +53,7 @@
                                 <th onclick="sort('name', 'A');">Team</th>
                                 <th onclick="sort('wins', 'A');">Wins</th>
                                 <th>Losses</th>
-                                <th>Winrate</th>    
+                                <th>PCT</th>    
                                 <th onclick="sort('duration', 'A');">Duration</th>          
                             </tr>
                         </thead>
@@ -79,7 +77,7 @@
                                 <th onclick="sort('name', 'B');">Team</th>
                                 <th onclick="sort('wins', 'B');"">Wins</th>
                                 <th>Losses</th>
-                                <th>Winrate</th>
+                                <th>PCT</th>
                                 <th onclick="sort('duration', 'B');">Duration</th>    
                             </tr>
                         </thead>
@@ -106,7 +104,7 @@
                                 <th onclick="sort('name', 'C');">Team</th>
                                 <th onclick="sort('wins', 'C');">Wins</th>
                                 <th>Losses</th>
-                                <th>Winrate</th>
+                                <th>PCT</th>
                                 <th onclick="sort('duration', 'C');">Duration</th>   
                             </tr>
                         </thead>
@@ -130,7 +128,7 @@
                                 <th onclick="sort('name', 'D');">Team</th>
                                 <th onclick="sort('wins', 'D');">Wins</th>
                                 <th>Losses</th>
-                                <th>Winrate</th>
+                                <th>PCT</th>
                                 <th onclick="sort('duration', 'D');">Duration</th>  
                             </tr>
                         </thead>
