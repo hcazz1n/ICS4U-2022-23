@@ -478,11 +478,6 @@ function start(){
     imgLink.src = 'images/' + teams[0].id + '.png';
 }
 
-function startGames(){
-    let teams = JSON.parse(localStorage.getItem('everyTeam'));
-    createAllTeamGames(teams);
-}
-
 function createTeamGames(teams) { 
     gameSect = document.querySelector('#gamesC1');
 
@@ -533,7 +528,58 @@ function createTeamGames(teams) {
 
         count++;
     })
+
+    headerStats(teams)
 }
+
+function headerStats(teams){
+    sectHero = document.querySelector('section');
+
+    let winCard = document.createElement('div');
+    winCard.classList.add('card');
+    winCard.classList.add('card-content');
+    winCard.classList.add('my-5');
+    winCard.classList.add('team-games');
+
+    let lossCard = document.createElement('div');
+    lossCard.classList.add('card');
+    lossCard.classList.add('card-content');
+    lossCard.classList.add('my-5');
+    lossCard.classList.add('team-games');
+
+    let winHeader = document.createElement('p');
+    winHeader.classList.add('is-size-5');
+    winHeader.textContent = 'Wins';
+    let lossHeader = document.createElement('p');
+    lossHeader.classList.add('is-size-5');
+    lossHeader.textContent = 'Losses';
+
+    let wins = document.createElement('p');
+    wins.classList.add('is-size-2');
+    let losses = document.createElement('p');
+    losses.classList.add('is-size-2');
+
+    let winCounter = 0;
+    let lossCounter = 0;
+    teams[0].games.forEach((game) => {
+        if(game.win == true){
+            winCounter++;
+        } else {
+            lossCounter++;
+        }
+    })
+
+    wins.textContent = winCounter;
+    losses.textContent = lossCounter;
+
+    winCard.append(winHeader);
+    winCard.append(wins);
+    lossCard.append(lossHeader);
+    lossCard.append(losses);
+
+    sectHero.appendChild(winCard);
+    sectHero.appendChild(lossCard);
+} 
 
 //logo swap functions
 
@@ -859,6 +905,15 @@ function submit(outcome){ //pushes the information to the localStorage to update
 
 //code below is for games.html
 
+const paginatedList = document.getElementById("pagination-list");
+const paginationLimit = 9;
+let currentPage = 1;
+
+function startGames(){
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    createAllTeamGames(teams);
+}
+
 function createAllTeamGames(teams) { 
     gameSect = document.querySelector('#gamesC1');
     let totalGameCount = 0;
@@ -893,11 +948,12 @@ function createAllTeamGames(teams) {
             date = '2022-' + date;
     
             datePlayed.textContent = date;
-    
-            card.append(outcome);
-            card.append(datePlayed);
-
-            gameSect.appendChild(card);
+            
+            if(totalGameCount < paginationLimit){ //only displays games within the allowed numebr of games/page.
+                card.append(outcome);
+                card.append(datePlayed);
+                gameSect.appendChild(card);
+            }
 
             count++;
             totalGameCount++;
@@ -912,12 +968,9 @@ function createAllTeamGames(teams) {
             }
         })
     })
-    createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played as well as a list of all the cards holding games.
-}
 
-const paginatedList = document.getElementById("pagination-list");
-const paginationLimit = 6;
-let currentPage = 1;
+    createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
+}
 
 function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
     let pageCount = Math.ceil(totalGameCount / paginationLimit);
@@ -927,27 +980,38 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
         let li = document.createElement('li');
         let a = document.createElement('a');
         a.classList.add('pagination-link');
+        a.addEventListener('click', setCurrentPage(Number(a.textContent)));
         a.textContent = i+1;
         li.append(a);
         ul.append(li);  
     }
 
-    setCurrentPage(1);
+    activePageNumber();
 }
 
 function setCurrentPage(pageNum){
+//     let teams = JSON.parse(localStorage.getItem('everyTeam'));
+
     currentPage = pageNum;
     activePageNumber();
 
-    const prevRange = (pageNum - 1) * paginationLimit;
-    const currRange = pageNum * paginationLimit;
+//     const prevRange = (pageNum - 1) * paginationLimit;
+//     const currRange = pageNum * paginationLimit;
 
-    // gameList.forEach((item, index) => {
-    //     item.classList.add('hidden');
-    //     if (index >= prevRange && index < currRange) {
-    //         item.classList.remove("hidden");
-    //     }
-    // })
+//     console.log(teams);
+
+//     teams.forEach((team) => {
+//         team.games.forEach((game, index) => {
+
+//         })
+//     })
+
+//     // gameList.forEach((item, index) => {
+//     //     item.classList.add('hidden');
+//     //     if (index >= prevRange && index < currRange) {
+//     //         item.classList.remove("hidden");
+//     //     }
+//     // })
 }
 
 function activePageNumber(){
