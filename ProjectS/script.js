@@ -79,7 +79,7 @@ team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 7, win : true, duration : 1896, date : '10-07'}, {gameId : 1, opp : 6, win : false, duration : 1896, date :'10-08'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-10'}, {gameId : 1, opp : 7, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 6, win : true, duration : 1896, date : '10-14'},{gameId : 1, opp : 6, win : false, duration : 1896, date : '10-14'}]; 
+team['games'] = [{gameId : 1, opp : 7, win : true, duration : 1896, date : '10-07'}, {gameId : 1, opp : 5, win : false, duration : 1896, date :'10-08'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-10'}, {gameId : 1, opp : 7, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 7, win : true, duration : 1896, date : '10-14'},{gameId : 1, opp : 5, win : false, duration : 1896, date : '10-14'}]; 
 teamsGroupB.push(team);  
 everyTeam.push(team);
 
@@ -91,7 +91,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 3;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 6, win : false, duration : 1725, date : '10-07'}, {gameId : 1, opp : 8, win : false, duration : 1725, date : '10-08'}, {gameId : 1, opp : 7, win : false, duration : 1725, date : '10-10'}, {gameId : 1, opp : 8, win : true, duration : 1725, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1725, date : '10-14'}, {gameId : 1, opp : 7, win : false, duration : 1725, date : '10-14'}];
+team['games'] = [{gameId : 1, opp : 5, win : false, duration : 1725, date : '10-07'}, {gameId : 1, opp : 8, win : false, duration : 1725, date : '10-08'}, {gameId : 1, opp : 6, win : false, duration : 1725, date : '10-10'}, {gameId : 1, opp : 8, win : true, duration : 1725, date : '10-14'}, {gameId : 1, opp : 5, win : false, duration : 1725, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1725, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -908,10 +908,11 @@ function submit(outcome){ //pushes the information to the localStorage to update
     }
 }
 
-//code below is for games.html
+//code below relates to pagination - used by games.html and teamPage.html
 
 const paginatedList = document.getElementById("pagination-list");
 const paginationLimit = 9;
+let tabsCreated = false; //used to check whether pagination tabs have already been created.
 let currentPage = 1;
 
 function startGames(){
@@ -919,18 +920,33 @@ function startGames(){
     createAllTeamGames(teams);
 }
 
-function createAllTeamGames(teams) { 
+function createAllTeamGames(teams) {  //creates every game from every team and displays them based on pagination system.
+    let gameColumns = document.getElementById('game-columns');
+
+    let column1 = document.createElement('div');
+    let column2 = document.createElement('div');
+    let column3 = document.createElement('div');
+
+    column1.classList.add('column', 'is-4');
+    column2.classList.add('column', 'is-4');
+    column3.classList.add('column', 'is-4');
+    
+    column1.setAttribute('id', 'gamesC1');
+    column2.setAttribute('id', 'gamesC2');
+    column3.setAttribute('id', 'gamesC3');
+
+    gameColumns.append(column1);
+    gameColumns.append(column2);
+    gameColumns.append(column3);
+
     gameSect = document.querySelector('#gamesC1');
-    let totalGameCount = 0;
+    let totalGameCount = 1;
 
     teams.forEach((team) => {
         let count = 0;
         team.games.forEach(() => {
             let card = document.createElement('div');
-            card.classList.add('card');
-            card.classList.add('card-content');
-            card.classList.add('my-5');
-            card.classList.add('team-games');
+            card.classList.add('card', 'card-content', 'my-5', 'team-games');
     
             let outcome = document.createElement('p');
             let datePlayed = document.createElement('p');
@@ -953,8 +969,8 @@ function createAllTeamGames(teams) {
             date = '2022-' + date;
     
             datePlayed.textContent = date;
-            
-            if(totalGameCount < paginationLimit){ //only displays games within the allowed numebr of games/page.
+
+            if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
                 card.append(outcome);
                 card.append(datePlayed);
                 gameSect.appendChild(card);
@@ -968,13 +984,25 @@ function createAllTeamGames(teams) {
                 gameSect = document.querySelector('#gamesC2');
             } else if(gameSect == document.querySelector('#gamesC2')){
                 gameSect = document.querySelector('#gamesC3');
-            } else {
+            } else{
                 gameSect = document.querySelector('#gamesC1');
             }
         })
     })
 
-    createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
+    if(!tabsCreated){
+        createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
+        tabsCreated = true;
+    }
+}
+
+function deleteGames(){
+    let column1 = document.getElementById('gamesC1');
+    let column2 = document.getElementById('gamesC2');
+    let column3 = document.getElementById('gamesC3');
+    column1.remove();
+    column2.remove();
+    column3.remove();
 }
 
 function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
@@ -994,8 +1022,11 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
 }
 
 function setCurrentPage(pageNum){
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
     currentPage = pageNum;
     activePageNumber();
+    deleteGames();
+    createAllTeamGames(teams);
 }
 
 function activePageNumber(){

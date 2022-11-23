@@ -95,7 +95,12 @@ a.text.navbar-item:hover strong{
 /*for games.html*/
 
 #game-container{
-    margin-top: 10px;
+    margin-top: 24px;
 }
 
-/*subset code of games.html and teamPages.html for pagination*/
+/*subset style of games.html and teamPages.html for pagination*/
+
+.pagination-list{
+    display: flex;
+    justify-content: center;
+}
