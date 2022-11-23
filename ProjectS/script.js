@@ -535,17 +535,22 @@ function createTeamGames(teams) {
 function headerStats(teams){
     sectHero = document.querySelector('section');
 
+    // columns = document.createElement('div');
+    // div.classList.add('columns');
+
     let winCard = document.createElement('div');
     winCard.classList.add('card');
     winCard.classList.add('card-content');
     winCard.classList.add('my-5');
     winCard.classList.add('team-games');
+    winCard.classList.add('has-background-white');
 
     let lossCard = document.createElement('div');
     lossCard.classList.add('card');
     lossCard.classList.add('card-content');
     lossCard.classList.add('my-5');
     lossCard.classList.add('team-games');
+    lossCard.classList.add('has-background-white');
 
     let winHeader = document.createElement('p');
     winHeader.classList.add('is-size-5');
@@ -872,7 +877,7 @@ function canSubmit(outcome){ //checks if all fields have proper information and 
     }
 }
 
-function clear(){ //clears the text fields and un-highlights the buttons
+function clear1(){ //clears the text fields and un-highlights the buttons
     console.log('A');
     document.getElementById('name').textContent = '';
     document.getElementById('team').textContent = '';
@@ -980,45 +985,32 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
         let li = document.createElement('li');
         let a = document.createElement('a');
         a.classList.add('pagination-link');
-        a.addEventListener('click', setCurrentPage(Number(a.textContent)));
+        a.addEventListener('click', ()=>{setCurrentPage(Number(a.textContent))});
         a.textContent = i+1;
         li.append(a);
         ul.append(li);  
     }
-
     activePageNumber();
 }
 
 function setCurrentPage(pageNum){
-//     let teams = JSON.parse(localStorage.getItem('everyTeam'));
-
     currentPage = pageNum;
     activePageNumber();
-
-//     const prevRange = (pageNum - 1) * paginationLimit;
-//     const currRange = pageNum * paginationLimit;
-
-//     console.log(teams);
-
-//     teams.forEach((team) => {
-//         team.games.forEach((game, index) => {
-
-//         })
-//     })
-
-//     // gameList.forEach((item, index) => {
-//     //     item.classList.add('hidden');
-//     //     if (index >= prevRange && index < currRange) {
-//     //         item.classList.remove("hidden");
-//     //     }
-//     // })
 }
 
 function activePageNumber(){
     document.querySelectorAll('a.pagination-link').forEach((a) => {
+        if(a.classList.contains('has-text-white')){
+            a.classList.replace('has-background-link', 'has-background-white');
+            a.classList.remove('has-text-light', 'has-text-black');
+        }
         if(a.textContent == currentPage){
-            a.classList.add('has-background-link');
-            a.classList.add('has-text-white');
+            if(!a.classList.contains('has-background-link')){
+                a.classList.add('has-background-white');
+                a.classList.add('has-text-black');
+            }
+            a.classList.replace('has-background-white', 'has-background-link');
+            a.classList.replace('has-text-black', 'has-text-white');
         } else {
             a.classList.add('has-background-white');
             a.classList.add('has-text-black');
@@ -1026,7 +1018,4 @@ function activePageNumber(){
     })
 }
 
-function changePage(page){ //changes the page to the selected page. page - param to determine which page to go to
-    console.log('test');
-}
 
