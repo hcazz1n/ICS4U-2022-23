@@ -203,7 +203,7 @@ team['games'] = [{gameId : 1, opp : 15, win : false, duration : 1844, date : '10
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
-function initData(){
+function initData(){ //takes the arrays of teams and puts them into localStorage. Done with different groups and an array with all teams.
     localStorage.setItem('teamsGroupA', JSON.stringify(teamsGroupA));
     localStorage.setItem('teamsGroupB', JSON.stringify(teamsGroupB));
     localStorage.setItem('teamsGroupC', JSON.stringify(teamsGroupC));
@@ -211,9 +211,9 @@ function initData(){
     localStorage.setItem('everyTeam', JSON.stringify(everyTeam));
 }
 
-initData();
+initData(); //this gets called and commented out along with the all the other initialization stuff
 
-function getTeams() {
+function getTeams() { //gets the localStorage array of teams of the 4 groups
     groupA = JSON.parse(localStorage['teamsGroupA']);
     groupB = JSON.parse(localStorage['teamsGroupB']);
     groupC = JSON.parse(localStorage['teamsGroupC']);
@@ -222,7 +222,7 @@ function getTeams() {
     createTables();
 }
 
-function createTables(){
+function createTables(){ //creates the 4 tables with the 4 groups
     createTable(groupA, 'A');
     createTable(groupB, 'B');
     createTable(groupC, 'C');
@@ -234,7 +234,7 @@ let ascendingNameA, ascendingNameB, ascendingNameC, ascendingNameD = false;
 let ascendingWinsA, ascendingWinsB, ascendingWinsC, ascendingWinsD = false;
 let ascendingTimeA, ascendingTimeB, ascendingTimeC, ascendingTimeD = false;
 
-function createTable(teams, tableOfChoice) {
+function createTable(teams, tableOfChoice) { //creates a table with the desired info from each team. teams - the array of teams in specific group. tableOfChoice - the table to be selected which is hardcoded when the function is called in html.
     tableBody = document.querySelector(selectedTable(tableOfChoice));
 
     let previousTeamWins = -1;
@@ -451,7 +451,7 @@ function sort(data, table){ //uses the higher order array sort function to sort 
             }
         }
     }
-
+    /*sorts only a specific table depending on which header in which table was clicked*/
     if(table == 'A')
         createTable(groupA, 'A');
     else if(table == 'B')
@@ -465,7 +465,7 @@ function sort(data, table){ //uses the higher order array sort function to sort 
 
 //code below is for teamPage.html
 
-function start(){
+function start(){ //code called on start of teamPage to load unique name, stats, games, and logo
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
     let params = (new URL(document.location)).searchParams;
 
@@ -478,7 +478,7 @@ function start(){
     imgLink.src = 'images/' + teams[0].id + '.png';
 }
 
-function createTeamGames(teams) { 
+function createTeamGames(teams) { //creates and displays the cards for ONE specific team, called when clicking on a team from the standings page. teams - sorted array of teams, with teams[0] being the desired team.
     gameSect = document.querySelector('#gamesC1');
 
     let count = 0;
@@ -532,25 +532,17 @@ function createTeamGames(teams) {
     headerStats(teams)
 }
 
-function headerStats(teams){
+function headerStats(teams){ //Adds cards with the teams W/L stats in the header
     sectHero = document.querySelector('section');
 
     // columns = document.createElement('div');
     // div.classList.add('columns');
 
     let winCard = document.createElement('div');
-    winCard.classList.add('card');
-    winCard.classList.add('card-content');
-    winCard.classList.add('my-5');
-    winCard.classList.add('team-games');
-    winCard.classList.add('has-background-white');
+    winCard.classList.add('card', 'card-content', 'my-5', 'team-games', 'has-background-white');
 
     let lossCard = document.createElement('div');
-    lossCard.classList.add('card');
-    lossCard.classList.add('card-content');
-    lossCard.classList.add('my-5');
-    lossCard.classList.add('team-games');
-    lossCard.classList.add('has-background-white');
+    lossCard.classList.add('card', 'card-content', 'my-5', 'team-games', 'has-background-white');
 
     let winHeader = document.createElement('p');
     winHeader.classList.add('is-size-5');
@@ -598,14 +590,9 @@ function swapLogo2(){ //swaps the logo from blue to black
 
 //code below is for admin.html
 
-function hide(){ //hides the red popup
+function hide(){ //hides the red popup when X is clicked
     let popup = document.querySelector("article");
     popup.remove();
-}
-
-function test(){
-    let name = document.getElementById("name").value;
-    console.log(name);
 }
 
 function checkAdminName(){ //checks if the entered name is the admin's name (Harrison)
