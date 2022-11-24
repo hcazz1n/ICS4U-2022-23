@@ -5,6 +5,14 @@ let groupB;
 let groupC;
 let groupD;
 
+//pagination global variables
+
+const paginatedList = document.getElementById("pagination-list");
+const paginationLimit = 9;
+let tabsCreated = false; //used to check whether pagination tabs have already been created.
+let currentPage = 1;
+
+
 let teamsGroupA = [];
 let teamsGroupB = [];
 let teamsGroupC = [];
@@ -481,14 +489,30 @@ function start(){ //code called on start of teamPage to load unique name, stats,
 function createTeamGames(teams) { //creates and displays the cards for ONE specific team, called when clicking on a team from the standings page. teams - sorted array of teams, with teams[0] being the desired team.
     gameSect = document.querySelector('#gamesC1');
 
+    let gameColumns = document.getElementById('game-columns');
+
+    let column1 = document.createElement('div');
+    let column2 = document.createElement('div');
+    let column3 = document.createElement('div');
+
+    column1.classList.add('column', 'is-4');
+    column2.classList.add('column', 'is-4');
+    column3.classList.add('column', 'is-4');
+    
+    column1.setAttribute('id', 'gamesC1');
+    column2.setAttribute('id', 'gamesC2');
+    column3.setAttribute('id', 'gamesC3');
+
+    gameColumns.append(column1);
+    gameColumns.append(column2);
+    gameColumns.append(column3);
+
+    let totalGameCount = 1;
     let count = 0;
 
     teams[0].games.forEach(() => {
         let card = document.createElement('div');
-        card.classList.add('card');
-        card.classList.add('card-content');
-        card.classList.add('my-5');
-        card.classList.add('team-games');
+        card.classList.add('card', 'card-content', 'my-5', 'team-games');
 
         let outcome = document.createElement('p');
         let datePlayed = document.createElement('p');
@@ -512,10 +536,11 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
 
         datePlayed.textContent = date;
 
-        card.append(outcome);
-        card.append(datePlayed);
-
-        gameSect.appendChild(card);
+        if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){
+            card.append(outcome);
+            card.append(datePlayed);
+            gameSect.appendChild(card);
+        }
 
         /*Code that cycles through the columns when adding a game to the page*/
         if(gameSect == document.querySelector('#gamesC1')){
@@ -529,7 +554,11 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
         count++;
     })
 
-    headerStats(teams)
+    if(!tabsCreated){
+        //headerStats(teams); //since this if statment only happens at the beginning, calls this function in here so it doesn't duplicate.
+        createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
+        tabsCreated = true;
+    }
 }
 
 function headerStats(teams){ //Adds cards with the teams W/L stats in the header
@@ -895,12 +924,7 @@ function submit(outcome){ //pushes the information to the localStorage to update
     }
 }
 
-//code below relates to pagination - used by games.html and teamPage.html
-
-const paginatedList = document.getElementById("pagination-list");
-const paginationLimit = 9;
-let tabsCreated = false; //used to check whether pagination tabs have already been created.
-let currentPage = 1;
+//code below for games.html | the functions relating to pagination are also used by teamGames.html
 
 function startGames(){
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
@@ -1010,10 +1034,16 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
 
 function setCurrentPage(pageNum){
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    let params = (new URL(document.location)).searchParams;
+
     currentPage = pageNum;
     activePageNumber();
     deleteGames();
+
     createAllTeamGames(teams);
+
+    // teams = teams.filter(team => team.id == params.get('id'));
+    // createTeamGames(teams);
 }
 
 function activePageNumber(){

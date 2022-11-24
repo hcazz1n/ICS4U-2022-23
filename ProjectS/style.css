@@ -41,7 +41,7 @@ a.text.navbar-item:hover strong{
 /*for teamPage.html*/
 
 .header-background{
-    background-color: #505050;
+    background-image: url('images/headerbackgroundimg.jfif');
 }
 
 .team-games{
