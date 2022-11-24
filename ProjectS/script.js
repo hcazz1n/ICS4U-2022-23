@@ -928,10 +928,10 @@ function submit(outcome){ //pushes the information to the localStorage to update
 
 function startGames(){
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
-    createAllTeamGames(teams);
+    createAllTeamGames(teams, false);
 }
 
-function createAllTeamGames(teams) {  //creates every game from every team and displays them based on pagination system.
+function createAllTeamGames(teams, dateSort) {  //creates every game from every team and displays them based on pagination system. teams - list of all teams. dateSort - T/F variable on whether the cards should be sorted by date.
     let gameColumns = document.getElementById('game-columns');
 
     let column1 = document.createElement('div');
@@ -956,6 +956,19 @@ function createAllTeamGames(teams) {  //creates every game from every team and d
     teams.forEach((team) => {
         let count = 0;
         team.games.forEach(() => {
+            let date = team.games[count].date;
+            date = '2022-' + date;
+
+            if(dateSort){
+                let date1 = document.getElementById('date1').value;
+                let date2 = document.getElementById('date2').value;
+                if((parseInt(date.substring(5, 7)) > parseInt(date1.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date1.subsring(5, 7))) && (parseInt(date.substring(5, 7)) < parseInt(date2.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date2.substring(5, 7)))){
+                    if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
+                        
+                    }
+                }
+            }
+
             let card = document.createElement('div');
             card.classList.add('card', 'card-content', 'my-5', 'team-games');
     
@@ -975,10 +988,6 @@ function createAllTeamGames(teams) {  //creates every game from every team and d
             scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
     
             outcome.textContent = scoreline;
-    
-            let date = team.games[count].date;
-            date = '2022-' + date;
-    
             datePlayed.textContent = date;
 
             if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
@@ -1040,7 +1049,7 @@ function setCurrentPage(pageNum){
     activePageNumber();
     deleteGames();
 
-    createAllTeamGames(teams);
+    createAllTeamGames(teams, false);
 
     // teams = teams.filter(team => team.id == params.get('id'));
     // createTeamGames(teams);
@@ -1065,5 +1074,27 @@ function activePageNumber(){
         }
     })
 }
+
+function dateRange(){
+    let date1 = document.getElementById('date1').value;
+    let date2 = document.getElementById('date2').value;
+    console.log(date1);
+    console.log(date2);
+
+    if(date1.length == 10 && date1.substring(0, 1) != 0 && date2.length == 10 && date2.substring(0, 1) != 0){
+        if(parseInt(date1.substring(0, 4)) > parseInt(date2.substring(0, 4)) || parseInt(date1.substring(5, 7)) > parseInt(date2.substring(5, 7)) || parseInt(date1.substring(8)) > parseInt(date2.substring(8))) {
+            window.alert('Please enter a valid date range!');
+        } else {
+            submitDateRange();
+        } 
+    }
+}
+
+function submitDateRange(){ //submits the date range to filter games. 
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
+    createAllTeamGames(teams, true);
+}
+
+
 
 

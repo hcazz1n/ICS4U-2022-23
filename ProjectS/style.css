@@ -98,6 +98,15 @@ a.text.navbar-item:hover strong{
     margin-top: 24px;
 }
 
+#date-field-games{
+    margin-top: 10px;
+    width: 25%
+}
+
+#sort-button-games{
+    margin-bottom: 24px; 
+}
+
 /*subset style of games.html and teamPages.html for pagination*/
 
 .pagination-list{
