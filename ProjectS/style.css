@@ -99,7 +99,7 @@ a.text.navbar-item:hover strong{
 }
 
 #date-field-games{
-    margin-top: 10px;
+    margin-top: 15px;
     width: 25%
 }
 
@@ -112,4 +112,8 @@ a.text.navbar-item:hover strong{
 .pagination-list{
     display: flex;
     justify-content: center;
+}
+
+.light-blue-background{
+    background-color: #00c8c8;
 }

@@ -10,7 +10,9 @@ let groupD;
 const paginatedList = document.getElementById("pagination-list");
 const paginationLimit = 9;
 let tabsCreated = false; //used to check whether pagination tabs have already been created.
+let sortingByDate = false; //used to check whether pagination is currently sorting by date.
 let currentPage = 1;
+
 
 
 let teamsGroupA = [];
@@ -241,13 +243,14 @@ let ascendingRankA, ascendingRankB, ascendingRankC, ascendingRankD = true;
 let ascendingNameA, ascendingNameB, ascendingNameC, ascendingNameD = false;
 let ascendingWinsA, ascendingWinsB, ascendingWinsC, ascendingWinsD = false;
 let ascendingTimeA, ascendingTimeB, ascendingTimeC, ascendingTimeD = false;
+let ascendingLossesA, ascendingLossesB, ascendingLossesC, ascendingLossesD = false;
 
 function createTable(teams, tableOfChoice) { //creates a table with the desired info from each team. teams - the array of teams in specific group. tableOfChoice - the table to be selected which is hardcoded when the function is called in html.
     tableBody = document.querySelector(selectedTable(tableOfChoice));
 
     let previousTeamWins = -1;
     tableBody.replaceChildren();
-    teams.forEach((team) => {
+    teams.forEach((team) => { //creates every team in the table with the data from the JSON.
         let row = document.createElement('tr');
         let td = document.createElement('td');
         let link = document.createElement('a');
@@ -292,7 +295,7 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
         team.duration = totalDuration/count;
 
         let seconds = -1;
-        if(team.duration % 60 < 10 && team.duration % 60 > 0){
+        if(team.duration % 60 < 10 && team.duration % 60 > 0){ //converts seconds into mm:ss format
             seconds = '0' + team.duration % 60;
         } else if(team.duration % 60 === 0){
             seconds = team.duration % 60 + '0';
@@ -355,6 +358,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
                 ascendingTimeA = true;
                 groupA = groupA.sort((teamA, teamB) => (teamB.duration - teamA.duration));
             }
+        } else if(data === 'losses'){
+            if(ascendingLossesA){
+                ascendingLossesA = false;
+                groupA = groupA.sort((teamA, teamB) => (teamA.L - teamB.L));
+            } else {
+                ascendingLossesA = true;
+                groupA = groupA.sort((teamA, teamB) => (teamB.L - teamA.L));
+            }
         }
     } else if(table == 'B'){
         if(data === 'rank'){
@@ -388,6 +399,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
             } else {
                 ascendingTimeB = true;
                 groupB = groupB.sort((teamA, teamB) => (teamB.duration - teamA.duration));
+            }
+        } else if(data === 'losses'){
+            if(ascendingLossesB){
+                ascendingLossesB = false;
+                groupB = groupB.sort((teamA, teamB) => (teamA.L - teamB.L));
+            } else {
+                ascendingLossesB = true;
+                groupB = groupB.sort((teamA, teamB) => (teamB.L - teamA.L));
             }
         }
     } else if(table == 'C'){
@@ -423,6 +442,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
                 ascendingTimeC = true;
                 groupC = groupC.sort((teamA, teamB) => (teamB.duration - teamA.duration));
             }
+        } else if(data === 'losses'){
+            if(ascendingLossesC){
+                ascendingLossesC = false;
+                groupC = groupC.sort((teamA, teamB) => (teamA.L - teamB.L));
+            } else {
+                ascendingLossesC = true;
+                groupC = groupC.sort((teamA, teamB) => (teamB.L - teamA.L));
+            }
         }
     } else {
         if(data === 'rank'){
@@ -456,6 +483,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
             } else {
                 ascendingTimeD = true;
                 groupD = groupD.sort((teamA, teamB) => (teamB.duration - teamA.duration));
+            }
+        } else if(data === 'losses'){
+            if(ascendingLossesD){
+                ascendingLossesD = false;
+                groupD = groupD.sort((teamA, teamB) => (teamA.L - teamB.L));
+            } else {
+                ascendingLossesD = true;
+                groupD = groupD.sort((teamA, teamB) => (teamB.L - teamA.L));
             }
         }
     }
@@ -932,6 +967,16 @@ function startGames(){
 }
 
 function createAllTeamGames(teams, dateSort) {  //creates every game from every team and displays them based on pagination system. teams - list of all teams. dateSort - T/F variable on whether the cards should be sorted by date.
+    if(dateSort && !sortingByDate){ //code to replace the games with games within the specificed date range. Will only call once for the same date range.
+        deleteGames();
+        let oldLi = document.querySelectorAll('li');
+        oldLi.forEach((li) => {
+            li.remove();
+        })
+        tabsCreated = false;
+        sortingByDate = true;
+    }
+
     let gameColumns = document.getElementById('game-columns');
 
     let column1 = document.createElement('div');
@@ -956,19 +1001,6 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
     teams.forEach((team) => {
         let count = 0;
         team.games.forEach(() => {
-            let date = team.games[count].date;
-            date = '2022-' + date;
-
-            if(dateSort){
-                let date1 = document.getElementById('date1').value;
-                let date2 = document.getElementById('date2').value;
-                if((parseInt(date.substring(5, 7)) > parseInt(date1.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date1.subsring(5, 7))) && (parseInt(date.substring(5, 7)) < parseInt(date2.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date2.substring(5, 7)))){
-                    if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
-                        
-                    }
-                }
-            }
-
             let card = document.createElement('div');
             card.classList.add('card', 'card-content', 'my-5', 'team-games');
     
@@ -986,27 +1018,51 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
             }
             teamList = JSON.parse(localStorage.getItem('everyTeam'));
             scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
+
+            let date = team.games[count].date;
+            date = '2022-' + date;
     
             outcome.textContent = scoreline;
             datePlayed.textContent = date;
 
-            if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
-                card.append(outcome);
-                card.append(datePlayed);
-                gameSect.appendChild(card);
+            if(dateSort){
+                let date1 = document.getElementById('date1').value;
+                let date2 = document.getElementById('date2').value;
+                if((parseInt(date.substring(5, 7)) > parseInt(date1.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date1.substring(5, 7))) && (parseInt(date.substring(5, 7)) < parseInt(date2.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date2.substring(5, 7)))){
+                    if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
+                        if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
+                            card.append(outcome); 
+                            card.append(datePlayed);
+                            gameSect.appendChild(card);
+                            /*Code that cycles through the columns when adding a game to the page*/
+                            if(gameSect == document.querySelector('#gamesC1')){
+                                gameSect = document.querySelector('#gamesC2');
+                            } else if(gameSect == document.querySelector('#gamesC2')){
+                                gameSect = document.querySelector('#gamesC3');
+                            } else{
+                                gameSect = document.querySelector('#gamesC1');
+                            }
+                        }
+                        totalGameCount++;
+                    }
+                }
+            } else {
+                if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
+                    card.append(outcome); 
+                    card.append(datePlayed);
+                    gameSect.appendChild(card);
+                }
+                totalGameCount++;
+                if(gameSect == document.querySelector('#gamesC1')){
+                    gameSect = document.querySelector('#gamesC2');
+                } else if(gameSect == document.querySelector('#gamesC2')){
+                    gameSect = document.querySelector('#gamesC3');
+                } else{
+                    gameSect = document.querySelector('#gamesC1');
+                }
             }
-
-            count++;
-            totalGameCount++;
             
-            /*Code that cycles through the columns when adding a game to the page*/
-            if(gameSect == document.querySelector('#gamesC1')){
-                gameSect = document.querySelector('#gamesC2');
-            } else if(gameSect == document.querySelector('#gamesC2')){
-                gameSect = document.querySelector('#gamesC3');
-            } else{
-                gameSect = document.querySelector('#gamesC1');
-            }
+            count++;
         })
     })
 
@@ -1049,7 +1105,11 @@ function setCurrentPage(pageNum){
     activePageNumber();
     deleteGames();
 
-    createAllTeamGames(teams, false);
+    if(sortingByDate){
+        createAllTeamGames(teams, true);
+    } else {
+        createAllTeamGames(teams, false);
+    }
 
     // teams = teams.filter(team => team.id == params.get('id'));
     // createTeamGames(teams);
@@ -1058,15 +1118,15 @@ function setCurrentPage(pageNum){
 function activePageNumber(){
     document.querySelectorAll('a.pagination-link').forEach((a) => {
         if(a.classList.contains('has-text-white')){
-            a.classList.replace('has-background-link', 'has-background-white');
+            a.classList.replace('light-blue-background', 'has-background-white');
             a.classList.remove('has-text-light', 'has-text-black');
         }
         if(a.textContent == currentPage){
-            if(!a.classList.contains('has-background-link')){
+            if(!a.classList.contains('light-blue-background')){
                 a.classList.add('has-background-white');
                 a.classList.add('has-text-black');
             }
-            a.classList.replace('has-background-white', 'has-background-link');
+            a.classList.replace('has-background-white', 'light-blue-background');
             a.classList.replace('has-text-black', 'has-text-white');
         } else {
             a.classList.add('has-background-white');
@@ -1078,14 +1138,12 @@ function activePageNumber(){
 function dateRange(){
     let date1 = document.getElementById('date1').value;
     let date2 = document.getElementById('date2').value;
-    console.log(date1);
-    console.log(date2);
 
     if(date1.length == 10 && date1.substring(0, 1) != 0 && date2.length == 10 && date2.substring(0, 1) != 0){
         if(parseInt(date1.substring(0, 4)) > parseInt(date2.substring(0, 4)) || parseInt(date1.substring(5, 7)) > parseInt(date2.substring(5, 7)) || parseInt(date1.substring(8)) > parseInt(date2.substring(8))) {
             window.alert('Please enter a valid date range!');
         } else {
-            submitDateRange();
+            console.log('ok :)');
         } 
     }
 }
