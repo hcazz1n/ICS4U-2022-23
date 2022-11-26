@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
 
 *{
    margin: 0;
    padding: 0;
 }
 
-body .standings{
-    font-family: 'Karla', sans-serif;
+body{
+    font-family: 'Manrope', sans-serif;
 }
 
 .logo{
@@ -40,6 +40,15 @@ p{
 
 .table{
     width: 100%;
+}
+
+.column{
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+}
+
+#standings-columns .column{
+    padding: 0.75rem !important;
 }
 
 /*for teamPage.html*/
@@ -99,7 +108,7 @@ p{
 /*for games.html*/
 
 #game-container{
-    margin-top: 24px;
+    margin-top: 15px;
 }
 
 #date-field-games{
@@ -116,6 +125,7 @@ p{
 .pagination-list{
     display: flex;
     justify-content: center;
+    margin-bottom: 9px;
 }
 
 .light-blue-background{
