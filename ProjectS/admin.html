@@ -78,7 +78,7 @@
                 Is sicklied o'er with the pale cast of thought,
                 And enterprises of great pith and moment
                 With this regard their currents turn awry
-                And lose the name of action.   
+                And lose the name of action. <strong>Edit not this page, unless thou art worthy.</strong>
             </div>
         </article>
 
@@ -90,7 +90,7 @@
                 <div class="field">
                     <label class="label">Name</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="name" class="input" type="text" onkeyup="checkAdminName(); canSubmit();" placeholder="e.g. Harrison">
+                        <input id="name" class="input" type="text" onkeyup="checkAdminName();" placeholder="e.g. Harrison">
                         <span class="icon is-small is-left">
                             <i class="fa fa-solid fa-user"></i>
                         </span>
@@ -104,7 +104,7 @@
                 <div class="field">
                     <label class="label">Team</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="team" class="input" type="text" onkeyup="checkTeamTag(); canSubmit();" maxlength="3" placeholder="e.g. JDG">
+                        <input id="team" class="input" type="text" onkeyup="checkTeamTag();" maxlength="3" placeholder="e.g. JDG">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-users"></i>
                         </span>
@@ -118,7 +118,7 @@
                 <div class="field">
                     <label class="label">Opponent</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="opp" class="input" type="text" onkeyup="checkOppTeamTag(); canSubmit();" maxlength="3" placeholder="e.g. JDG">
+                        <input id="opp" class="input" type="text" onkeyup="checkOppTeamTag();" maxlength="3" placeholder="e.g. JDG">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-user-secret"></i>
                         </span>
@@ -132,7 +132,7 @@
                 <div class="field">
                     <label class="label">Duration</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="dur" class="input" type="text" onkeyup="checkDuration(); canSubmit();" maxlength="5" placeholder="e.g. 43:21">
+                        <input id="dur" class="input" type="text" onkeyup="checkDuration();" maxlength="5" placeholder="e.g. 43:21">
                         <span class="icon is-small is-left">
                             <i class="fa-regular fa-clock"></i>
                         </span>
@@ -146,7 +146,7 @@
                 <div class="field">
                     <label class="label">Date Played</label>
                     <div class="control has-icons-left">
-                        <input id="date" class="input" type="date" onkeyup="checkDateEntered(); canSubmit();">
+                        <input id="date" class="input" type="date" onkeyup="checkDateEntered();">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-calendar-days"></i>
                         </span>
@@ -158,10 +158,10 @@
                     <label class="label">Outcome</label>
                     <div class="field is-grouped">
                         <div class="control">
-                            <button id="outcome-win" class="button is-link is-outlined" onclick="checkWLSelect('w'); canSubmit('w');">Win</button>
+                            <button id="outcome-win" class="button is-link is-outlined" onclick="checkWLSelect('w');">Win</button>
                         </div>
                         <div class="control">
-                            <button id="outcome-loss" class="button is-link is-outlined" onclick="checkWLSelect('l'); canSubmit('l');">Loss</button>
+                            <button id="outcome-loss" class="button is-link is-outlined" onclick="checkWLSelect('l');">Loss</button>
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                     <div class="field is-grouped">
                         <div class="control">
                             <button id="clear-button" class="button has-background-link-light has-text-link" onclick="clear1();">Clear</button>
-                            <button id="submit-button" class="button is-link is-pulled-right" onclick="submit();" disabled>Submit</button>
+                            <button id="submit-button" class="button is-link is-pulled-right" onclick="canSubmit();">Submit</button>
                         </div>
                     </div>
                 </div>

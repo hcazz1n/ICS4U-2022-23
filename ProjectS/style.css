@@ -25,6 +25,10 @@ a.text.navbar-item:hover strong{
     color: #00c8c8 !important;
 }
 
+p{
+    color: #000000;
+}
+
 .topbar{
     display: inline;
 }

@@ -1,17 +1,16 @@
 //The arrays of teams in Groups A-D
-
 let groupA;
 let groupB;
 let groupC;
 let groupD;
 
 //pagination global variables
-
-const paginatedList = document.getElementById("pagination-list");
-const paginationLimit = 9;
-let tabsCreated = false; //used to check whether pagination tabs have already been created.
-let sortingByDate = false; //used to check whether pagination is currently sorting by date.
-let currentPage = 1;
+const paginatedList = document.getElementById("pagination-list"); //the id of the list where the games will be added for pagination.
+const paginationLimit = 9; //the limit of scores/page on games.html.
+let tabsCreated = false; //checks whether pagination tabs have already been created.
+let sortingByDate = false; //checks whether pagination is currently sorting by date.
+let currentPage = 1; //the current page for pagination
+let onTeamPage = false; //checks if on a team page instead of the games.html page.
 
 
 
@@ -920,21 +919,60 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
 
 
 function canSubmit(outcome){ //checks if all fields have proper information and un-disables the submit button. outcome - param to know if win or loss
-    let button = document.getElementById('submit-button');
     if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered() && checkWLSelect(outcome)){
-        button.removeAttribute('disabled');
+        console.log('HAPPY!');
     } else {
-        button.setAttribute('disabled');
+
     }
 }
 
-function clear1(){ //clears the text fields and un-highlights the buttons
-    console.log('A');
-    document.getElementById('name').textContent = '';
-    document.getElementById('team').textContent = '';
-    document.getElementById('opp').textContent = '';
-    document.getElementById('dur').textContent = '';
-    document.getElementById('date').textContent = '';
+function clear1(){ //clears the text fields, un-highlights the buttons, and makes another check to change messages. 
+    let name = document.getElementById('name');
+    let team = document.getElementById('team');
+    let opp = document.getElementById('opp');
+    let dur = document.getElementById('dur');
+    let date = document.getElementById('date');
+
+    name.value = '';
+    team.value = '';
+    opp.value = '';
+    dur.value = '';
+    date.value = '';
+
+    if(name.classList.contains('is-danger')){
+        name.classList.remove('is-danger');
+    } else if(name.classList.contains('is-success')){
+        name.classList.remove('is-success');
+    }
+    document.getElementById('name-msg').querySelector('p').remove();
+
+    if(team.classList.contains('is-danger')){
+        team.classList.remove('is-danger');
+    } else if(team.classList.contains('is-success')){
+        team.classList.remove('is-success');
+    }
+    document.getElementById('team-msg').querySelector('p').remove();
+
+    if(opp.classList.contains('is-danger')){
+        opp.classList.remove('is-danger');
+    } else if(opp.classList.contains('is-success')){
+        opp.classList.remove('is-success');
+    }
+    document.getElementById('opp-msg').querySelector('p').remove();
+
+    if(dur.classList.contains('is-danger')){
+        dur.classList.remove('is-danger');
+    } else if(dur.classList.contains('is-success')){
+        dur.classList.remove('is-success');
+    }
+    document.getElementById('dur-msg').querySelector('p').remove();
+
+    if(date.classList.contains('is-danger')){
+        date.classList.remove('is-danger');
+    } else if(date.classList.contains('is-success')){
+        date.classList.remove('is-success');
+    }
+    document.getElementById('date-msg').querySelector('p').remove();
 }
 
 function submit(outcome){ //pushes the information to the localStorage to update stats
@@ -1105,14 +1143,18 @@ function setCurrentPage(pageNum){
     activePageNumber();
     deleteGames();
 
-    if(sortingByDate){
-        createAllTeamGames(teams, true);
-    } else {
-        createAllTeamGames(teams, false);
+    if(document.URL.includes('games.html')){
+        if(sortingByDate){
+            createAllTeamGames(teams, true);
+        } else {
+            createAllTeamGames(teams, false);
+        }
+    } else if(document.URL.includes('teamPage.html')){
+        teams = teams.filter(team => team.id == params.get('id'));
+        createTeamGames(teams);
     }
 
-    // teams = teams.filter(team => team.id == params.get('id'));
-    // createTeamGames(teams);
+
 }
 
 function activePageNumber(){
