@@ -104,7 +104,7 @@
                 <div class="field">
                     <label class="label">Team</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="team" class="input" type="text" onkeyup="checkTeamTag();" maxlength="3" placeholder="e.g. JDG">
+                        <input id="team" class="input" type="text" maxlength="3" onkeyup="checkTeamTag();" placeholder="e.g. JDG">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-users"></i>
                         </span>
@@ -118,7 +118,7 @@
                 <div class="field">
                     <label class="label">Opponent</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="opp" class="input" type="text" onkeyup="checkOppTeamTag();" maxlength="3" placeholder="e.g. JDG">
+                        <input id="opp" class="input" type="text" maxlength="3" onkeyup="checkOppTeamTag();" placeholder="e.g. JDG">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-user-secret"></i>
                         </span>
@@ -132,7 +132,7 @@
                 <div class="field">
                     <label class="label">Duration</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="dur" class="input" type="text" onkeyup="checkDuration();" maxlength="5" placeholder="e.g. 43:21">
+                        <input id="dur" class="input" type="text" maxlength="5" onkeyup="checkDuration();" placeholder="e.g. 43:21">
                         <span class="icon is-small is-left">
                             <i class="fa-regular fa-clock"></i>
                         </span>
@@ -158,10 +158,10 @@
                     <label class="label">Outcome</label>
                     <div class="field is-grouped">
                         <div class="control">
-                            <button id="outcome-win" class="button is-link is-outlined" onclick="checkWLSelect('w');">Win</button>
+                            <button id="outcome-win" class="button is-link is-outlined" onclick="changeWLSelect('w')">Win</button>
                         </div>
                         <div class="control">
-                            <button id="outcome-loss" class="button is-link is-outlined" onclick="checkWLSelect('l');">Loss</button>
+                            <button id="outcome-loss" class="button is-link is-outlined" onclick="changeWLSelect('l')">Loss</button>
                         </div>
                     </div>
                 </div>

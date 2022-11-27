@@ -222,7 +222,7 @@ function initData(){ //takes the arrays of teams and puts them into localStorage
 
 initData(); //this gets called and commented out along with the all the other initialization stuff
 
-function getTeams() { //gets the localStorage array of teams of the 4 groups
+function getTeams() { //gets the localStorage array of teams of the 4 groups and creates the tables on standings.html
     groupA = JSON.parse(localStorage['teamsGroupA']);
     groupB = JSON.parse(localStorage['teamsGroupB']);
     groupC = JSON.parse(localStorage['teamsGroupC']);
@@ -872,7 +872,6 @@ function checkDateEntered(){ //checks if there is a date entered - no other veri
     let sect = document.getElementById("date-msg");
     let msg = document.createElement("p");
     msg.classList.add("help");
-    console.log(date);
     if(date.substring(0, 4) != 2022){
         document.getElementById("date").classList.add('is-danger');
         msg.classList.add("is-danger");
@@ -890,9 +889,7 @@ function checkDateEntered(){ //checks if there is a date entered - no other veri
     return canSubmit;
 }
 
-function checkWLSelect(outcome){ //returns true when win button is pressed
-    let canSubmit = false;
-
+function changeWLSelect(outcome){ //changes whether win or loss button is selected.
     let win = document.getElementById('outcome-win');
     let loss = document.getElementById('outcome-loss');
 
@@ -903,7 +900,6 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
                 loss.classList.add('is-outlined');
             }
         }
-        canSubmit = true;
     } else if(outcome === 'l') {
         if(loss.classList[2] === 'is-outlined'){
             loss.classList.remove('is-outlined');
@@ -911,18 +907,20 @@ function checkWLSelect(outcome){ //returns true when win button is pressed
                 win.classList.add('is-outlined');
             }
         }
-        canSubmit = true;
     }
-    
-    return canSubmit;
 }
 
-
-function canSubmit(outcome){ //checks if all fields have proper information and un-disables the submit button. outcome - param to know if win or loss
-    if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered() && checkWLSelect(outcome)){
-        console.log('HAPPY!');
+function canSubmit(){ //checks if all fields have proper information and un-disables the submit button.
+    if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered()){
+        if(document.getElementById('outcome-win').classList[2] === 'is-outlined' && document.getElementById('outcome-loss').classList[2] === 'is-outlined'){
+            window.alert('Please indicate the outcome of the game.');
+        } else if(document.getElementById('outcome-win').classList[2] !== 'is-outlined'){
+            submit('w');
+        } else {
+            submit('l');
+        }
     } else {
-
+        window.alert('Please enter all necessary information.');
     }
 }
 
@@ -932,6 +930,9 @@ function clear1(){ //clears the text fields, un-highlights the buttons, and make
     let opp = document.getElementById('opp');
     let dur = document.getElementById('dur');
     let date = document.getElementById('date');
+
+    let win = document.getElementById('outcome-win');
+    let loss = document.getElementById('outcome-loss');
 
     name.value = '';
     team.value = '';
@@ -973,28 +974,91 @@ function clear1(){ //clears the text fields, un-highlights the buttons, and make
         date.classList.remove('is-success');
     }
     document.getElementById('date-msg').querySelector('p').remove();
+
+    if(!win.classList.contains('is-outlined')){
+        win.classList.add('is-outlined');
+    } else if(!loss.classList.contains('is-outlined')){
+        loss.classList.add('is-outlined');
+    }
 }
 
 function submit(outcome){ //pushes the information to the localStorage to update stats
-    getTeams();
+    //{gameId : 1, opp : 2, win : true, duration : 1915, date : '10-07'}
+    let teamTag = document.getElementById('team').value;
+    let opponent = document.getElementById('opp').value;
+    let dur = document.getElementById('dur').value;
+    let datePlayed = document.getElementById('date').value;
+    let wL;
 
-    let team = document.getElementById('team').value;
-    let opp = document.getElementById('opp').value;
-    let duration = document.getElementById('dur').value;
-    let date = document.getElementById('date').value;
-    let wL = outcome;
+    let teams = JSON.parse(localStorage.getItem('everyTeam'));
 
-    if(team.id > 0 && team.id < 5){
-        let teams = JSON.parse(localStorage.getItem('everyTeam'));
-        teams = teams.filter(team => team.id == params.get('id'));
-        
-    } else if(team.id > 4 && team.id < 9){
+    let count = 1;
+    teams.forEach((team) => { //converts the tag of the opponent into an id number
+        if(team.tag === opponent.toUpperCase()){
+            
+        }
+    })
 
-    } else if(team.id > 8 && team.id < 13){
-
+    if(outcome === 'w'){
+        wL = true;
     } else {
-
+        wL = false;
     }
+
+    convertedDuration = parseInt(dur.substring(0, 2)) * 60 + parseInt(dur.substring(3)); //converts mm:ss to seconds
+
+    teams.forEach((team) => {
+        if(team.tag === teamTag.toUpperCase()){
+            console.log('PENIS');
+            console.log(team.tag);
+            let newObj = {gameId : 1, opp : count, win : wL, duration : convertedDuration, date : datePlayed.substring(5)};
+            team.games.push(newObj);
+
+            if(team.id > 0 && team.id < 5){ //if the team is in group A (ids 1-4)
+                console.log(team.games);
+                groupA = JSON.parse(localStorage['teamsGroupA']);
+                let updatedTeam = {};
+                updatedTeam['name'] = team.name;
+                updatedTeam['id'] = team.id;
+                updatedTeam['tag'] = team.tag;
+                if(outcome === 'w'){
+                    updatedTeam['W'] = team.W + 1;
+                    updatedTeam['L'] = team.L;
+                } else {
+                    updatedTeam['L'] = team.L + 1;
+                    updatedTeam['W'] = team.W;
+                }
+                updatedTeam['rank'] = groupA.sort((teamA, teamB) => (teamA.W - teamB.W)); //changes the value of the rankings based on wins
+                updatedTeam['duration'] = 0;
+                updatedTeam['games'] = team.games;
+                teamsGroupA.splice(team.id - 1, 1, updatedTeam);
+                teams.splice(team.id - 1, 1, updatedTeam);
+                console.log(teamsGroupA);
+                localStorage.setItem('teamsGroupA', JSON.stringify(teamsGroupA));
+                console.log(groupA);
+                console.log(teams);
+                // let team = {};
+                // team['name'] = 'T1';
+                // team['id'] = 1;
+                // team['tag'] = 'T1';
+                // team['W'] = 5;
+                // team['L'] = 1;
+                // team['rank'] = 1;   
+                // team['duration'] = 0;
+                // team['games'] = [{gameId : 1, opp : 2, win : true, duration : 1915, date : '10-07'}, {gameId : 1, opp : 3, win : false, duration : 1915, date : '10-08'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-09'}, {gameId : 1, opp : 3, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 2, win : true, duration : 1915, date : '10-13'}];
+                // teamsGroupA.push(team); 
+                // everyTeam.push(team);
+
+            } else if(team.id > 4 && team.id < 9){ //if the team is in group B (ids 5-8)
+        
+            } else if(team.id > 8 && team.id < 13){ //if the team is in group C (ids 9-12)
+        
+            } else { //if the team is in grouop D (ids 13-16)
+        
+            }
+        }
+    })
+    
 }
 
 //code below for games.html | the functions relating to pagination are also used by teamGames.html
@@ -1153,8 +1217,6 @@ function setCurrentPage(pageNum){
         teams = teams.filter(team => team.id == params.get('id'));
         createTeamGames(teams);
     }
-
-
 }
 
 function activePageNumber(){

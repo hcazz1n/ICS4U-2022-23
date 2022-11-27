@@ -8,20 +8,12 @@
     <title>THE TEST PAGE</title>
 </head>
 <body>
-  <div id="date-field" class="control has-icons-left" onkeyup="basl();">
-    <input id="date" class="input" type="date">
-    <span class="icon is-small is-left">
-        <i class="fa-solid fa-calendar-days"></i>
-    </span>
-    <div id="date-msg"></div>
-</div>
-
+  <input id="date" class="input" type="date" onkeyup="nuts();">
 </body>
 <script>
-  function basl(){
-    let date = document.getElementById('date-field').value;
-    console.log(date);
+  function nuts(){
+  date = document.getElementById('date').value;
+  console.log(date);
   }
-
 </script>
 </html>

@@ -387,3 +387,14 @@ function swapLogo2(){ //swaps the logo from blue to black
 }
 
 This page is used to add games to the standings and it is for <strong>ADMINS ONLY</strong>. Please refrain from adding games if you are not meant to do so as it will harm the integrity of the site.
+
+            let durationCount = 0;
+            let totalDuration = 0;
+            team.games.forEach(() => {
+                let duration = team.games[durationCount].duration;
+                totalDuration = totalDuration + duration;
+                durationCount++;
+            })
+            let avgDuration = totalDuration/durationCount;
+            console.log(Math.round(avgDuration));
+            updatedTeam['duration'] = Math.round(avgDuration);
