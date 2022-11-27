@@ -38,13 +38,30 @@ p{
     margin: 2px;
 }
 
-.table{
-    width: 100%;
-}
-
 .column{
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
+}
+
+.logo-standings{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 45px;
+}
+
+.groups{
+    max-height: 337px;
+}
+
+div .team-link{
+    display: flex;
+    align-items: center;
+}
+
+.table{
+    width: 100%;
 }
 
 #standings-columns .column{

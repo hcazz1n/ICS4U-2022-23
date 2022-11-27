@@ -254,6 +254,10 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
         let row = document.createElement('tr');
         let td = document.createElement('td');
         let link = document.createElement('a');
+        link.classList.add('team-link');
+        let logo = document.createElement('img');
+        logo.classList.add('logo-standings');
+
         td.classList.add('has-text-weight-bold');
         if(team.W == previousTeamWins){
             td.textContent = '-';
@@ -261,6 +265,14 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
         else{
             td.textContent = team.rank;
         }
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        logo.src = 'images/' + team.id + '.png';
+        if(team.id === 6 || team.id === 7 || team.id === 8 || team.id === 13 || team.id === 16){ //dark variants of logos
+            logo.src = 'images/' + team.id + 'dark.png';
+        }
+        td.appendChild(logo);
         row.appendChild(td);
 
         td = document.createElement('td');
@@ -283,7 +295,6 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
         row.appendChild(td);
 
         td = document.createElement('td');
-
         let count = 0;
         let totalDuration = 0;
         team.games.forEach(() => {

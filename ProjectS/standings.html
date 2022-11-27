@@ -23,20 +23,20 @@
         </div>
     
         <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-            <a class="text navbar-item">
-            <strong class="has-text-black">Home</strong>
-            </a>
-            <a class="text navbar-item" href="standings.html">
-            <strong class="has-text-black">Standings</strong>
-            </a>
-            <a class="text navbar-item" href="games.html">
-            <strong class="has-text-black">Games</strong>
-            </a>
-            <a class="text navbar-item" href="admin.html">
-            <strong class="has-text-black">Admin</strong>
-            </a>
-        </div>
+            <div class="navbar-start">
+                <a class="text navbar-item">
+                <strong class="has-text-black">Home</strong>
+                </a>
+                <a class="text navbar-item" href="standings.html">
+                <strong class="has-text-black">Standings</strong>
+                </a>
+                <a class="text navbar-item" href="games.html">
+                <strong class="has-text-black">Games</strong>
+                </a>
+                <a class="text navbar-item" href="admin.html">
+                <strong class="has-text-black">Admin</strong>
+                </a>
+            </div>
         </div>
     </nav>
     <div id="standings-columns" class="columns">
@@ -45,11 +45,12 @@
                 <div class="card-header">
                     <p class="card-header-title">Group A</p>
                 </div>
-                <div class="card-content">
+                <div class="card-content groups">
                     <table id="groupA" class="table is-striped">
                         <thead>
                             <tr>
                                 <th onclick="sort('rank', 'A');">Rank</th>
+                                <th>Logo</th>
                                 <th onclick="sort('name', 'A');">Team</th>
                                 <th onclick="sort('wins', 'A');">Wins</th>
                                 <th onclick="sort('losses', 'A');">Losses</th>
@@ -69,11 +70,12 @@
                 <div class="card-header">
                     <p class="card-header-title">Group B</p>
                 </div>
-                <div class="card-content">
+                <div class="card-content groups">
                     <table id="groupB" class="table is-striped">
                         <thead>
                             <tr>
                                 <th onclick="sort('rank', 'B');">Rank</th>
+                                <th>Logo</th>
                                 <th onclick="sort('name', 'B');">Team</th>
                                 <th onclick="sort('wins', 'B');"">Wins</th>
                                 <th onclick="sort('losses', 'B');">Losses</th>
@@ -96,11 +98,12 @@
                 <div class="card-header">
                     <p class="card-header-title">Group C</p>
                 </div>
-                <div class="card-content">
+                <div class="card-content groups">
                     <table id="groupC" class="table is-striped">
                         <thead>
                             <tr>
                                 <th onclick="sort('rank', 'C');">Rank</th>
+                                <th>Logo</th>
                                 <th onclick="sort('name', 'C');">Team</th>
                                 <th onclick="sort('wins', 'C');">Wins</th>
                                 <th onclick="sort('losses', 'C');">Losses</th>
@@ -120,11 +123,12 @@
                 <div class="card-header">
                     <p class="card-header-title">Group D</p>
                 </div>
-                <div class="card-content">
+                <div class="card-content groups">
                     <table id="groupD" class="table is-striped">
                         <thead>
                             <tr>
                                 <th onclick="sort('rank', 'D');">Rank</th>
+                                <th>Logo</th>
                                 <th onclick="sort('name', 'D');">Team</th>
                                 <th onclick="sort('wins', 'D');">Wins</th>
                                 <th onclick="sort('losses', 'D');">Losses</th>
