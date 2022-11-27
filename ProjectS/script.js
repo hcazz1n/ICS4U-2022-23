@@ -12,8 +12,8 @@ let sortingByDate = false; //checks whether pagination is currently sorting by d
 let currentPage = 1; //the current page for pagination
 let onTeamPage = false; //checks if on a team page instead of the games.html page.
 
-
-
+//*
+//the arrays that will be put in the localStorage
 let teamsGroupA = [];
 let teamsGroupB = [];
 let teamsGroupC = [];
@@ -221,6 +221,7 @@ function initData(){ //takes the arrays of teams and puts them into localStorage
 }
 
 initData(); //this gets called and commented out along with the all the other initialization stuff
+//*/
 
 function getTeams() { //gets the localStorage array of teams of the 4 groups and creates the tables on standings.html
     groupA = JSON.parse(localStorage['teamsGroupA']);
@@ -291,7 +292,7 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
             count++;
         })
 
-        team.duration = totalDuration/count;
+        team.duration = Math.round(totalDuration/count); //rounds the number before putting it into the team's duration
 
         let seconds = -1;
         if(team.duration % 60 < 10 && team.duration % 60 > 0){ //converts seconds into mm:ss format
@@ -992,14 +993,7 @@ function submit(outcome){ //pushes the information to the localStorage to update
 
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
 
-    let count = 1;
-    teams.forEach((team) => { //converts the tag of the opponent into an id number
-        if(team.tag === opponent.toUpperCase()){
-            
-        }
-    })
-
-    if(outcome === 'w'){
+    if(outcome === 'w'){ //win or loss for the team
         wL = true;
     } else {
         wL = false;
@@ -1007,56 +1001,117 @@ function submit(outcome){ //pushes the information to the localStorage to update
 
     convertedDuration = parseInt(dur.substring(0, 2)) * 60 + parseInt(dur.substring(3)); //converts mm:ss to seconds
 
+    let countTeam = 1;
+    let foundTeam = false;
+    teams.forEach((team) => { //this for loop searches for the id of the team entered on the admin page. It is used when creating a new game for the opponent.
+        if(team.tag === teamTag.toUpperCase()){
+            foundTeam = true;
+        }
+        if(!foundTeam){
+            countTeam++;
+        }
+    })
+
+    let countOpp = 1;
+    let foundOpp = false;
+    teams.forEach((opp) => { //this for loop obtains the id of the team entered for the opponent on admin page and updates the opponent's scores and games.
+        if(opp.tag === opponent.toUpperCase()){
+            let newObj = {gameId : 1, opp : countTeam, win : !wL, duration : convertedDuration, date : datePlayed.substring(5)};
+            opp.games.push(newObj);
+            let updatedOpp = {};
+            updatedOpp['name'] = opp.name;
+            updatedOpp['id'] = opp.id;
+            updatedOpp['tag'] = opp.tag;
+            if(outcome === 'w'){ //outcome is used for the team entered. If the team wins, then the opponent loses and vice versa, so code is switched.
+                updatedOpp['L'] = opp.L + 1;
+                updatedOpp['W'] = opp.W;
+            } else {
+                updatedOpp['W'] = opp.W + 1;
+                updatedOpp['L'] = opp.L;
+            }
+            updatedOpp['rank'] = opp.rank;
+            updatedOpp['duration'] = 0;
+            updatedOpp['games'] = opp.games;
+
+            teams.splice(opp.id - 1, 1, updatedOpp);
+            everyTeam = teams;
+            localStorage.setItem('everyTeam', JSON.stringify(everyTeam));
+
+            if(opp.id > 0 && opp.id < 5){ 
+                groupA = JSON.parse(localStorage['teamsGroupA']);
+                groupA.splice(opp.id - 1, 1, updatedOpp);
+                teamsGroupA = groupA;
+                localStorage.setItem('teamsGroupA', JSON.stringify(teamsGroupA));
+            } else if(opp.id > 4 && opp.id < 9){ 
+                groupB = JSON.parse(localStorage['teamsGroupB']);
+                groupB.splice(opp.id - 5, 1, updatedOpp);
+                teamsGroupB = groupB;
+                localStorage.setItem('teamsGroupB', JSON.stringify(teamsGroupB));
+            } else if(opp.id > 8 && opp.id < 13){ 
+                groupC = JSON.parse(localStorage['teamsGroupC']);
+                groupC.splice(opp.id - 9, 1, updatedOpp);
+                teamsGroupC = groupC;
+                localStorage.setItem('teamsGroupC', JSON.stringify(teamsGroupC));
+            } else {
+                groupD = JSON.parse(localStorage['teamsGroupD']);
+                groupD.splice(opp.id - 13, 1, updatedOpp);
+                teamsGroupD = groupD;
+                localStorage.setItem('teamsGroupD', JSON.stringify(teamsGroupD));
+            }
+            foundOpp = true;
+        }
+        if(!foundOpp){
+            countOpp++;
+        }
+    })
+
     teams.forEach((team) => {
         if(team.tag === teamTag.toUpperCase()){
-            console.log('PENIS');
-            console.log(team.tag);
-            let newObj = {gameId : 1, opp : count, win : wL, duration : convertedDuration, date : datePlayed.substring(5)};
+            let newObj = {gameId : 1, opp : countOpp, win : wL, duration : convertedDuration, date : datePlayed.substring(5)};
             team.games.push(newObj);
 
-            if(team.id > 0 && team.id < 5){ //if the team is in group A (ids 1-4)
-                console.log(team.games);
-                groupA = JSON.parse(localStorage['teamsGroupA']);
-                let updatedTeam = {};
-                updatedTeam['name'] = team.name;
-                updatedTeam['id'] = team.id;
-                updatedTeam['tag'] = team.tag;
-                if(outcome === 'w'){
-                    updatedTeam['W'] = team.W + 1;
-                    updatedTeam['L'] = team.L;
-                } else {
-                    updatedTeam['L'] = team.L + 1;
-                    updatedTeam['W'] = team.W;
-                }
-                updatedTeam['rank'] = groupA.sort((teamA, teamB) => (teamA.W - teamB.W)); //changes the value of the rankings based on wins
-                updatedTeam['duration'] = 0;
-                updatedTeam['games'] = team.games;
-                teamsGroupA.splice(team.id - 1, 1, updatedTeam);
-                teams.splice(team.id - 1, 1, updatedTeam);
-                console.log(teamsGroupA);
-                localStorage.setItem('teamsGroupA', JSON.stringify(teamsGroupA));
-                console.log(groupA);
-                console.log(teams);
-                // let team = {};
-                // team['name'] = 'T1';
-                // team['id'] = 1;
-                // team['tag'] = 'T1';
-                // team['W'] = 5;
-                // team['L'] = 1;
-                // team['rank'] = 1;   
-                // team['duration'] = 0;
-                // team['games'] = [{gameId : 1, opp : 2, win : true, duration : 1915, date : '10-07'}, {gameId : 1, opp : 3, win : false, duration : 1915, date : '10-08'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-09'}, {gameId : 1, opp : 3, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 2, win : true, duration : 1915, date : '10-13'}];
-                // teamsGroupA.push(team); 
-                // everyTeam.push(team);
+            let updatedTeam = {}; //creation of the team with the updated stats to be pushed back into localStorage for the array with all teams and their specific group
+            updatedTeam['name'] = team.name;
+            updatedTeam['id'] = team.id;
+            updatedTeam['tag'] = team.tag;
+            if(outcome === 'w'){
+                updatedTeam['W'] = team.W + 1;
+                updatedTeam['L'] = team.L;
+            } else {
+                updatedTeam['L'] = team.L + 1;
+                updatedTeam['W'] = team.W;
+            }
+            updatedTeam['rank'] = team.rank;
+            updatedTeam['duration'] = 0;
+            updatedTeam['games'] = team.games;
 
+            teams.splice(team.id - 1, 1, updatedTeam);
+            everyTeam = teams;
+            localStorage.setItem('everyTeam', JSON.stringify(everyTeam));
+
+            if(team.id > 0 && team.id < 5){ //if the team is in group A (ids 1-4)
+                groupA = JSON.parse(localStorage['teamsGroupA']);
+                groupA.splice(team.id - 1, 1, updatedTeam);
+                teamsGroupA = groupA;
+                localStorage.setItem('teamsGroupA', JSON.stringify(teamsGroupA));
             } else if(team.id > 4 && team.id < 9){ //if the team is in group B (ids 5-8)
-        
+                groupB = JSON.parse(localStorage['teamsGroupB']);
+                groupB.splice(team.id - 5, 1, updatedTeam);
+                teamsGroupB = groupB;
+                localStorage.setItem('teamsGroupB', JSON.stringify(teamsGroupB));
             } else if(team.id > 8 && team.id < 13){ //if the team is in group C (ids 9-12)
-        
+                groupC = JSON.parse(localStorage['teamsGroupC']);
+                groupC.splice(team.id - 9, 1, updatedTeam);
+                teamsGroupC = groupC;
+                localStorage.setItem('teamsGroupC', JSON.stringify(teamsGroupC));
             } else { //if the team is in grouop D (ids 13-16)
-        
+                groupD = JSON.parse(localStorage['teamsGroupD']);
+                groupD.splice(team.id - 13, 1, updatedTeam);
+                teamsGroupD = groupD;
+                localStorage.setItem('teamsGroupD', JSON.stringify(teamsGroupD));
             }
         }
+
     })
     
 }
