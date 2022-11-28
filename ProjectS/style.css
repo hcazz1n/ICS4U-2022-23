@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&family=Oswald:wght@400;500;700&display=swap');
 
 *{
    margin: 0;
    padding: 0;
 }
 
-body{
+body, html{
     font-family: 'Manrope', sans-serif;
+    height: 100%;
 }
 
 footer{
@@ -55,6 +57,27 @@ p{
     padding-bottom: 0.25rem !important;
 }
 
+/*for index.html*/
+
+#home-page-bg{
+    background-image: url('images/worlds20.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Oswald', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title{
+    color: #ffffff;
+    display: block;
+    height: 90%;
+    font-size: 240px;
+    /*font-size: 360px;*/
+}
 
 /*for standings.html*/
 
