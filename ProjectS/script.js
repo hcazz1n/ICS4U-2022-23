@@ -28,7 +28,7 @@ team['W'] = 5;
 team['L'] = 1;
 team['rank'] = 1;   
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 2, win : true, duration : 1915, date : '10-07'}, {gameId : 1, opp : 3, win : false, duration : 1915, date : '10-08'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-09'}, {gameId : 1, opp : 3, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 4, win : true, duration : 1915, date : '10-13'}, {gameId : 1, opp : 2, win : true, duration : 1915, date : '10-13'}];
+team['games'] = [{gameId : 5, opp : 2, win : true, duration : 1915, date : '10-07'}, {gameId : 9, opp : 3, win : false, duration : 1915, date : '10-08'}, {gameId : 16, opp : 4, win : true, duration : 1915, date : '10-09'}, {gameId : 26, opp : 3, win : true, duration : 1915, date : '10-13'}, {gameId : 29, opp : 4, win : true, duration : 1915, date : '10-13'}, {gameId : 30, opp : 2, win : true, duration : 1915, date : '10-13'}];
 teamsGroupA.push(team); 
 everyTeam.push(team);
 
@@ -40,7 +40,7 @@ team['W'] = 4;
 team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 1, win : false, duration : 2008, date : '10-07'}, {gameId : 1, opp : 4, win : true, duration : 2008, date : '10-08'}, {gameId : 1, opp : 3, win : true, duration : 2008, date : '10-09'}, {gameId : 1, opp : 4, win : true, duration : 2008, date : '10-13'}, {gameId : 1, opp : 3, win : true, duration : 2008, date : '10-13'}, {gameId : 1, opp : 1, win : false, duration : 2008, date : '10-13'}];
+team['games'] = [{gameId : 5, opp : 1, win : false, duration : 2008, date : '10-07'}, {gameId : 10, opp : 4, win : true, duration : 2008, date : '10-08'}, {gameId : 15, opp : 3, win : true, duration : 2008, date : '10-09'}, {gameId : 27, opp : 4, win : true, duration : 2008, date : '10-13'}, {gameId : 28, opp : 3, win : true, duration : 2008, date : '10-13'}, {gameId : 30, opp : 1, win : false, duration : 2008, date : '10-13'}];
 teamsGroupA.push(team); 
 everyTeam.push(team);
 
@@ -52,7 +52,7 @@ team['W'] = 2;
 team['L'] = 4;
 team['rank'] = 3;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 4, win : true, duration : 1849, date : '10-07'}, {gameId : 1, opp : 1, win : true, duration : 1849, date : '10-08'}, {gameId : 1, opp : 2, win : false, duration : 1849, date : '10-09'}, {gameId : 1, opp : 4, win : false, duration : 1849, date : '10-13'}, {gameId : 1, opp : 1, win : false, duration : 1849, date : '10-13'}, {gameId : 1, opp : 2, win : false, duration : 1849, date : '10-13'}];
+team['games'] = [{gameId : 1, opp : 4, win : true, duration : 1849, date : '10-07'}, {gameId : 9, opp : 1, win : true, duration : 1849, date : '10-08'}, {gameId : 15, opp : 2, win : false, duration : 1849, date : '10-09'}, {gameId : 25, opp : 4, win : false, duration : 1849, date : '10-13'}, {gameId : 26, opp : 1, win : false, duration : 1849, date : '10-13'}, {gameId : 28, opp : 2, win : false, duration : 1849, date : '10-13'}];
 teamsGroupA.push(team);  
 everyTeam.push(team);
 
@@ -64,7 +64,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 3, win : false, duration : 1632, date : '10-07'}, {gameId : 1, opp : 2, win : false, duration : 1632, date : '10-08'}, {gameId : 1, opp : 1, win : false, duration : 1632, date : '10-09'}, {gameId : 1, opp : 3, win : true, duration : 1632, date : '10-13'}, {gameId : 1, opp : 2, win : false, duration : 1632, date : '10-13'}, {gameId : 1, opp : 1, win : false, duration : 1632, date : '10-13'}];
+team['games'] = [{gameId : 1, opp : 3, win : false, duration : 1632, date : '10-07'}, {gameId : 10, opp : 2, win : false, duration : 1632, date : '10-08'}, {gameId : 16, opp : 1, win : false, duration : 1632, date : '10-09'}, {gameId : 25, opp : 3, win : true, duration : 1632, date : '10-13'}, {gameId : 27, opp : 2, win : false, duration : 1632, date : '10-13'}, {gameId : 29, opp : 1, win : false, duration : 1632, date : '10-13'}];
 teamsGroupA.push(team);   
 everyTeam.push(team);
 
@@ -76,7 +76,7 @@ team['W'] = 6;
 team['L'] = 1;
 team['rank'] = 1;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 7, win : true, duration : 1884, date : '10-07'}, {gameId : 1, opp : 6, win : true, duration : 1884, date : '10-08'}, {gameId : 1, opp : 8, win : true, duration : 1884, date : '10-10'}, {gameId : 1, opp : 7, win : true, duration : 1884, date : '10-14'}, {gameId : 1, opp : 8, win : true, duration : 1884, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1884, date : '10-14'}, {gameId : 1, opp : 6, win : true, duration : 1884, date : '10-14'}];
+team['games'] = [{gameId : 4, opp : 7, win : true, duration : 1884, date : '10-07'}, {gameId : 12, opp : 6, win : true, duration : 1884, date : '10-08'}, {gameId : 19, opp : 8, win : true, duration : 1884, date : '10-10'}, {gameId : 32, opp : 7, win : true, duration : 1884, date : '10-14'}, {gameId : 34, opp : 8, win : true, duration : 1884, date : '10-14'}, {gameId : 36, opp : 6, win : false, duration : 1884, date : '10-14'}, {gameId : 37, opp : 6, win : true, duration : 1884, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -88,7 +88,7 @@ team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 7, win : true, duration : 1896, date : '10-07'}, {gameId : 1, opp : 5, win : false, duration : 1896, date :'10-08'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-10'}, {gameId : 1, opp : 7, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 8, win : true, duration : 1896, date : '10-14'}, {gameId : 1, opp : 7, win : true, duration : 1896, date : '10-14'},{gameId : 1, opp : 5, win : false, duration : 1896, date : '10-14'}]; 
+team['games'] = [{gameId : 2, opp : 7, win : true, duration : 1896, date : '10-07'}, {gameId : 12, opp : 5, win : false, duration : 1896, date :'10-08'}, {gameId : 21, opp : 8, win : true, duration : 1896, date : '10-10'}, {gameId : 33, opp : 7, win : true, duration : 1896, date : '10-14'}, {gameId : 35, opp : 8, win : true, duration : 1896, date : '10-14'}, {gameId : 36, opp : 7, win : true, duration : 1896, date : '10-14'},{gameId : 37, opp : 5, win : false, duration : 1896, date : '10-14'}]; 
 teamsGroupB.push(team);  
 everyTeam.push(team);
 
@@ -100,7 +100,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 3;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 5, win : false, duration : 1725, date : '10-07'}, {gameId : 1, opp : 8, win : false, duration : 1725, date : '10-08'}, {gameId : 1, opp : 6, win : false, duration : 1725, date : '10-10'}, {gameId : 1, opp : 8, win : true, duration : 1725, date : '10-14'}, {gameId : 1, opp : 5, win : false, duration : 1725, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1725, date : '10-14'}];
+team['games'] = [{gameId : 4, opp : 5, win : false, duration : 1725, date : '10-07'}, {gameId : 8, opp : 8, win : false, duration : 1725, date : '10-08'}, {gameId : 21, opp : 6, win : false, duration : 1725, date : '10-10'}, {gameId : 31, opp : 8, win : true, duration : 1725, date : '10-14'}, {gameId : 32, opp : 5, win : false, duration : 1725, date : '10-14'}, {gameId : 35, opp : 6, win : false, duration : 1725, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -112,7 +112,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 6, win : false, duration : 1808, date : '10-07'}, {gameId : 1, opp : 7, win : true, duration : 1808, date : '10-08'}, {gameId : 1, opp : 5, win : false, duration : 1808, date : '10-10'}, {gameId : 1, opp : 7, win : false, duration : 1808, date : '10-14'}, {gameId : 1, opp : 6, win : false, duration : 1808, date : '10-14'}, {gameId : 1, opp : 5, win : false, duration : 1808, date : '10-14'}];
+team['games'] = [{gameId : 2, opp : 6, win : false, duration : 1808, date : '10-07'}, {gameId : 8, opp : 7, win : true, duration : 1808, date : '10-08'}, {gameId : 19, opp : 5, win : false, duration : 1808, date : '10-10'}, {gameId : 31, opp : 7, win : false, duration : 1808, date : '10-14'}, {gameId : 33, opp : 6, win : false, duration : 1808, date : '10-14'}, {gameId : 34, opp : 5, win : false, duration : 1808, date : '10-14'}];
 teamsGroupB.push(team); 
 everyTeam.push(team);
 
@@ -124,7 +124,7 @@ team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 1;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 10, win : false, duration : 2068, date : '10-08'}, {gameId : 1, opp : 11, win : true, duration : 2068, date : '10-09'}, {gameId : 1, opp : 12, win : true, duration : 2068, date : '10-10'}, {gameId : 1, opp : 10, win : true, duration : 2068, date : '10-15'}, {gameId : 1, opp : 12, win : true, duration : 2068, date : '10-15'}, {gameId : 1, opp : 11, win : false, duration : 2068, date : '10-15'}, {gameId : 1, opp : 10, win : true, duration : 2068, date : '10-15'}];
+team['games'] = [{gameId : 7, opp : 10, win : false, duration : 2068, date : '10-08'}, {gameId : 18, opp : 11, win : true, duration : 2068, date : '10-09'}, {gameId : 24, opp : 12, win : true, duration : 2068, date : '10-10'}, {gameId : 40, opp : 10, win : true, duration : 2068, date : '10-15'}, {gameId : 41, opp : 12, win : true, duration : 2068, date : '10-15'}, {gameId : 43, opp : 11, win : false, duration : 2068, date : '10-15'}, {gameId : 44, opp : 10, win : true, duration : 2068, date : '10-15'}];
 teamsGroupC.push(team);   
 everyTeam.push(team);
 
@@ -136,7 +136,7 @@ team['W'] = 4;
 team['L'] = 3;
 team['rank'] = 2;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 9, win : true, duration : 1860, date : '10-08'}, {gameId : 1, opp : 12, win : true, duration : 1860, date : '10-09'}, {gameId : 1, opp : 11, win : true, duration : 1860, date : '10-10'}, {gameId : 1, opp : 12, win : true, duration : 1860, date : '10-15'}, {gameId : 1, opp : 9, win : false, duration : 1860, date : '10-15'}, {gameId : 1, opp : 11, win : false, duration : 1860, date : '10-15'}, {gameId : 1, opp : 9, win : false, duration : 1860, date : '10-15'}];
+team['games'] = [{gameId : 7, opp : 9, win : true, duration : 1860, date : '10-08'}, {gameId : 13, opp : 12, win : true, duration : 1860, date : '10-09'}, {gameId : 20, opp : 11, win : true, duration : 1860, date : '10-10'}, {gameId : 38, opp : 12, win : true, duration : 1860, date : '10-15'}, {gameId : 40, opp : 9, win : false, duration : 1860, date : '10-15'}, {gameId : 42, opp : 11, win : false, duration : 1860, date : '10-15'}, {gameId : 44, opp : 9, win : false, duration : 1860, date : '10-15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -148,7 +148,7 @@ team['W'] = 3;
 team['L'] = 3;
 team['rank'] = 3;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 12, win : true, duration : 1890, date : '10-08'}, {gameId : 1, opp : 9, win : false, duration : 1890, date : '10-09'}, {gameId : 1, opp : 10, win : false, duration : 1890, date : '10-10'}, {gameId : 1, opp : 12, win : false, duration : 1890, date : '10-15'}, {gameId : 1, opp : 10, win : true, duration : 1890, date : '10-15'}, {gameId : 1, opp : 9, win : true, duration : 1890, date : '10-15'}];
+team['games'] = [{gameId : 11, opp : 12, win : true, duration : 1890, date : '10-08'}, {gameId : 18, opp : 9, win : false, duration : 1890, date : '10-09'}, {gameId : 20, opp : 10, win : false, duration : 1890, date : '10-10'}, {gameId : 39, opp : 12, win : false, duration : 1890, date : '10-15'}, {gameId : 42, opp : 10, win : true, duration : 1890, date : '10-15'}, {gameId : 43, opp : 9, win : true, duration : 1890, date : '10-15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -160,7 +160,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 11, win : false, duration : 1897, date : '10-08'}, {gameId : 1, opp : 10, win : false, duration : 1897, date : '10-09'}, {gameId : 1, opp : 9, win : false, duration : 1897, date : '10-10'}, {gameId : 1, opp : 10, win : false, duration : 1897, date : '10-15'}, {gameId : 1, opp : 11, win : true, duration : 1897, date : '10-15'}, {gameId : 1, opp : 9, win : false, duration : 1897, date : '10-15'}];
+team['games'] = [{gameId : 11, opp : 11, win : false, duration : 1897, date : '10-08'}, {gameId : 13, opp : 10, win : false, duration : 1897, date : '10-09'}, {gameId : 24, opp : 9, win : false, duration : 1897, date : '10-10'}, {gameId : 38, opp : 10, win : false, duration : 1897, date : '10-15'}, {gameId : 39, opp : 11, win : true, duration : 1897, date : '10-15'}, {gameId : 41, opp : 9, win : false, duration : 1897, date : '10-15'}];
 teamsGroupC.push(team); 
 everyTeam.push(team);
 
@@ -172,7 +172,7 @@ team['W'] = 6;
 team['L'] = 1;
 team['rank'] = 1;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 14, win : false, duration : 1884, date : '10-07'}, {gameId : 1, opp : 16, win : true, duration : 1884, date : '10-09'}, {gameId : 1, opp : 15, win : true, duration : 1884, date : '10-10'}, {gameId : 1, opp : 15, win : true, duration : 1884, date : '10-16'}, {gameId : 1, opp : 16, win : true, duration : 1884, date : '10-16'}, {gameId : 1, opp : 14, win : true, duration : 1884, date : '10-16'}, {gameId : 1, opp : 14, win : true, duration : 1884, date : '10-16'}];
+team['games'] = [{gameId : 6, opp : 14, win : false, duration : 1884, date : '10-07'}, {gameId : 14, opp : 16, win : true, duration : 1884, date : '10-09'}, {gameId : 23, opp : 15, win : true, duration : 1884, date : '10-10'}, {gameId : 46, opp : 15, win : true, duration : 1884, date : '10-16'}, {gameId : 48, opp : 16, win : true, duration : 1884, date : '10-16'}, {gameId : 50, opp : 14, win : true, duration : 1884, date : '10-16'}, {gameId : 51, opp : 14, win : true, duration : 1884, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -184,7 +184,7 @@ team['W'] = 5;
 team['L'] = 2;
 team['rank'] = 2;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 13, win : true, duration : 1895, date : '10-07'}, {gameId : 1, opp : 15, win : true, duration : 1895, date : '10-09'}, {gameId : 1, opp : 16, win : true, duration : 1895, date : '10-10'}, {gameId : 1, opp : 16, win : true, duration : 1895, date : '10-16'}, {gameId : 1, opp : 15, win : true, duration : 1895, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1895, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1895, date : '10-16'}];
+team['games'] = [{gameId : 6, opp : 13, win : true, duration : 1895, date : '10-07'}, {gameId : 17, opp : 15, win : true, duration : 1895, date : '10-09'}, {gameId : 22, opp : 16, win : true, duration : 1895, date : '10-10'}, {gameId : 47, opp : 16, win : true, duration : 1895, date : '10-16'}, {gameId : 49, opp : 15, win : true, duration : 1895, date : '10-16'}, {gameId : 50, opp : 13, win : false, duration : 1895, date : '10-16'}, {gameId : 51, opp : 13, win : false, duration : 1895, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -196,7 +196,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 3;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 16, win : true, duration : 1902, date : '10-07'}, {gameId : 1, opp : 14, win : false, duration : 1902, date : '10-09'}, {gameId : 1, opp : 13, win : false, duration : 1902, date : '10-10'}, {gameId : 1, opp : 16, win : false, duration : 1902, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1902, date : '10-16'}, {gameId : 1, opp : 14, win : false, duration : 1902, date : '10-16'}];
+team['games'] = [{gameId : 3, opp : 16, win : true, duration : 1902, date : '10-07'}, {gameId : 17, opp : 14, win : false, duration : 1902, date : '10-09'}, {gameId : 23, opp : 13, win : false, duration : 1902, date : '10-10'}, {gameId : 45, opp : 16, win : false, duration : 1902, date : '10-16'}, {gameId : 46, opp : 13, win : false, duration : 1902, date : '10-16'}, {gameId : 49, opp : 14, win : false, duration : 1902, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
@@ -208,7 +208,7 @@ team['W'] = 1;
 team['L'] = 5;
 team['rank'] = 4;
 team['duration'] = 0;
-team['games'] = [{gameId : 1, opp : 15, win : false, duration : 1844, date : '10-07'}, {gameId : 1, opp : 13, win : false, duration : 1844, date : '10-09'}, {gameId : 1, opp : 14, win : false, duration : 1844, date : '10-10'}, {gameId : 1, opp : 15, win : true, duration : 1844, date : '10-16'}, {gameId : 1, opp : 14, win : false, duration : 1844, date : '10-16'}, {gameId : 1, opp : 13, win : false, duration : 1844, date : '10-16'}];
+team['games'] = [{gameId : 3, opp : 15, win : false, duration : 1844, date : '10-07'}, {gameId : 14, opp : 13, win : false, duration : 1844, date : '10-09'}, {gameId : 22, opp : 14, win : false, duration : 1844, date : '10-10'}, {gameId : 45, opp : 15, win : true, duration : 1844, date : '10-16'}, {gameId : 47, opp : 14, win : false, duration : 1844, date : '10-16'}, {gameId : 48, opp : 13, win : false, duration : 1844, date : '10-16'}];
 teamsGroupD.push(team); 
 everyTeam.push(team);
 
