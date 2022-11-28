@@ -700,7 +700,7 @@ function checkAdminName(){ //checks if the entered name is the admin's name (Har
         document.getElementById("name").classList.replace("is-danger", "is-success");
         msg.classList.add("is-success");
         sect.replaceChildren();
-        msg.textContent = 'Welcome, Admin :)';
+        msg.textContent = 'Welcome, Admin!';
 
         icon.replaceChildren();
         i.classList.remove('fa-xmark');
@@ -1288,15 +1288,15 @@ function setCurrentPage(pageNum){
 function activePageNumber(){
     document.querySelectorAll('a.pagination-link').forEach((a) => {
         if(a.classList.contains('has-text-white')){
-            a.classList.replace('light-blue-background', 'has-background-white');
+            a.classList.replace('tan-background', 'has-background-white');
             a.classList.remove('has-text-light', 'has-text-black');
         }
         if(a.textContent == currentPage){
-            if(!a.classList.contains('light-blue-background')){
+            if(!a.classList.contains('tan-background')){
                 a.classList.add('has-background-white');
                 a.classList.add('has-text-black');
             }
-            a.classList.replace('has-background-white', 'light-blue-background');
+            a.classList.replace('has-background-white', 'tan-background');
             a.classList.replace('has-text-black', 'has-text-white');
         } else {
             a.classList.add('has-background-white');
@@ -1308,19 +1308,24 @@ function activePageNumber(){
 function dateRange(){
     let date1 = document.getElementById('date1').value;
     let date2 = document.getElementById('date2').value;
-
+    
     if(date1.length == 10 && date1.substring(0, 1) != 0 && date2.length == 10 && date2.substring(0, 1) != 0){
         if(parseInt(date1.substring(0, 4)) > parseInt(date2.substring(0, 4)) || parseInt(date1.substring(5, 7)) > parseInt(date2.substring(5, 7)) || parseInt(date1.substring(8)) > parseInt(date2.substring(8))) {
             window.alert('Please enter a valid date range!');
-        } else {
-            console.log('ok :)');
-        } 
+        }
     }
 }
 
-function submitDateRange(){ //submits the date range to filter games. 
+function submitDateRange(){ //submits the date range to filter games. Does not let you submit if both dates aren't fully entered
+    let date1 = document.getElementById('date1').value;
+    let date2 = document.getElementById('date2').value;
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
-    createAllTeamGames(teams, true);
+
+    if(date1.length < 10 || date2.length < 10){
+        window.alert('To sort by date, enter the starting date on the left and the ending date on the right!');
+    } else {
+        createAllTeamGames(teams, true);
+    }
 }
 
 

@@ -9,6 +9,22 @@ body{
     font-family: 'Manrope', sans-serif;
 }
 
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding-bottom: 25px;
+}
+
+.light-blue-background{
+    background-color: #00c8c8;
+}
+
+.tan-background{
+    background-color: #BFA975;
+}
+
 .logo{
     margin-right: 20px;
 }
@@ -29,10 +45,6 @@ p{
     color: #000000;
 }
 
-.topbar{
-    display: inline;
-}
-
 .text{
     font-size: 18px;
     margin: 2px;
@@ -43,16 +55,19 @@ p{
     padding-bottom: 0.25rem !important;
 }
 
+
+/*for standings.html*/
+
 .logo-standings{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    max-width: 45px;
+    max-width: 42px;
 }
 
 .groups{
-    max-height: 337px;
+    max-height: 325px;
 }
 
 div .team-link{
@@ -122,18 +137,28 @@ div .team-link{
     margin-left: 10px;
 }
 
+#admin-card{
+    margin-bottom: 24px;
+}
+
 /*for games.html*/
 
 #game-container{
     margin-top: 15px;
 }
 
+.dates{
+    display: flex;
+    justify-content: center;
+}
+
 #date-field-games{
     margin-top: 15px;
-    width: 25%
+    width: 30%;
 }
 
 #sort-button-games{
+    margin-top: 15px;
     margin-bottom: 24px; 
 }
 
@@ -143,8 +168,4 @@ div .team-link{
     display: flex;
     justify-content: center;
     margin-bottom: 9px;
-}
-
-.light-blue-background{
-    background-color: #00c8c8;
 }
