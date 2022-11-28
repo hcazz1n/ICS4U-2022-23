@@ -63,7 +63,6 @@ p{
     background-image: url('images/worlds20.jpg');
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100%;
     font-family: 'Oswald', sans-serif;
     background-position: center;
@@ -74,9 +73,57 @@ p{
 .title{
     color: #ffffff;
     display: block;
-    height: 90%;
     font-size: 240px;
-    /*font-size: 360px;*/
+    margin-bottom: 25px !important;
+}
+
+/*this code for the button animation is from https://ianlunn.github.io/Hover/*/
+.hvr-sweep-to-right { /*this code controls the fade animation of the text from black -> white*/
+    display: inline-block;
+    transform: perspective(1px) translateZ(0); /*necessary for the bar to appear on screen*/
+    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+    position: relative;
+    transition-property: color; /*property being changed*/
+    transition-duration: 0.7s;  /*fade duration*/
+}
+
+[class^="hvr-"] { /*all classes with the hvr- as a prefix are affected by this*/
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 1em;
+    cursor: pointer;
+    background: #e1e1e1;
+    text-decoration: none;
+    color: #000;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+    color: white;
+}
+
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+    transform: scaleX(1); /*necessary for the bar to appear on screen*/
+}
+
+.hvr-sweep-to-right:before { /*deals with the animation of the bar sliding from left -> right*/
+    content: ""; /*text content of the bar*/
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #BFA975;
+    transform: scaleX(0); /*without this, there is a one-time animation that does not happen when the cursor hovers*/
+    transform-origin: 0 50%; /*point at which the transformation is applied*/
+    transition-property: transform;
+    transition-duration: 0.7s; /*duration of the bar*/
+    transition-timing-function: ease-out; /*eases the bar*/
 }
 
 /*for standings.html*/

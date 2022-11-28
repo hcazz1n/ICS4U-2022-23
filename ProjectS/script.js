@@ -607,6 +607,10 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
     }
 }
 
+function createColumns(){
+    
+}
+
 function headerStats(teams){ //Adds cards with the teams W/L stats in the header
     sectHero = document.querySelector('section');
 
@@ -1144,7 +1148,7 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
         tabsCreated = false;
         sortingByDate = true;
     }
-
+    
     let gameColumns = document.getElementById('game-columns');
 
     let column1 = document.createElement('div');
@@ -1251,8 +1255,18 @@ function deleteGames(){
 
 function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
     let pageCount = Math.ceil(totalGameCount / paginationLimit);
-    let ul = document.querySelector('ul');
+    let ul = document.querySelector('ul'); //creation of the list to store the buttons
 
+    //creates the left arrow
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    a.classList.add('pagination-link');
+    a.addEventListener('click', ()=>{if(currentPage != 1){setCurrentPage(currentPage - 1)}});
+    a.textContent = '«';
+    li.append(a);
+    ul.append(li);  
+
+    //creates the numbered pages
     for(i=0; i<pageCount; i++){
         let li = document.createElement('li');
         let a = document.createElement('a');
@@ -1262,6 +1276,16 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
         li.append(a);
         ul.append(li);  
     }
+
+    //creates the right arrow
+    li = document.createElement('li');
+    a = document.createElement('a');
+    a.classList.add('pagination-link');
+    a.addEventListener('click', ()=>{if(currentPage != pageCount){setCurrentPage(currentPage + 1)}});
+    a.textContent = '»';
+    li.append(a);
+    ul.append(li); 
+
     activePageNumber();
 }
 
