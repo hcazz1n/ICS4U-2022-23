@@ -1168,72 +1168,74 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
     gameColumns.append(column3);
 
     gameSect = document.querySelector('#gamesC1');
+    let displayedIds = [];
     let totalGameCount = 1;
 
     teams.forEach((team) => {
         let count = 0;
         team.games.forEach(() => {
-            let card = document.createElement('div');
-            card.classList.add('card', 'card-content', 'my-5', 'team-games');
-    
-            let outcome = document.createElement('p');
-            let datePlayed = document.createElement('p');
-            outcome.classList.add('is-size-3');
-            datePlayed.classList.add('is-size-5');
-    
-            let scoreline = team.tag;
-            let idEnemyTeam = team.games[count].opp;
-            if(team.games[count].win == true){
-                scoreline = scoreline + ' | ' + '1' + '-' + '0' + ' | ';
-            } else {
-                scoreline = scoreline + ' | ' + '0' + '-' + '1' + ' | ';
-            }
-            teamList = JSON.parse(localStorage.getItem('everyTeam'));
-            scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
+            if(!displayedIds.includes(team.games[count].gameId)){
+                displayedIds.push(team.games[count].gameId);
+                let card = document.createElement('div');
+                card.classList.add('card', 'card-content', 'my-5', 'team-games');
+                let outcome = document.createElement('p');
+                let datePlayed = document.createElement('p');
+                outcome.classList.add('is-size-3');
+                datePlayed.classList.add('is-size-5');
+        
+                let scoreline = team.tag;
+                let idEnemyTeam = team.games[count].opp;
+                if(team.games[count].win == true){
+                    scoreline = scoreline + ' | ' + '1' + '-' + '0' + ' | ';
+                } else {
+                    scoreline = scoreline + ' | ' + '0' + '-' + '1' + ' | ';
+                }
+                teamList = JSON.parse(localStorage.getItem('everyTeam'));
+                scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
 
-            let date = team.games[count].date;
-            date = '2022-' + date;
-    
-            outcome.textContent = scoreline;
-            datePlayed.textContent = date;
+                let date = team.games[count].date;
+                date = '2022-' + date;
+        
+                outcome.textContent = scoreline;
+                datePlayed.textContent = date;
 
-            if(dateSort){
-                let date1 = document.getElementById('date1').value;
-                let date2 = document.getElementById('date2').value;
-                if((parseInt(date.substring(5, 7)) > parseInt(date1.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date1.substring(5, 7))) && (parseInt(date.substring(5, 7)) < parseInt(date2.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date2.substring(5, 7)))){
-                    if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
-                        if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
-                            card.append(outcome); 
-                            card.append(datePlayed);
-                            gameSect.appendChild(card);
-                            /*Code that cycles through the columns when adding a game to the page*/
-                            if(gameSect == document.querySelector('#gamesC1')){
-                                gameSect = document.querySelector('#gamesC2');
-                            } else if(gameSect == document.querySelector('#gamesC2')){
-                                gameSect = document.querySelector('#gamesC3');
-                            } else{
-                                gameSect = document.querySelector('#gamesC1');
+                if(dateSort){
+                    let date1 = document.getElementById('date1').value;
+                    let date2 = document.getElementById('date2').value;
+                    if((parseInt(date.substring(5, 7)) > parseInt(date1.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date1.substring(5, 7))) && (parseInt(date.substring(5, 7)) < parseInt(date2.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date2.substring(5, 7)))){
+                        if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
+                            if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
+                                card.append(outcome); 
+                                card.append(datePlayed);
+                                gameSect.appendChild(card);
+                                /*Code that cycles through the columns when adding a game to the page*/
+                                if(gameSect == document.querySelector('#gamesC1')){
+                                    gameSect = document.querySelector('#gamesC2');
+                                } else if(gameSect == document.querySelector('#gamesC2')){
+                                    gameSect = document.querySelector('#gamesC3');
+                                } else{
+                                    gameSect = document.querySelector('#gamesC1');
+                                }
                             }
+                            totalGameCount++;
                         }
-                        totalGameCount++;
+                    }
+                } else {
+                    if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
+                        card.append(outcome); 
+                        card.append(datePlayed);
+                        gameSect.appendChild(card);
+                    }
+                    totalGameCount++;
+                    if(gameSect == document.querySelector('#gamesC1')){
+                        gameSect = document.querySelector('#gamesC2');
+                    } else if(gameSect == document.querySelector('#gamesC2')){
+                        gameSect = document.querySelector('#gamesC3');
+                    } else{
+                        gameSect = document.querySelector('#gamesC1');
                     }
                 }
-            } else {
-                if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
-                    card.append(outcome); 
-                    card.append(datePlayed);
-                    gameSect.appendChild(card);
-                }
-                totalGameCount++;
-                if(gameSect == document.querySelector('#gamesC1')){
-                    gameSect = document.querySelector('#gamesC2');
-                } else if(gameSect == document.querySelector('#gamesC2')){
-                    gameSect = document.querySelector('#gamesC3');
-                } else{
-                    gameSect = document.querySelector('#gamesC1');
-                }
-            }
-            
+        }
             count++;
         })
     })
