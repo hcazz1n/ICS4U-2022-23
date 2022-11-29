@@ -84,7 +84,7 @@ p{
     box-shadow: 0 0 1px rgb(0 0 0 / 0%);
     position: relative;
     transition-property: color; /*property being changed*/
-    transition-duration: 0.7s;  /*fade duration*/
+    transition-duration: 1s;  /*fade duration*/
 }
 
 [class^="hvr-"] { /*all classes with the hvr- as a prefix are affected by this*/
@@ -157,10 +157,6 @@ div .team-link{
 
 .header-background{
     background-image: url('images/headerbackgroundimg.jfif');
-}
-
-.team-games{
-    font-size: 22px;
 }
 
 #team-logo-head{
@@ -238,4 +234,24 @@ div .team-link{
     display: flex;
     justify-content: center;
     margin-bottom: 9px;
+}
+
+/*code for the scoresheet cards in games and teamPage.html*/
+
+.scorecard-logo{
+    position: relative;
+    width: 15%;
+}
+
+.scorecard-date{
+    display: flex;
+    justify-content: center;
+}
+
+.team-games{
+    font-size: 22px;
+}
+
+.scoreline{
+    display: flex;
 }

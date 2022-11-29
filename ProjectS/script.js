@@ -1180,9 +1180,23 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
                 card.classList.add('card', 'card-content', 'my-5', 'team-games');
                 let outcome = document.createElement('p');
                 let datePlayed = document.createElement('p');
-                outcome.classList.add('is-size-3');
-                datePlayed.classList.add('is-size-5');
-        
+                outcome.classList.add('is-size-3', 'scoreline');
+                datePlayed.classList.add('is-size-5', 'scorecard-date');
+                
+                let homeTeam = document.createElement('img');
+                homeTeam.classList.add('scorecard-logo');
+                homeTeam.src = 'images/' + team.id + '.png';
+                if(team.id === 6 || team.id === 7 || team.id === 8 || team.id === 13 || team.id === 16){ //dark variants of logos
+                    homeTeam.src = 'images/' + team.id + 'dark.png';
+                }
+
+                let awayTeam = document.createElement('img');
+                awayTeam.classList.add('scorecard-logo');
+                awayTeam.src = 'images/' + team.games[count].opp + '.png';
+                if(team.games[count].opp === 6 || team.games[count].opp === 7 || team.games[count].opp === 8 || team.games[count].opp === 13 || team.games[count].opp === 16){ //dark variants of logos
+                    awayTeam.src = 'images/' + team.games[count].opp + 'dark.png';
+                }
+
                 let scoreline = team.tag;
                 let idEnemyTeam = team.games[count].opp;
                 if(team.games[count].win == true){
@@ -1195,7 +1209,7 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
 
                 let date = team.games[count].date;
                 date = '2022-' + date;
-        
+
                 outcome.textContent = scoreline;
                 datePlayed.textContent = date;
 
@@ -1205,6 +1219,8 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
                     if((parseInt(date.substring(5, 7)) > parseInt(date1.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date1.substring(5, 7))) && (parseInt(date.substring(5, 7)) < parseInt(date2.substring(5, 7)) || parseInt(date.substring(5, 7)) == parseInt(date2.substring(5, 7)))){
                         if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
                             if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
+                                card.append(homeTeam);
+                                card.append(awayTeam);
                                 card.append(outcome); 
                                 card.append(datePlayed);
                                 gameSect.appendChild(card);
@@ -1222,7 +1238,9 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
                     }
                 } else {
                     if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
+                        card.append(homeTeam);
                         card.append(outcome); 
+                        card.append(awayTeam);
                         card.append(datePlayed);
                         gameSect.appendChild(card);
                     }
