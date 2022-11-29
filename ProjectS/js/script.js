@@ -12,7 +12,7 @@ let sortingByDate = false; //checks whether pagination is currently sorting by d
 let currentPage = 1; //the current page for pagination
 let onTeamPage = false; //checks if on a team page instead of the games.html page.
 
-//*
+/*
 //the arrays that will be put in the localStorage
 let teamsGroupA = [];
 let teamsGroupB = [];
@@ -221,7 +221,7 @@ function initData(){ //takes the arrays of teams and puts them into localStorage
 }
 
 initData(); //this gets called and commented out along with the all the other initialization stuff
-//*/
+*/
 
 function getTeams() { //gets the localStorage array of teams of the 4 groups and creates the tables on standings.html
     groupA = JSON.parse(localStorage['teamsGroupA']);
@@ -638,8 +638,10 @@ function swapLogo2(){ //swaps the logo from blue to black
 //code below is for admin.html
 
 function hide(){ //hides the red popup when X is clicked
-    let popup = document.querySelector("article");
-    popup.remove();
+    let popups = document.querySelectorAll("article");
+    popups.forEach((popup) => {
+        popup.remove();
+    })
 }
 
 function checkAdminName(){ //checks if the entered name is the admin's name (Harrison)
@@ -897,14 +899,36 @@ function changeWLSelect(outcome){ //changes whether win or loss button is select
 function canSubmit(){ //checks if all fields have proper information and un-disables the submit button.
     if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered()){
         if(document.getElementById('outcome-win').classList[2] === 'is-outlined' && document.getElementById('outcome-loss').classList[2] === 'is-outlined'){
-            window.alert('Please indicate the outcome of the game.');
+            let warningPopup = document.getElementById('invalid-input');
+            let head = document.createElement('div');
+            head.classList.add('message-header');
+            let headText = document.createElement('strong');
+            headText.textContent = 'Invalid Input';
+            head.append(headText);
+            let content = document.createElement('div');
+            content.classList.add('message-body', 'is-danger', 'is-light');
+            content.textContent = 'Please indicate the outcome of the game.';
+            warningPopup.append(head);
+            warningPopup.append(content);
         } else if(document.getElementById('outcome-win').classList[2] !== 'is-outlined'){
             submit('w');
+            hide();
         } else {
             submit('l');
+            hide();
         }
     } else {
-        window.alert('Please enter all necessary information.');
+        let warningPopup = document.getElementById('invalid-input');
+        let head = document.createElement('div');
+        head.classList.add('message-header');
+        let headText = document.createElement('strong');
+        headText.textContent = 'Invalid Input';
+        head.append(headText);
+        let content = document.createElement('div');
+        content.classList.add('message-body', 'is-danger', 'is-light');
+        content.textContent = 'Please enter all necessary information.';
+        warningPopup.append(head);
+        warningPopup.append(content);
     }
 }
 
@@ -1243,7 +1267,7 @@ function deleteGames(){
 function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
     let pageCount;
     if(totalGameCount <= 7){
-        pageCount = Math.round(totalGameCount / paginationLimit);
+        return;
     } else {
         pageCount = Math.ceil(totalGameCount / paginationLimit);
     }

@@ -86,7 +86,7 @@ p{
     box-shadow: 0 0 1px rgb(0 0 0 / 0%);
     position: relative;
     transition-property: color; /*property being changed*/
-    transition-duration: 1s;  /*fade duration*/
+    transition-duration: 1.25s;  /*fade duration*/
 }
 
 [class^="hvr-"] { /*all classes with the hvr- as a prefix are affected by this*/
@@ -239,6 +239,7 @@ div .team-link{
 }
 
 #sort-button-games{
+    display: block;
     margin-top: 15px;
 }
 
