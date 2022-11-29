@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worlds 2022 Scoresheet</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./style.css"> <!--stylesheet link-->
+    <link rel="stylesheet" href="./css/style.css"> <!--stylesheet link-->
 </head>
 
 <body onLoad="getTeams();" class="standings">
@@ -39,114 +39,115 @@
             </div>
         </div>
     </nav>
-    <div id="standings-columns" class="columns">
-        <div class="column is-half">
-            <div class="card mx-3 my-5">
-                <div class="card-header">
-                    <p class="card-header-title">Group A</p>
-                </div>
-                <div class="card-content groups">
-                    <table id="groupA" class="table is-striped">
-                        <thead>
-                            <tr>
-                                <th onclick="sort('rank', 'A');">Rank</th>
-                                <th>Logo</th>
-                                <th onclick="sort('name', 'A');">Team</th>
-                                <th onclick="sort('wins', 'A');">Wins</th>
-                                <th onclick="sort('losses', 'A');">Losses</th>
-                                <th>PCT</th>    
-                                <th onclick="sort('duration', 'A');">Duration</th>          
-                            </tr>
-                        </thead>
-                        <tbody>
+    <div id="standings-page-bg">
+        <div id="standings-columns" class="columns is-desktop">
+            <div class="column">
+                <div class="card mx-3 my-5">
+                    <div class="card-header">
+                        <p class="card-header-title">Group A</p>
+                    </div>
+                    <div class="card-content groups">
+                        <table id="groupA" class="table is-striped">
+                            <thead>
+                                <tr>
+                                    <th onclick="sort('rank', 'A');">Rank</th>
+                                    <th>Logo</th>
+                                    <th onclick="sort('name', 'A');">Team</th>
+                                    <th onclick="sort('wins', 'A');">Wins</th>
+                                    <th onclick="sort('losses', 'A');">Losses</th>
+                                    <th class="standings-PCT">PCT</th>    
+                                    <th class="standings-duration" onclick="sort('duration', 'A');">Duration</th>          
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card mx-3 my-5">
+                    <div class="card-header">
+                        <p class="card-header-title">Group B</p>
+                    </div>
+                    <div class="card-content groups">
+                        <table id="groupB" class="table is-striped">
+                            <thead>
+                                <tr>
+                                    <th onclick="sort('rank', 'B');">Rank</th>
+                                    <th>Logo</th>
+                                    <th onclick="sort('name', 'B');">Team</th>
+                                    <th onclick="sort('wins', 'B');"">Wins</th>
+                                    <th onclick="sort('losses', 'B');">Losses</th>
+                                    <th class="standings-PCT">PCT</th>
+                                    <th class="standings-duration" onclick="sort('duration', 'B');">Duration</th>    
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="column is-half">
-            <div class="card mx-3 my-5">
-                <div class="card-header">
-                    <p class="card-header-title">Group B</p>
-                </div>
-                <div class="card-content groups">
-                    <table id="groupB" class="table is-striped">
-                        <thead>
-                            <tr>
-                                <th onclick="sort('rank', 'B');">Rank</th>
-                                <th>Logo</th>
-                                <th onclick="sort('name', 'B');">Team</th>
-                                <th onclick="sort('wins', 'B');"">Wins</th>
-                                <th onclick="sort('losses', 'B');">Losses</th>
-                                <th>PCT</th>
-                                <th onclick="sort('duration', 'B');">Duration</th>    
-                            </tr>
-                        </thead>
-                        <tbody>
+        <div class="columns is-desktop">
+            <div class="column">
+                <div class="card mx-3 my-5">
+                    <div class="card-header">
+                        <p class="card-header-title">Group C</p>
+                    </div>
+                    <div class="card-content groups">
+                        <table id="groupC" class="table is-striped">
+                            <thead>
+                                <tr>
+                                    <th onclick="sort('rank', 'C');">Rank</th>
+                                    <th>Logo</th>
+                                    <th onclick="sort('name', 'C');">Team</th>
+                                    <th onclick="sort('wins', 'C');">Wins</th>
+                                    <th onclick="sort('losses', 'C');">Losses</th>
+                                    <th class="standings-PCT">PCT</th>
+                                    <th class="standings-duration" onclick="sort('duration', 'C');">Duration</th>   
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card mx-3 my-5">
+                    <div class="card-header">
+                        <p class="card-header-title">Group D</p>
+                    </div>
+                    <div class="card-content groups">
+                        <table id="groupD" class="table is-striped">
+                            <thead>
+                                <tr>
+                                    <th onclick="sort('rank', 'D');">Rank</th>
+                                    <th>Logo</th>
+                                    <th onclick="sort('name', 'D');">Team</th>
+                                    <th onclick="sort('wins', 'D');">Wins</th>
+                                    <th onclick="sort('losses', 'D');">Losses</th>
+                                    <th class="standings-PCT">PCT</th>
+                                    <th class="standings-duration" onclick="sort('duration', 'D');">Duration</th>  
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="columns">
-        <div class="column is-half">
-            <div class="card mx-3 my-5">
-                <div class="card-header">
-                    <p class="card-header-title">Group C</p>
-                </div>
-                <div class="card-content groups">
-                    <table id="groupC" class="table is-striped">
-                        <thead>
-                            <tr>
-                                <th onclick="sort('rank', 'C');">Rank</th>
-                                <th>Logo</th>
-                                <th onclick="sort('name', 'C');">Team</th>
-                                <th onclick="sort('wins', 'C');">Wins</th>
-                                <th onclick="sort('losses', 'C');">Losses</th>
-                                <th>PCT</th>
-                                <th onclick="sort('duration', 'C');">Duration</th>   
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="column is-half">
-            <div class="card mx-3 my-5">
-                <div class="card-header">
-                    <p class="card-header-title">Group D</p>
-                </div>
-                <div class="card-content groups">
-                    <table id="groupD" class="table is-striped">
-                        <thead>
-                            <tr>
-                                <th onclick="sort('rank', 'D');">Rank</th>
-                                <th>Logo</th>
-                                <th onclick="sort('name', 'D');">Team</th>
-                                <th onclick="sort('wins', 'D');">Wins</th>
-                                <th onclick="sort('losses', 'D');">Losses</th>
-                                <th>PCT</th>
-                                <th onclick="sort('duration', 'D');">Duration</th>  
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
-<footer>
-    <p class="is-size-7">&copy; 2022 Yours Truly. All Rights Reserved.</p>
+<footer class="footer">
+    <p class="is-size-7">&copy; 2022 by Harrison. All Rights Reserved.</p>
 </footer>
 </html>

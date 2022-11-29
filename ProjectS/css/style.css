@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&family=Oswald:wght@400;500;700&display=swap');
+
+*{
+   margin: 0;
+   padding: 0;
+}
+
+body, html{
+    font-family: 'Manrope', sans-serif;
+    height: 100%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: #ffffff !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 2.25rem !important;
+}
+
+.light-blue-background{
+    background-color: #00c8c8;
+}
+
+.tan-background{
+    background-color: #BFA975;
+}
+
+.logo{
+    margin-right: 20px;
+}
+
+a{
+    color: #00c8c8;
+}
+
+a:hover{
+    color: #c69d57;
+}
+
+a.text.navbar-item:hover strong{
+    color: #00c8c8 !important;
+}
+
+p{
+    color: #000000;
+}
+
+.text{
+    font-size: 18px;
+    margin: 2px;
+}
+
+.column{
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+}
+
+/*for index.html*/
+
+#home-page-bg{
+    background-image: url('../images/worlds20.jpg');
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    font-family: 'Oswald', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title{
+    color: #ffffff;
+    display: block;
+    font-size: 240px;
+    margin-bottom: 25px !important;
+}
+
+/*this code for the button animation is from https://ianlunn.github.io/Hover/*/
+.hvr-sweep-to-right { /*this code controls the fade animation of the text from black -> white*/
+    display: inline-block;
+    transform: perspective(1px) translateZ(0); /*necessary for the bar to appear on screen*/
+    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+    position: relative;
+    transition-property: color; /*property being changed*/
+    transition-duration: 1s;  /*fade duration*/
+}
+
+[class^="hvr-"] { /*all classes with the hvr- as a prefix are affected by this*/
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 1em;
+    cursor: pointer;
+    background: #e1e1e1;
+    text-decoration: none;
+    color: #000;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+    color: white;
+}
+
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+    transform: scaleX(1); /*necessary for the bar to appear on screen*/
+}
+
+.hvr-sweep-to-right:before { /*deals with the animation of the bar sliding from left -> right*/
+    content: ""; /*text content of the bar*/
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #BFA975;
+    transform: scaleX(0); /*without this, there is a one-time animation that does not happen when the cursor hovers*/
+    transform-origin: 0 50%; /*point at which the transformation is applied*/
+    transition-property: transform;
+    transition-duration: 0.7s; /*duration of the bar*/
+    transition-timing-function: ease-out; /*eases the bar*/
+}
+
+/*for standings.html*/
+
+.logo-standings{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 42px;
+}
+
+.groups{
+    max-height: 325px;
+}
+
+div .team-link{
+    display: flex;
+    align-items: center;
+}
+
+.table{
+    width: 100%;
+}
+
+#standings{
+    background-color: rgb(179, 179, 179);
+}
+
+#standings-columns .column{
+    padding: 0.75rem !important;
+}
+
+/*for teamPage.html*/
+
+.header-background{
+    background-image: url('../images/headerbackgroundimg.jfif');
+}
+
+.hero-body{
+    display: grid;
+    grid-template-columns: 0.5fr 5fr;
+}
+
+#team-logo-head{
+    width: 100%;
+}
+
+.teamname{
+    margin-top: 18px;
+    margin-left: 10px;
+    grid-column: 2/3;
+}
+
+/*for admin.html*/
+
+.message{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-panel{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.field{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#admin-nav{
+    margin-bottom: 20px;
+}
+
+.field .is-grouped{
+    margin: 0;
+}
+
+#outcome-win{
+    margin-bottom: 10px;
+}
+
+#submit-button{
+    margin-left: 10px;
+}
+
+#admin-card{
+    margin-bottom: 24px;
+}
+
+/*for games.html*/
+
+#game-container{
+    margin-top: 15px;
+}
+
+.dates{
+    display: flex;
+    justify-content: center;
+}
+
+#date-field-games{
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 30%;
+}
+
+#sort-button-games{
+    margin-top: 15px;
+}
+
+/*style of games.html and teamPages.html specifically regarding pagination*/
+
+.pagination-list{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 9px;
+}
+
+/*code for the scoresheet cards in games and teamPage.html*/
+
+.scorecard-logo-home{
+    grid-column: 2/3;
+    width: 50%;
+}
+
+.scorecard-logo-away{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    width: 50%;
+}
+
+.scorecard-tag{
+    display: inline-block;
+}
+
+.scorecard-date{
+    display: flex;
+    justify-content: center;
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+.team-games{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+    grid-template-rows: 1fr 0.5fr 1fr 0.25fr;
+}
+
+.scoreline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+/*Media Queries*/
+
+/*index.html*/
+
+@media(max-width: 1187px){
+    .title{
+        font-size: 180px;
+    }
+}
+
+@media(max-width: 895px){
+    .title{
+        font-size: 140px;
+    }
+
+    [class^="hvr-"] {
+        width: 80%;
+    }
+}
+
+@media(max-width: 699px){
+    .title{
+        font-size: 100px;
+    }
+
+    [class^="hvr-"] {
+        width: 90%;
+    }
+}
+
+@media(max-width: 504px){
+    .title{
+        font-size: 50px;
+    }
+
+    [class^="hvr-"] {
+        width: 90%;
+    }
+}
+
+/*standings.html*/
+
+@media(max-width: 1278px){ /*remove duration*/
+    .standings-duration{
+        display: none;
+    }
+}
+
+@media(max-width: 1095px){ /*remove pct*/
+    .standings-PCT{
+        display: none;
+    }
+}
+
+@media(max-width: 1023px){ /*Hamburger menu setup and movements. Hamburger code not mine, from https://alvarotrigo.com/blog/hamburger-menu-css*/
+    .standings-duration, .standings-PCT{
+        display: table-cell;
+    }
+}
+
+@media(max-width: 634px){ /*remove duration*/
+    .standings-duration{
+        display: none;
+    }
+}
+
+@media(max-width: 545px){ /*remove pct*/
+    .standings-PCT{
+        display: none;
+    }
+}
+
+@media(max-width: 470px){
+    .groups{
+        max-height: 500px;
+    }
+}
+
+/*teamPage.html & games.html*/
+
+@media(max-width: 958px){
+    .scorecard-logo-home{
+        grid-column: 2/3;
+        width: 40%;
+    }
+    
+    .scorecard-logo-away{
+        grid-column: 2/3;
+        grid-row: 3/4;
+        width: 40%;
+    }
+}
+
+@media(max-width: 1080px){
+
+}
+
+@media(max-width: 1080px){
+    .teamname{
+        margin-top: 8px;
+    }
+}
+
+@media(max-width: 930px){
+    #team-logo-head{
+        margin-top: 10px;
+    }
+}
+
+@media(max-width: 768px){
+    .team-games{
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+        grid-template-rows: 1fr 0.25fr 1fr;
+    }
+
+    .scorecard-logo-home{
+        grid-column: 1/2;
+        grid-row: 1/4;
+        width: 70%;
+    }
+    
+    .scorecard-logo-away{
+        grid-column: 3/4;
+        grid-row: 1/4;
+        width: 70%;
+    }
+
+    .pagination-list li{
+        flex-grow: 0 !important;
+    }
+}
+
+@media(max-width: 741px){
+    #team-logo-head{
+        margin-top: 13px;
+    }
+
+    .team-games{
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: 1fr 0.25fr 1fr;
+    }
+
+    .scorecard-logo-home{
+        width: 60%;
+    }
+    
+    .scorecard-logo-away{
+        width: 60%;
+    }
+}
+
+@media(max-width: 729px){
+    .team-games{
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: 1fr 0.25fr 1fr;
+    }
+
+    .scorecard-logo-home{
+        width: 50%;
+    }
+    
+    .scorecard-logo-away{
+        width: 50%;
+    }
+}
+
+@media(max-width: 670px){
+    #team-logo-head{
+        margin-top: 16px;
+    }
+}
+
+@media(max-width: 600px){
+    #team-logo-head{
+        margin-top: 17px;
+    }
+}
+
+@media(max-width: 545px){
+    .has-background-white{
+        display: none;
+    }
+
+    .arrow{
+        display: list-item;
+    }
+}
+
+@media(max-width: 515px){
+    #team-logo-head{
+        margin-top: 22px;
+    }
+}
+
+@media(max-width: 440px){
+    #team-logo-head{
+        margin-top: 25px;
+    }
+}
+
+@media(max-width: 400px){
+    .team-games{
+        grid-template-columns: 0.75fr 1.75fr 0.75fr;
+        grid-template-rows: 1fr 0.25fr 1fr;
+    }
+}
+
+/*admin.html*/
+
+@media(max-width: 920px){
+    .is-offset-8{
+        margin-left: 60% !important;
+    }
+}
+
+@media(max-width: 768px){
+    .is-offset-8{
+        margin-left: 52% !important;
+    }
+}
+
+@media(max-width: 655px){
+    .is-offset-8{
+        margin-left: 45% !important;
+    }
+}
+
+@media(max-width: 570px){
+    .field .is-grouped{
+        margin-left: 80px;
+    }
+    .is-offset-8{
+        margin-left: 18% !important;
+    }
+}
+
+@media(max-width: 500px){
+    .field .is-grouped{
+        margin-left: 0;
+    }
+    .is-offset-8{
+        margin-left: 18% !important;
+    }
+}
+

@@ -6,7 +6,7 @@ let groupD;
 
 //pagination global variables
 const paginatedList = document.getElementById("pagination-list"); //the id of the list where the games will be added for pagination.
-const paginationLimit = 9; //the limit of scores/page on games.html.
+const paginationLimit = 6; //the limit of scores/page on games.html.
 let tabsCreated = false; //checks whether pagination tabs have already been created.
 let sortingByDate = false; //checks whether pagination is currently sorting by date.
 let currentPage = 1; //the current page for pagination
@@ -291,10 +291,12 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
         row.appendChild(td);
 
         td = document.createElement('td');
+        td.classList.add('standings-PCT');
         td.textContent = ((team.W / (team.W + team.L)) * 100).toFixed(1);
         row.appendChild(td);
 
         td = document.createElement('td');
+        td.classList.add('standings-duration');
         let count = 0;
         let totalDuration = 0;
         team.games.forEach(() => {
@@ -558,35 +560,52 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
 
     teams[0].games.forEach(() => {
         let card = document.createElement('div');
-        card.classList.add('card', 'card-content', 'my-5', 'team-games');
+                card.classList.add('card', 'card-content', 'my-5', 'team-games');
+                let outcome = document.createElement('p');
+                let datePlayed = document.createElement('p');
+                outcome.setId
+                outcome.classList.add('is-size-4', 'scoreline');
+                datePlayed.classList.add('is-size-6', 'scorecard-date');
 
-        let outcome = document.createElement('p');
-        let datePlayed = document.createElement('p');
-        outcome.classList.add('is-size-3');
-        datePlayed.classList.add('is-size-5');
+                let scoreline = teams[0].tag;
+                let idEnemyTeam = teams[0].games[count].opp;
+                
+                let homeTeam = document.createElement('img');
+                homeTeam.classList.add('scorecard-logo-home');
+                homeTeam.src = 'images/' + teams[0].id + '.png';
+                if(teams[0].id === 6 || teams[0].id === 7 || teams[0].id === 8 || teams[0].id === 13 || teams[0].id === 16){ //dark variants of logos
+                    homeTeam.src = 'images/' + teams[0].id + 'dark.png';
+                }
 
-        let scoreline = teams[0].tag;
-        let idEnemyTeam = teams[0].games[count].opp;
-        if(teams[0].games[count].win == true){
-            scoreline = scoreline + ' | ' + '1' + '-' + '0' + ' | ';
-        } else {
-            scoreline = scoreline + ' | ' + '0' + '-' + '1' + ' | ';
-        }
-        teamList = JSON.parse(localStorage.getItem('everyTeam'));
-        scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
+                let awayTeam = document.createElement('img');
+                awayTeam.classList.add('scorecard-logo-away');
+                awayTeam.src = 'images/' + teams[0].games[count].opp + '.png';
+                if(teams[0].games[count].opp === 6 || teams[0].games[count].opp === 7 || teams[0].games[count].opp === 8 || teams[0].games[count].opp === 13 || teams[0].games[count].opp === 16){ //dark variants of logos
+                    awayTeam.src = 'images/' + teams[0].games[count].opp + 'dark.png';
+                }
 
-        outcome.textContent = scoreline;
+                if(teams[0].games[count].win == true){
+                    scoreline = scoreline + ' | ' + '1' + '-' + '0' + ' | ';
+                } else {
+                    scoreline = scoreline + ' | ' + '0' + '-' + '1' + ' | ';
+                }
+                teamList = JSON.parse(localStorage.getItem('everyTeam'));
+                scoreline = scoreline + teamList[idEnemyTeam - 1].tag;
 
-        let date = teams[0].games[count].date;
-        date = '2022-' + date;
+                let date = teams[0].games[count].date;
+                date = '2022-' + date;
 
-        datePlayed.textContent = date;
+                outcome.textContent = scoreline;
+                datePlayed.textContent = date;
 
         if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){
-            card.append(outcome);
+            card.append(homeTeam);
+            card.append(outcome); 
+            card.append(awayTeam);
             card.append(datePlayed);
             gameSect.appendChild(card);
         }
+        totalGameCount++;
 
         /*Code that cycles through the columns when adding a game to the page*/
         if(gameSect == document.querySelector('#gamesC1')){
@@ -601,61 +620,10 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
     })
 
     if(!tabsCreated){
-        //headerStats(teams); //since this if statment only happens at the beginning, calls this function in here so it doesn't duplicate.
         createPaginationTabs(totalGameCount); //calls createPaginationTabs with the total # of games played.
         tabsCreated = true;
     }
 }
-
-function createColumns(){
-    
-}
-
-function headerStats(teams){ //Adds cards with the teams W/L stats in the header
-    sectHero = document.querySelector('section');
-
-    // columns = document.createElement('div');
-    // div.classList.add('columns');
-
-    let winCard = document.createElement('div');
-    winCard.classList.add('card', 'card-content', 'my-5', 'team-games', 'has-background-white');
-
-    let lossCard = document.createElement('div');
-    lossCard.classList.add('card', 'card-content', 'my-5', 'team-games', 'has-background-white');
-
-    let winHeader = document.createElement('p');
-    winHeader.classList.add('is-size-5');
-    winHeader.textContent = 'Wins';
-    let lossHeader = document.createElement('p');
-    lossHeader.classList.add('is-size-5');
-    lossHeader.textContent = 'Losses';
-
-    let wins = document.createElement('p');
-    wins.classList.add('is-size-2');
-    let losses = document.createElement('p');
-    losses.classList.add('is-size-2');
-
-    let winCounter = 0;
-    let lossCounter = 0;
-    teams[0].games.forEach((game) => {
-        if(game.win == true){
-            winCounter++;
-        } else {
-            lossCounter++;
-        }
-    })
-
-    wins.textContent = winCounter;
-    losses.textContent = lossCounter;
-
-    winCard.append(winHeader);
-    winCard.append(wins);
-    lossCard.append(lossHeader);
-    lossCard.append(losses);
-
-    sectHero.appendChild(winCard);
-    sectHero.appendChild(lossCard);
-} 
 
 //logo swap functions
 
@@ -999,7 +967,6 @@ function clear1(){ //clears the text fields, un-highlights the buttons, and make
 }
 
 function submit(outcome){ //pushes the information to the localStorage to update stats
-    //{gameId : 1, opp : 2, win : true, duration : 1915, date : '10-07'}
     let teamTag = document.getElementById('team').value;
     let opponent = document.getElementById('opp').value;
     let dur = document.getElementById('dur').value;
@@ -1180,18 +1147,18 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
                 card.classList.add('card', 'card-content', 'my-5', 'team-games');
                 let outcome = document.createElement('p');
                 let datePlayed = document.createElement('p');
-                outcome.classList.add('is-size-3', 'scoreline');
-                datePlayed.classList.add('is-size-5', 'scorecard-date');
+                outcome.classList.add('is-size-4', 'scoreline');
+                datePlayed.classList.add('is-size-6', 'scorecard-date');
                 
                 let homeTeam = document.createElement('img');
-                homeTeam.classList.add('scorecard-logo');
+                homeTeam.classList.add('scorecard-logo-home');
                 homeTeam.src = 'images/' + team.id + '.png';
                 if(team.id === 6 || team.id === 7 || team.id === 8 || team.id === 13 || team.id === 16){ //dark variants of logos
                     homeTeam.src = 'images/' + team.id + 'dark.png';
                 }
 
                 let awayTeam = document.createElement('img');
-                awayTeam.classList.add('scorecard-logo');
+                awayTeam.classList.add('scorecard-logo-away');
                 awayTeam.src = 'images/' + team.games[count].opp + '.png';
                 if(team.games[count].opp === 6 || team.games[count].opp === 7 || team.games[count].opp === 8 || team.games[count].opp === 13 || team.games[count].opp === 16){ //dark variants of logos
                     awayTeam.src = 'images/' + team.games[count].opp + 'dark.png';
@@ -1220,8 +1187,8 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
                         if((parseInt(date.substring(8)) > parseInt(date1.substring(8)) || parseInt(date.substring(8)) == parseInt(date1.substring(8))) && (parseInt(date.substring(8)) < parseInt(date2.substring(8)) || parseInt(date.substring(8)) == parseInt(date2.substring(8)))){
                             if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //display the games in intervals of nine
                                 card.append(homeTeam);
-                                card.append(awayTeam);
                                 card.append(outcome); 
+                                card.append(awayTeam);
                                 card.append(datePlayed);
                                 gameSect.appendChild(card);
                                 /*Code that cycles through the columns when adding a game to the page*/
@@ -1274,13 +1241,19 @@ function deleteGames(){
 }
 
 function createPaginationTabs(totalGameCount){ //creates the page # selectors for pagination. totalGameCount - param that holds the total number of games played.
-    let pageCount = Math.ceil(totalGameCount / paginationLimit);
+    let pageCount;
+    if(totalGameCount <= 7){
+        pageCount = Math.round(totalGameCount / paginationLimit);
+    } else {
+        pageCount = Math.ceil(totalGameCount / paginationLimit);
+    }
     let ul = document.querySelector('ul'); //creation of the list to store the buttons
 
     //creates the left arrow
     let li = document.createElement('li');
     let a = document.createElement('a');
     a.classList.add('pagination-link');
+    a.classList.add('arrow');
     a.addEventListener('click', ()=>{if(currentPage != 1){setCurrentPage(currentPage - 1)}});
     a.textContent = '«';
     li.append(a);
@@ -1301,6 +1274,7 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
     li = document.createElement('li');
     a = document.createElement('a');
     a.classList.add('pagination-link');
+    a.classList.add('arrow');
     a.addEventListener('click', ()=>{if(currentPage != pageCount){setCurrentPage(currentPage + 1)}});
     a.textContent = '»';
     li.append(a);
@@ -1372,6 +1346,25 @@ function submitDateRange(){ //submits the date range to filter games. Does not l
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => { //this function is bulma's javascript implementation for an active, working navbar
 
-
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+  
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+  
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+  
+      });
+    });
+  
+});
 

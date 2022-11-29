@@ -6,7 +6,7 @@
     <meta name= "viewport" content="width=device-width, initial-scale=1.0">
     <title id="title"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">  
-    <link rel="stylesheet" href="./style.css"> <!--stylesheet link-->
+    <link rel="stylesheet" href="./css/style.css"> <!--stylesheet link-->
 </head>
 <body onLoad="start();">
     <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
@@ -41,7 +41,6 @@
     </nav>
     <section class="hero header-background">
         <div class="hero-body">
-           <div class="container">
                 <img id="team-logo-head">
                 <h1 class="teamname is-size-1 has-text-white">
                     <span id="name"></span>
@@ -51,22 +50,26 @@
     
                     </div>
                </div>
-           </div>
         </div>
      </section>
-     <div id="game-container" class="container">
-        <div id="game-columns" class="columns">
-            <div id="gamesC1" class="column is-4">
+     <div id="team-page-bg">
+        <div id="game-container" class="container">
+            <div id="game-columns" class="columns">
+                <div id="gamesC1" class="column is-4">
+                </div>
+                <div id="gamesC2" class="column is-4">
+                </div>
+                <div id="gamesC3" class="column is-4">
+                </div>
             </div>
-            <div id="gamesC2" class="column is-4">
-            </div>
-            <div id="gamesC3" class="column is-4">
-            </div>
-        </div>
-        <ul class="pagination-list">
+            <ul class="pagination-list">
 
-        </ul>
+            </ul>
+        </div>
      </div>
 </body>
-<script src="script.js"></script>
+<footer class="footer">
+    <p class="is-size-7">&copy; 2022 by Harrison. All Rights Reserved.</p>
+</footer>
+<script src="js/script.js"></script>
 </html>
