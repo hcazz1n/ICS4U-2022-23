@@ -12,7 +12,7 @@ let sortingByDate = false; //checks whether pagination is currently sorting by d
 let currentPage = 1; //the current page for pagination
 let onTeamPage = false; //checks if on a team page instead of the games.html page.
 
-/*
+/* --uncomment the code to reset the localStorage
 //the arrays that will be put in the localStorage
 let teamsGroupA = [];
 let teamsGroupB = [];
@@ -239,11 +239,13 @@ function createTables(){ //creates the 4 tables with the 4 groups
     createTable(groupD, 'D');
 }
 
+//variables for sorting by ascension/descension
 let ascendingRankA, ascendingRankB, ascendingRankC, ascendingRankD = true;
 let ascendingNameA, ascendingNameB, ascendingNameC, ascendingNameD = false;
 let ascendingWinsA, ascendingWinsB, ascendingWinsC, ascendingWinsD = false;
 let ascendingTimeA, ascendingTimeB, ascendingTimeC, ascendingTimeD = false;
 let ascendingLossesA, ascendingLossesB, ascendingLossesC, ascendingLossesD = false;
+let ascendingPCTA, ascendingPCTB, ascendingPCTC, ascendingPCTD = false;
 
 function createTable(teams, tableOfChoice) { //creates a table with the desired info from each team. teams - the array of teams in specific group. tableOfChoice - the table to be selected which is hardcoded when the function is called in html.
     tableBody = document.querySelector(selectedTable(tableOfChoice));
@@ -267,7 +269,7 @@ function createTable(teams, tableOfChoice) { //creates a table with the desired 
         }
         row.appendChild(td);
 
-        td = document.createElement('td');
+        td = document.createElement('td'); //the src of the image
         logo.src = 'images/' + team.id + '.png';
         if(team.id === 6 || team.id === 7 || team.id === 8 || team.id === 13 || team.id === 16){ //dark variants of logos
             logo.src = 'images/' + team.id + 'dark.png';
@@ -379,6 +381,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
                 ascendingLossesA = true;
                 groupA = groupA.sort((teamA, teamB) => (teamB.L - teamA.L));
             }
+        } else if(data === 'PCT'){
+            if(ascendingPCTA){
+                ascendingPCTA = false;
+                groupA = groupA.sort((teamA, teamB) => (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)) - (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)));
+            } else {
+                ascendingPCTA = true;
+                groupA = groupA.sort((teamA, teamB) => (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)) - (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)));
+            }
         }
     } else if(table == 'B'){
         if(data === 'rank'){
@@ -420,6 +430,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
             } else {
                 ascendingLossesB = true;
                 groupB = groupB.sort((teamA, teamB) => (teamB.L - teamA.L));
+            }
+        } else if(data === 'PCT'){
+            if(ascendingPCTB){
+                ascendingPCTB = false;
+                groupB = groupB.sort((teamA, teamB) => (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)) - (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)));
+            } else {
+                ascendingPCTB = true;
+                groupB = groupB.sort((teamA, teamB) => (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)) - (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)));
             }
         }
     } else if(table == 'C'){
@@ -463,6 +481,14 @@ function sort(data, table){ //uses the higher order array sort function to sort 
                 ascendingLossesC = true;
                 groupC = groupC.sort((teamA, teamB) => (teamB.L - teamA.L));
             }
+        } else if(data === 'PCT'){
+            if(ascendingPCTC){
+                ascendingPCTC = false;
+                groupC = groupC.sort((teamA, teamB) => (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)) - (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)));
+            } else {
+                ascendingPCTC = true;
+                groupC = groupC.sort((teamA, teamB) => (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)) - (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)));
+            }
         }
     } else {
         if(data === 'rank'){
@@ -505,9 +531,17 @@ function sort(data, table){ //uses the higher order array sort function to sort 
                 ascendingLossesD = true;
                 groupD = groupD.sort((teamA, teamB) => (teamB.L - teamA.L));
             }
+        } else if(data === 'PCT'){
+            if(ascendingPCTD){
+                ascendingPCTD = false;
+                groupD = groupD.sort((teamA, teamB) => (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)) - (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)));
+            } else {
+                ascendingPCTD = true;
+                groupD = groupD.sort((teamA, teamB) => (((teamB.W / (teamB.W + teamB.L)) * 100).toFixed(1)) - (((teamA.W / (teamA.W + teamA.L)) * 100).toFixed(1)));
+            }
         }
     }
-    /*sorts only a specific table depending on which header in which table was clicked*/
+    //sorts only a specific table depending on which header in which table was clicked
     if(table == 'A')
         createTable(groupA, 'A');
     else if(table == 'B')
@@ -537,8 +571,8 @@ function start(){ //code called on start of teamPage to load unique name, stats,
 function createTeamGames(teams) { //creates and displays the cards for ONE specific team, called when clicking on a team from the standings page. teams - sorted array of teams, with teams[0] being the desired team.
     gameSect = document.querySelector('#gamesC1');
 
-    let gameColumns = document.getElementById('game-columns');
-
+    let gameColumns = document.getElementById('game-columns'); 
+    //creates three columns to display the games
     let column1 = document.createElement('div');
     let column2 = document.createElement('div');
     let column3 = document.createElement('div');
@@ -558,7 +592,7 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
     let totalGameCount = 1;
     let count = 0;
 
-    teams[0].games.forEach(() => {
+    teams[0].games.forEach(() => { //for loop that iterates through each of the games for the team on their respective teamPage
         let card = document.createElement('div');
                 card.classList.add('card', 'card-content', 'my-5', 'team-games');
                 let outcome = document.createElement('p');
@@ -598,7 +632,7 @@ function createTeamGames(teams) { //creates and displays the cards for ONE speci
                 outcome.textContent = scoreline;
                 datePlayed.textContent = date;
 
-        if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){
+        if(totalGameCount > ((paginationLimit * currentPage) - paginationLimit) && totalGameCount <= (paginationLimit * currentPage)){ //only prints the scorecard IF it is within the range of pagination
             card.append(homeTeam);
             card.append(outcome); 
             card.append(awayTeam);
@@ -642,6 +676,20 @@ function hide(){ //hides the red popup when X is clicked
     popups.forEach((popup) => {
         popup.remove();
     })
+}
+
+function createPopup(errorMsg){ //creates a red error popup for validation on the admin page and when sorting by date. this only happens if the submit button is clicked prematurely on the admin page.
+    let warningPopup = document.getElementById('invalid-input');
+    let head = document.createElement('div');
+    head.classList.add('message-header');
+    let headText = document.createElement('strong');
+    headText.textContent = 'Invalid Input';
+    head.append(headText);
+    let content = document.createElement('div');
+    content.classList.add('message-body', 'is-danger', 'is-light', 'inv-inp-spacing');
+    content.textContent = errorMsg;
+    warningPopup.append(head);
+    warningPopup.append(content);
 }
 
 function checkAdminName(){ //checks if the entered name is the admin's name (Harrison)
@@ -719,7 +767,7 @@ function checkTeamTag(){ //checks if the team's tag matches with an actual team 
         document.getElementById("team").classList.add("is-danger")
         msg.classList.add("is-danger")
         sect.replaceChildren();
-        msg.textContent = 'That is not a team.';
+        msg.textContent = 'That is not a team.'; //smaller form of 
 
         icon.replaceChildren();
         i.classList.add('fa-xmark');
@@ -807,7 +855,7 @@ function checkOppTeamTag(){ //checks if the team's tag matches with an actual te
     return canSubmit;
 }
 
-function checkDuration(){
+function checkDuration(){ //ensures duration is formatted correctly
     let canSubmit = false;
 
     let duration = document.getElementById('dur').value;
@@ -875,7 +923,7 @@ function checkDateEntered(){ //checks if there is a date entered - no other veri
     return canSubmit;
 }
 
-function changeWLSelect(outcome){ //changes whether win or loss button is selected.
+function changeWLSelect(outcome){ //changes whether win or loss button is selected. outcome - 'w' or 'l' to determine if game was win or loss
     let win = document.getElementById('outcome-win');
     let loss = document.getElementById('outcome-loss');
 
@@ -899,17 +947,7 @@ function changeWLSelect(outcome){ //changes whether win or loss button is select
 function canSubmit(){ //checks if all fields have proper information and un-disables the submit button.
     if(checkAdminName() && checkTeamTag() && checkOppTeamTag() && checkDuration() && checkDateEntered()){
         if(document.getElementById('outcome-win').classList[2] === 'is-outlined' && document.getElementById('outcome-loss').classList[2] === 'is-outlined'){
-            let warningPopup = document.getElementById('invalid-input');
-            let head = document.createElement('div');
-            head.classList.add('message-header');
-            let headText = document.createElement('strong');
-            headText.textContent = 'Invalid Input';
-            head.append(headText);
-            let content = document.createElement('div');
-            content.classList.add('message-body', 'is-danger', 'is-light');
-            content.textContent = 'Please indicate the outcome of the game.';
-            warningPopup.append(head);
-            warningPopup.append(content);
+            createPopup('Please indicate the outcome of the game.');
         } else if(document.getElementById('outcome-win').classList[2] !== 'is-outlined'){
             submit('w');
             hide();
@@ -918,17 +956,7 @@ function canSubmit(){ //checks if all fields have proper information and un-disa
             hide();
         }
     } else {
-        let warningPopup = document.getElementById('invalid-input');
-        let head = document.createElement('div');
-        head.classList.add('message-header');
-        let headText = document.createElement('strong');
-        headText.textContent = 'Invalid Input';
-        head.append(headText);
-        let content = document.createElement('div');
-        content.classList.add('message-body', 'is-danger', 'is-light');
-        content.textContent = 'Please enter all necessary information.';
-        warningPopup.append(head);
-        warningPopup.append(content);
+        createPopup('Please enter all necessary information.');
     }
 }
 
@@ -1039,10 +1067,12 @@ function submit(outcome){ //pushes the information to the localStorage to update
             updatedOpp['duration'] = 0;
             updatedOpp['games'] = opp.games;
 
-            teams.splice(opp.id - 1, 1, updatedOpp);
+            //puts opponent's new game, wins, losses, avg duration, into the teams array
+            teams.splice(opp.id - 1, 1, updatedOpp); 
             everyTeam = teams;
             localStorage.setItem('everyTeam', JSON.stringify(everyTeam));
 
+            //also puts opponent's new game, wins, losses, avg duration, into the group where the team is
             if(opp.id > 0 && opp.id < 5){ 
                 groupA = JSON.parse(localStorage['teamsGroupA']);
                 groupA.splice(opp.id - 1, 1, updatedOpp);
@@ -1071,7 +1101,7 @@ function submit(outcome){ //pushes the information to the localStorage to update
         }
     })
 
-    teams.forEach((team) => {
+    teams.forEach((team) => { //does the same thing with the updated opponent with updatng the team
         if(team.tag === teamTag.toUpperCase()){
             let newObj = {gameId : 1, opp : countOpp, win : wL, duration : convertedDuration, date : datePlayed.substring(5)};
             team.games.push(newObj);
@@ -1124,7 +1154,7 @@ function submit(outcome){ //pushes the information to the localStorage to update
 
 //code below for games.html | the functions relating to pagination are also used by teamGames.html
 
-function startGames(){
+function startGames(){ //called onLoad of games.html to create all the games from all the teams
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
     createAllTeamGames(teams, false);
 }
@@ -1139,7 +1169,7 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
         tabsCreated = false;
         sortingByDate = true;
     }
-    
+    //instead of just grabbing all the games from one team like teams[0] for createTeamGames, its ALL of the games from ALL of the teams
     let gameColumns = document.getElementById('game-columns');
 
     let column1 = document.createElement('div');
@@ -1255,7 +1285,7 @@ function createAllTeamGames(teams, dateSort) {  //creates every game from every 
     }
 }
 
-function deleteGames(){
+function deleteGames(){ //deletes the 3 columns of games to ensure duplication doesn't occur when clicking on pagination buttons
     let column1 = document.getElementById('gamesC1');
     let column2 = document.getElementById('gamesC2');
     let column3 = document.getElementById('gamesC3');
@@ -1269,7 +1299,7 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
     if(totalGameCount <= 7){
         return;
     } else {
-        pageCount = Math.ceil(totalGameCount / paginationLimit);
+        pageCount = Math.ceil((totalGameCount - 1) / paginationLimit);
     }
     let ul = document.querySelector('ul'); //creation of the list to store the buttons
 
@@ -1307,7 +1337,7 @@ function createPaginationTabs(totalGameCount){ //creates the page # selectors fo
     activePageNumber();
 }
 
-function setCurrentPage(pageNum){
+function setCurrentPage(pageNum){ //sets the current page and recreates the games based on the change of the currentPage (different games will be displayed)
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
     let params = (new URL(document.location)).searchParams;
 
@@ -1327,7 +1357,7 @@ function setCurrentPage(pageNum){
     }
 }
 
-function activePageNumber(){
+function activePageNumber(){ //changes the currentPage for pagination to change colour
     document.querySelectorAll('a.pagination-link').forEach((a) => {
         if(a.classList.contains('has-text-white')){
             a.classList.replace('tan-background', 'has-background-white');
@@ -1347,26 +1377,18 @@ function activePageNumber(){
     })
 }
 
-function dateRange(){
-    let date1 = document.getElementById('date1').value;
-    let date2 = document.getElementById('date2').value;
-    
-    if(date1.length == 10 && date1.substring(0, 1) != 0 && date2.length == 10 && date2.substring(0, 1) != 0){
-        if(parseInt(date1.substring(0, 4)) > parseInt(date2.substring(0, 4)) || parseInt(date1.substring(5, 7)) > parseInt(date2.substring(5, 7)) || parseInt(date1.substring(8)) > parseInt(date2.substring(8))) {
-            window.alert('Please enter a valid date range!');
-        }
-    }
-}
-
 function submitDateRange(){ //submits the date range to filter games. Does not let you submit if both dates aren't fully entered
     let date1 = document.getElementById('date1').value;
     let date2 = document.getElementById('date2').value;
     let teams = JSON.parse(localStorage.getItem('everyTeam'));
 
     if(date1.length < 10 || date2.length < 10){
-        window.alert('To sort by date, enter the starting date on the left and the ending date on the right!');
+        createPopup('To sort by date, enter the starting date on the left and the ending date on the right!');
+    } else if(parseInt(date1.substring(8)) > parseInt(date2.substring(8)) || parseInt(date1.substring(5, 7)) > parseInt(date2.substring(5, 7)) || parseInt(date1.substring(0, 4)) > parseInt(date2.substring(0, 4))){
+        createPopup('Please enter a valid date range!');
     } else {
         createAllTeamGames(teams, true);
+        hide();
     }
 }
 
