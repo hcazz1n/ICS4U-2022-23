@@ -8,9 +8,9 @@
     <title>Authenticator</title>
 </head>
 <script>
-    function valid(name, pass, num){
+    function valid(email, pass, num){
         let validInfo = false;
-        if(name.value.toUpperCase() != 'HARRISON'){
+        if(email.value != 'hcazzin@bayviewglen.ca'){
             return validInfo;
         } else if(pass.value != 'pass'){
             return validInfo;
@@ -23,14 +23,15 @@
     }
 
     function test2(){
-        let name = document.getElementById('name');
+        let email = document.getElementById('email');
         let pass = document.getElementById('pass');
         let pnum = document.getElementById('pnum');
 
-        if(valid(name, pass, pnum)){
+        if(valid(email, pass, pnum)){
             var myHeaders = new Headers();
             myHeaders.append("Authorization", "Basic QUNiYjBjNzViZjQ2ODk3NzNmY2Q0MGE4ZGEzOTQ4N2M0NDo1MWZmOTc1M2EyNWQ5YWZiN2UyODE4MjA0YmE2YjY4Ng==");
             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+            console.log(myHeaders);
 
             var urlencoded = new URLSearchParams();
             urlencoded.append("To", "+1" + pnum.value);
@@ -51,7 +52,7 @@
 
             window.alert('success');
         } else {
-            name.value = '';
+            email.value = '';
             pass.value = '';
             pnum.value = '';    
             window.alert('did not work');
@@ -60,7 +61,7 @@
 </script>
 <body>
     <div class="container">
-        <input class="input" id="name" type="text" placeholder="Name">
+        <input class="input" id="email" type="text" placeholder="Email">
         <input class="input" id="pass" type="text" placeholder="Password">
         <input class="input" id="pnum" type="number" placeholder="Phone Number">
         <button class="button has-background-danger has-text-white" onclick="test2();">Send Message</button>
