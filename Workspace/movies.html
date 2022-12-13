@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <title>Movies</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+        body{
+            background: #100;
+        }
+
+        .movies {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .movies li {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            background: #272727;
+        }
+
+        .movies li img {
+            max-width: 300px;
+            border-radius: 12px;
+        }
+
+        .movies li h2 {
+            color: #fff;
+            font-size: 1.8em;
+            padding: 15px 10px 0;
+            margin-top: auto;
+            font-family: "Oswald", sans-serif;
+
+        }
+    </style>
+</head>
+<body onload="loadstuff();">
+    <div class="movies"></div>
+
+</body>
+<script>
+    async function loadstuff(){
+        const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'e906b5ac7cmsh65e9bca1005ba9ep1021b6jsn16ec9e9f6ce1',
+            'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+            }
+        };
+        const resp = await fetch('https://imdb8.p.rapidapi.com/auto-complete?q=game', options);
+        const data = await resp.json();
+        const list = data.d;
+        list.map((item) =>{
+            const name = item.l;
+            const poster = item.i.imageUrl;
+            const movie = `<li><img src="${poster}"> <h2>${name}</h2></li>`;
+            document.querySelector('.movies').innerHTML += movie;
+        })
+    }
+
+</script>
+</html>
