@@ -28,6 +28,17 @@ public class IntLinkedList {
         return true;
     }
 
+    public Integer removeFront(){
+        Integer temp = head.getData();
+        if(head == null){
+            return null;
+        } else {
+            head = head.getLink();
+            manyItems--;
+            return temp;
+        }
+    }
+
     public boolean add(int index, Integer data){
         if(index > manyItems){
             throw new IndexOutOfBoundsException("Index " + index + " is not allowed. Max index is " + manyItems);

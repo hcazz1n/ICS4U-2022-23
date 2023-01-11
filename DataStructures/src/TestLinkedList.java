@@ -29,6 +29,18 @@ public class TestLinkedList {
         temp = list.remove(60);
         System.out.println(temp);
 
+        list = new IntLinkedList();
+
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+
+        temp = list.removeFront();
+        System.out.println(list);
+        System.out.println(temp);
+
     }
 
     private static void testAddNodes() {
