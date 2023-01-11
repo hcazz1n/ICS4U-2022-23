@@ -9,7 +9,7 @@ public class IntLinkedList {
 
     public boolean add(Integer data){
         IntNode temp = new IntNode(data);
-
+        manyItems++;
         if(head == null){
             head = temp;
         } else {
@@ -32,8 +32,9 @@ public class IntLinkedList {
         if(index > manyItems){
             throw new IndexOutOfBoundsException("Index " + index + " is not allowed. Max index is " + manyItems);
         } else {
+            manyItems++;
             if(index == 0){
-                addFront(50);
+                addFront(data);
             } else {
                 IntNode curr = head;
                 for(int i=0; i<index-1; i++){
@@ -47,8 +48,12 @@ public class IntLinkedList {
     }
 
     public Integer remove(Integer data){
+        if(head == null){
+            return null;
+        }
         if(head != null && head.getData() == data){
             head = head.getLink();
+            manyItems--;
             return data;
         } else {
             IntNode curr = head;
@@ -57,11 +62,29 @@ public class IntLinkedList {
             }
             if(curr.getLink() != null){
                 curr.setLink(curr.getLink().getLink());
+                manyItems--;
                 return data;
             }
         }
 
         return null;
+    }
+
+    public String toString(){
+        String result = "{";
+        IntNode curr = head;
+
+        while(curr != null){
+            result += curr.getData() + " - ";
+            curr = curr.getLink();
+        }
+
+        if(!isEmpty()){
+            result = result.substring(0, result.length() - 3);
+        }
+        result += "}";
+
+        return result;
     }
 
     public int size(){
