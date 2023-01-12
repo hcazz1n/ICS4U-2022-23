@@ -1,6 +1,6 @@
 public class TestLinkedList {
     public static void main(String[] args) {
-        testRemoveNodes();
+        IntArrayStack test = new IntArrayStack();
     }
 
     private static void testRemoveNodes() {
