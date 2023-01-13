@@ -55,5 +55,23 @@ public class IntListStack {
         }
     }
 
+    public String toString() {
+        String result = "{";
+        IntNode curr = head;
+
+        while(curr != null){
+            result += curr.getData() + ", ";
+            curr = curr.getLink();
+        }
+        
+        if(!empty()){
+            result = result.substring(0, result.length()-2);
+        }
+        result += "}";
+
+        return result;
+    }
+
+
 
 }

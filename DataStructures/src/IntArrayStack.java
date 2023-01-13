@@ -6,12 +6,12 @@ public class IntArrayStack {
 
     public IntArrayStack(){
         stack = new Integer[DEFAULT_CAPACITY];
-        top = -1;
+        top = 0;
     }
 
     public IntArrayStack(int capacity){
         stack = new Integer[capacity];
-        top = -1;
+        top = 0;
     }
 
     public void push(Integer data){
@@ -25,7 +25,7 @@ public class IntArrayStack {
         top++;
     }
 
-    public Integer pop(){
+    public void pop(){
         if(empty()){
             System.out.println("There's nothing in the stack.");
         } else {
@@ -36,9 +36,7 @@ public class IntArrayStack {
             }
             stack = arr;
             top--;
-            return valuePopped;
         }
-        return null;
     }
 
     public Integer peek(){
@@ -49,12 +47,21 @@ public class IntArrayStack {
         return stack[top];
     }
 
-    public int search(){
-        return 1000;
+    public int search(Integer data){
+        if (stack.length != 0){
+            for(int i=top; i>=0; i--) {
+                if (stack[i] == data) {
+                    return top - i;
+                }
+            }
+            return -1;
+        }
+        return -1;
     }
 
+
     public boolean empty(){
-        if(stack == null){
+        if(stack[0] == null){
             return true;
         }
         return false;
@@ -67,4 +74,20 @@ public class IntArrayStack {
         }
         return arr;
     }
+
+    public String toString(){
+        String result = "{";
+
+        for (int i = 0; i < stack.length; i++) {
+            result += stack[i] + ", ";
+        }
+
+        if (!empty()){
+            result = result.substring(0, result.length()-2);
+        }
+
+        result += "}";
+
+        return result;
+    }  
 }
