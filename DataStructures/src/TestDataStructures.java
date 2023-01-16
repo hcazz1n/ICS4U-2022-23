@@ -24,6 +24,13 @@ public class TestDataStructures {
             testPassed++;
         }
 
+        if(!testIntLinkedListStack()){
+            System.out.println("Test failed: testIntLinkedListStack");
+            testFailed++;
+        } else {
+            testPassed++;
+        }
+
         if(!testIntArrayStack()){
             System.out.println("Test failed: testIntArrayStack");
             testFailed++;
@@ -37,6 +44,14 @@ public class TestDataStructures {
         } else {
             testPassed++;
         }
+
+        if(!testIntLinkedListQueue()){
+            System.out.println("Test failed: testIntLinkedListQueue");
+            testFailed++;
+        } else {
+            testPassed++;
+        }
+
 
         System.out.println("Tests Passed: " + testPassed + " <---> " + "Tests Failed: " + testFailed);
     }
@@ -161,27 +176,71 @@ public class TestDataStructures {
     }
 
 
-    private static void testIntLinkedListStack() {
+    private static boolean testIntLinkedListStack() {
         IntListStack stack = new IntListStack();
-        System.out.println(stack.empty());
-        Integer temp = stack.pop();
+        if(stack.empty() != true)
+            return false;
+
+        if(stack.peek() != null)
+            return false;
+
         stack.push(1);
+        if(stack.peek() != 1)
+            return false;
+
         stack.push(2);
+        if(stack.peek() != 2)
+            return false;
+
         stack.push(3);
-        stack.push(4);
-        stack.push(5);
-        System.out.println(stack);
+        if(stack.peek() != 3)
+            return false;
 
-        temp = stack.pop();
-        System.out.println(temp);
-        System.out.println(stack);
+        Integer temp = stack.pop();
+        if(temp != 3)
+            return false;
+        
+        if(stack.peek() != 2)
+            return false;
 
-        stack.peek();
+        if(stack.empty() != false)
+            return false;
 
-        System.out.println(stack.empty());
+        if(stack.search(3) != -1)
+            return false;
 
-        System.out.println(stack.search(3));
+        if(stack.search(2) != 0)
+            return false;
 
+        return true;
+    }
+
+    private static boolean testIntLinkedListQueue() {
+        IntLinkedListQueue queue = new IntLinkedListQueue();
+
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.enqueue(5);
+
+        queue.dequeue();
+        if(queue.get(0) != 2)
+            return false;
+
+        queue.dequeue();
+
+        if(queue.get(0) != 3)
+            return false;
+
+        if(queue.peek() != 3)
+            return false;
+
+        queue.clear();
+        if(!queue.isEmpty())
+            return false;
+
+        return true;
     }
 
     private static boolean testRemoveNodes() { //tested

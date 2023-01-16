@@ -7,9 +7,10 @@ public class IntListStack {
         this.manyItems = 0;
     }
 
-    public void push(Integer data){
+    public Integer push(Integer data){
         head = new IntNode(data, head);
         manyItems++;
+        return data;
     }
 
     public Integer pop(){

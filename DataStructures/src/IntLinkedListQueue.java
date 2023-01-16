@@ -22,6 +22,10 @@ public class IntLinkedListQueue {
         data = new IntLinkedList();
     }
 
+    public Integer get(int index){
+        return data.get(index);
+    }
+
     public boolean isEmpty(){
         return data.isEmpty();
     }
