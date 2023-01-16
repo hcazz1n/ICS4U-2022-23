@@ -43,10 +43,10 @@ public class IntLinkedList {
         if(index > manyItems){
             throw new IndexOutOfBoundsException("Index " + index + " is not allowed. Max index is " + manyItems);
         } else {
-            manyItems++;
             if(index == 0){
                 addFront(data);
             } else {
+                manyItems++;
                 IntNode curr = head;
                 for(int i=0; i<index-1; i++){
                     curr = curr.getLink();
@@ -104,5 +104,24 @@ public class IntLinkedList {
 
     public boolean isEmpty(){
         return head == null;
+    }
+
+    public Integer get(int index){
+        if(index < 0){
+            throw new IndexOutOfBoundsException("No indices before 0.");
+        }
+
+        if(head == null){
+            throw new IllegalStateException("Can't get no element from an empty list.");
+        } else if(index > size()){
+            throw new IndexOutOfBoundsException("Yo numba is outta the bounds.");
+        } else {
+            IntNode curr = head;
+            for(int i=0; i<index; i++){
+                curr = curr.getLink();
+            }
+
+            return curr.getData();
+        }
     }
 }

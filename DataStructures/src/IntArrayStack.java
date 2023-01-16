@@ -14,7 +14,7 @@ public class IntArrayStack {
         top = 0;
     }
 
-    public void push(Integer data){
+    public Integer push(Integer data){
         if(empty()){
             top = 0;
         }
@@ -23,19 +23,23 @@ public class IntArrayStack {
             stack = exceedsCapacity();
         }
         top++;
+
+        return data;
     }
 
-    public void pop(){
+    public Integer pop(){
         if(empty()){
             System.out.println("There's nothing in the stack.");
+            return null;
         } else {
             Integer[] arr = new Integer[stack.length];
-            Integer valuePopped = stack[top];
+            Integer valuePopped = stack[top-1];
             for(int i=0; i<top; i++){
                 arr[i] = stack[i];
             }
             stack = arr;
             top--;
+            return valuePopped;
         }
     }
 
@@ -44,7 +48,7 @@ public class IntArrayStack {
             System.out.println("There's nothing in the stack.");
             return null;
         }
-        return stack[top];
+        return stack[top-1];
     }
 
     public int search(Integer data){
