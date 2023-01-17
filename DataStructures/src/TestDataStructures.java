@@ -52,6 +52,12 @@ public class TestDataStructures {
             testPassed++;
         }
 
+        if(!testIntBST()){
+            System.out.println("Test failed: testIntBST");
+            testFailed++;
+        } else {
+            testPassed++;
+        }
 
         System.out.println("Tests Passed: " + testPassed + " <---> " + "Tests Failed: " + testFailed);
     }
@@ -65,6 +71,52 @@ public class TestDataStructures {
         list.add(5);
         return list;
     }   
+
+    private static IntBST prepareBST() {
+        IntBST bst = new IntBST();
+        bst.add(6);
+        bst.add(8);
+        bst.add(3);
+        bst.add(1);
+        bst.add(13);
+        bst.add(9);
+        bst.add(7);
+        bst.add(11);
+
+        return bst;
+    }
+
+    public static boolean testIntBST() {
+        IntBST bst = prepareBST();
+        if(!(bst.find(1).getValue()==1))
+            return false;
+        if(!(bst.find(11).getValue()==11))
+            return false;
+        if(!(bst.find(15)==null))
+            return false;
+
+        if(!(bst.find(6).getLeftChild().getValue()==3))
+            return false;
+        if(!(bst.find(6).getRightChild().getValue()==8))
+            return false;
+        if(!(bst.find(3).getLeftChild().getValue()==1))
+            return false;
+        if(!(bst.find(8).getRightChild().getValue()==13))
+            return false;
+
+        String inOrder = "1367891113";
+        if(!(bst.inOrderPrintTraversal().equals(inOrder)))
+            return false;
+        String preOrder = "6318713911";
+        if(!(bst.preOrderPrintTraversal().equals(preOrder)))
+            return false;
+        String postOrder = "1371191386";
+        if(!(bst.postOrderPrintTraversal().equals(postOrder)))
+            return false;
+
+        return true;
+    }
+}
 
     private static boolean testIntArrayQueue(){ //tested
         IntArrayQueue arr = new IntArrayQueue();
