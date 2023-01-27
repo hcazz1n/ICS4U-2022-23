@@ -3,6 +3,9 @@ public class IntBST {
 
     public IntBST(){
         this.root = null;
+        String preorder = "";
+        String postorder = "";
+        String inorder = "";
     }
 
     public IntBSTNode add(Integer val){

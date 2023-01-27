@@ -104,6 +104,7 @@ public class TestDataStructures {
         if(!(bst.find(8).getRightChild().getValue()==13))
             return false;
 
+        
         String inOrder = "1367891113";
         if(!(bst.inOrderPrintTraversal().equals(inOrder)))
             return false;
