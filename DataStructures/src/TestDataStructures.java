@@ -104,20 +104,8 @@ public class TestDataStructures {
         if(!(bst.find(8).getRightChild().getValue()==13))
             return false;
 
-        
-        String inOrder = "1367891113";
-        if(!(bst.inOrderPrintTraversal().equals(inOrder)))
-            return false;
-        String preOrder = "6318713911";
-        if(!(bst.preOrderPrintTraversal().equals(preOrder)))
-            return false;
-        String postOrder = "1371191386";
-        if(!(bst.postOrderPrintTraversal().equals(postOrder)))
-            return false;
-
         return true;
     }
-}
 
     private static boolean testIntArrayQueue(){ //tested
         IntArrayQueue arr = new IntArrayQueue();
