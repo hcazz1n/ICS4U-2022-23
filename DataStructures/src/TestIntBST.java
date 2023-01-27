@@ -12,5 +12,9 @@ public class TestIntBST {
         bst.add(11);
 
         bst.preOrderPrintTraversal();
+
+        bst.inOrderPrintTraversal();
+
+        bst.postOrderPrintTraversal();
     }
 }
