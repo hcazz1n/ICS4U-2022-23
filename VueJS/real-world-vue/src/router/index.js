@@ -13,6 +13,12 @@ const router = createRouter({
       component: EventDetailsView,
     },
     {
+      path: '/events',
+      name: 'event-list',
+      props: true,
+      component: EventListView,
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
