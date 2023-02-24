@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link>
@@ -15,3 +12,10 @@
     </div>
   </div>
 </template>
+
+<script>
+  import TheNavigation from './components/TheNavigation.vue'
+  export default{
+    components: {TheNavigation}
+  }
+</script>
