@@ -26,6 +26,7 @@
     </div>
 </template>
 
+
 <script>
 import sourceData from '../data.json'
 import ExperienceCard from '../components/ExperienceCard.vue'
