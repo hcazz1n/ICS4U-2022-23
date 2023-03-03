@@ -6,25 +6,7 @@
     </section>
 </template>
 
-<script setup>
-    import {ref, computed} from 'vue'
-    import sourceData from '../data.json'
-
-    defineProps({
-        id: {type: Number, required: true},
-        experienceSlug: {type: String, required: true}
-    })
-    
-    const destination = computed(() => {
-        return sourceData.destinations.find(destination.id === this.id)
-    })
-    
-    const experience = computed(() => {
-        return destination.experiences.find(experience.slug === this.experienceSlug)
-    })
-</script>
-
-<!-- <script>
+<script>
 import sourceData from '../data.json'
 export default{
     props:{
@@ -44,4 +26,4 @@ export default{
         }
     }
 }
-</script> -->
+</script>

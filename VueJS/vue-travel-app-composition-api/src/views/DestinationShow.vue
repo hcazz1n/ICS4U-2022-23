@@ -32,7 +32,7 @@ import sourceData from '../data.json'
 import ExperienceCard from '../components/ExperienceCard.vue'
 import GoBack from '../components/GoBack.vue'
 export default {
-    components:{ExperienceCard, GoBack}, 
+    components: {ExperienceCard, GoBack}, 
     props:{
         id: {type: Number, required: true}
     },

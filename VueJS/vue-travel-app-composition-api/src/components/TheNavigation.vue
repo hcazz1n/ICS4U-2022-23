@@ -9,15 +9,11 @@
     </div>
 </template>
 
-<script>
+<script setup>
+    import {ref} from 'vue'
     import sourceData from '../data.json'
-    export default{
-        data(){
-            return{
-                destinations: sourceData.destinations
-            }
-        }
-    }
+    
+    const destinations = ref(sourceData.destinations)
 </script>
 
 <!-- <style lang="css">
