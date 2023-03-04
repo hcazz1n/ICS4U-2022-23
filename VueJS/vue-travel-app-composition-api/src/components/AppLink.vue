@@ -3,16 +3,30 @@
     <router-link v-else class="internal-link" v-bind="$props"><slot/></router-link>
 </template>
 
-<script>
-import {RouterLink} from 'vue-router'
-export default{
-    props:{
+<script setup>
+    import {computed} from 'vue'
+    import {RouterLink} from 'vue-router'
+    
+    const props = defineProps({
         ...RouterLink.props
-    },
-    computed:{
-        isExternal(){
-            return typeof this.to === 'string' && this.to.startsWith('http')
+    })
+    
+    const isExternal = computed(() => {
+        return typeof props.to === 'string' && props.to.startsWith('http')
+    })
+</script>
+
+<!-- <script>
+    import {computed} from 'vue'
+    import {RouterLink} from 'vue-router'
+    export default{
+        props:{
+            ...RouterLink.props
+        },
+        computed:{
+            isExternal(){
+                return typeof this.to === 'string' && this.to.startsWith('http')
+            }
         }
     }
-}
-</script>
+</script> -->

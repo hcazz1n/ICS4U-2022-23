@@ -12,11 +12,8 @@
   </div>
 </template>
 
-<script>
-import TheNavigation from './components/TheNavigation.vue'
-export default{
-  components: {TheNavigation}
-}
+<script setup>
+  import TheNavigation from './components/TheNavigation.vue'
 </script>
 
 <style>
