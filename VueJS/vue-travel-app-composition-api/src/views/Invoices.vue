@@ -9,7 +9,7 @@
     
     onBeforeRouteLeave((to, from) => {
         const answer = window.confirm(
-            'Are you sure you want to leave? Invoices are super awesome!'
+            'Are you sure you want to leave? Do not lose track of these invoices.'
         )
         if(!answer) return false
     })
